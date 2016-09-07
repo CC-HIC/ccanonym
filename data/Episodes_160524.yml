@@ -1,0 +1,220 @@
+# 2016-09-07 anonymisation specification from Arihdia
+# Saved here for reference
+input_file: N_Episodes.csv
+output_file: /deid_files/uclh_critical_care/anon_N_Episodes_160524.csv
+project_id: 1
+
+columns:
+ - name: episodeID
+   func: CLEAR
+ - name: ACSD
+   func: CLEAR
+ - name: ADNO
+   func: CLEAR
+ - name: AIDS_V3
+   func: CLEAR
+ - name: AMLALLMM
+   func: CLEAR
+ - name: AMUAI
+   func: CLEAR
+ - name: ARSD
+   func: CLEAR
+ - name: BCSD
+   func: CLEAR
+ - name: BPC
+   func: CLEAR
+ - name: BRSD
+   func: CLEAR
+ - name: BSDTP
+   func: CLEAR
+ - name: CCA
+   func: CLEAR
+ - name: CCD
+   func: CLEAR
+ - name: CCL2D
+   func: CLEAR
+ - name: CCL3D
+   func: CLEAR
+ - name: CHEMOX
+   func: CLEAR
+ - name: CICIDS
+   func: CLEAR
+ - name: CLASSNS
+   func: CLEAR
+ - name: CMLCLL
+   func: CLEAR
+ - name: CPR_V3
+   func: CLEAR
+ - name: CRRX
+   func: CLEAR
+ - name: DAH
+   func: DEIDENTIFY
+ - name: DAICU
+   func: DEIDENTIFY
+ - name: DBRICU
+   func: DEIDENTIFY
+ - name: DDBSD
+   func: CLEAR
+ - name: DDH
+   func: CLEAR
+ - name: DDICU
+   func: DEIDENTIFY
+ - name: DEP
+   func: CLEAR
+ - name: DESTH_V3
+   func: CLEAR
+ - name: DFCCD
+   func: CLEAR
+ - name: DHRS
+   func: CLEAR
+ - name: DIS
+   func: CLEAR
+ - name: DLCCA
+   func: CLEAR
+ - name: DOAH
+   func: CLEAR
+ - name: DOAICU
+   func: CLEAR
+ - name: DOB
+   func: DEIDENTIFY
+ - name: DOD
+   func: DEIDENTIFY
+ - name: DSD
+   func: CLEAR
+ - name: DTW
+   func: CLEAR
+ - name: DUDH
+   func: DEIDENTIFY
+ - name: DUDICU
+   func: DEIDENTIFY
+ - name: DWFRD
+   func: CLEAR
+ - name: ETHNIC
+   func: CLEAR
+ - name: GSD
+   func: CLEAR
+ - name: HCM
+   func: CLEAR
+ - name: HCMEST
+   func: CLEAR
+ - name: HDIS
+   func: CLEAR
+ - name: HE
+   func: CLEAR
+ - name: HLOCA
+   func: CLEAR
+ - name: HLOCD
+   func: CLEAR
+ - name: HV
+   func: CLEAR
+ - name: ICNNO
+   func: CLEAR
+ - name: ITW_V3
+   func: CLEAR
+ - name: LEVD
+   func: CLEAR
+ - name: LOCA
+   func: CLEAR
+ - name: LOCD
+   func: CLEAR
+ - name: LSD
+   func: CLEAR
+ - name: LYM
+   func: CLEAR
+ - name: META
+   func: CLEAR
+ - name: NHSNO
+   rename: Subject Id
+   func: DEIDENTIFY
+ - name: NSD
+   func: CLEAR
+ - name: OCPMH
+   func: CLEAR
+ - name: OD_V3
+   func: CLEAR
+ - name: PA_V3
+   func: CLEAR
+ - name: PCODE
+   func: DEIDENTIFY
+ - name: PH
+   func: CLEAR
+ - name: PLOCA
+   func: CLEAR
+ - name: PSP
+   func: CLEAR
+ - name: RADIOX
+   func: CLEAR
+ - name: RAICU1
+   func: CLEAR
+ - name: RAICU2
+   func: CLEAR
+ - name: RDIS_V3
+   func: CLEAR
+ - name: REFOD
+   func: CLEAR
+ - name: RESA
+   func: CLEAR
+ - name: RESD
+   func: CLEAR
+ - name: RSD
+   func: CLEAR
+ - name: SCODE
+   func: CLEAR
+ - name: SEX
+   func: DEIDENTIFY
+ - name: SOHA
+   func: CLEAR
+ - name: SOHD
+   func: CLEAR
+ - name: SRD
+   func: CLEAR
+ - name: STERX
+   func: CLEAR
+ - name: TBRICU
+   func: CLEAR
+ - name: TDBSD
+   func: CLEAR
+ - name: TGA
+   func: CLEAR
+ - name: TGD
+   func: CLEAR
+ - name: TNESSA
+   func: CLEAR
+ - name: TNESSD
+   func: CLEAR
+ - name: TOD
+   func: CLEAR
+ - name: TTW
+   func: CLEAR
+ - name: TUADNO
+   func: CLEAR
+ - name: TUIDI
+   func: CLEAR
+ - name: TWFRD
+   func: CLEAR
+ - name: TYPEIHA
+   func: CLEAR
+ - name: TYPEIHD
+   func: CLEAR
+ - name: UDIS
+   func: CLEAR
+ - name: UHDIS
+   func: CLEAR
+ - name: URAICU
+   func: CLEAR
+ - name: VSCD
+   func: CLEAR
+ - name: WKG
+   func: CLEAR
+ - name: WKGEST
+   func: CLEAR
+ - name: HOSPNO
+   func: DEIDENTIFY
+ - name: APACHEIIS
+   func: CLEAR
+ - name: APACHEIIP
+   func: CLEAR
+ - name: TOTOS
+   func: CLEAR
+ - name: GPCODE
+   func: DEIDENTIFY

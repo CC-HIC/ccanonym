@@ -1,0 +1,29 @@
+# Direct identifiers
+NIHR_HIC_ICU_0032:
+   shortName: DAH
+NIHR_HIC_ICU_0411:
+   shortName: DAICU
+NIHR_HIC_ICU_0038:
+   shortName: DBRICU
+   dataItem: Date body removed from your unit
+NIHR_HIC_ICU_0042:
+   shortName: DDICU
+NIHR_HIC_ICU_0033:
+   shortName: DOB
+NIHR_HIC_ICU_0095:
+   shortName: DOD
+NIHR_HIC_ICU_0098:
+   shortName: DUDH
+NIHR_HIC_ICU_0037:
+   shortName: DUDICU
+NIHR_HIC_ICU_0073:
+   shortName: NHSNO
+NIHR_HIC_ICU_0076:
+   shortName: PCODE
+NIHR_HIC_ICU_0001:
+   shortName: HOSPNO
+NIHR_HIC_ICU_0003:
+   shortName: GPCODE
+
+# Key variables
+# shortName: SEX
