@@ -3,10 +3,16 @@ Direct identifier,NIHR_HIC_ICU_0001,PAS number
 Direct identifier,NIHR_HIC_ICU_0002,Site code (ICNARC CMP number)
 Direct identifier,NIHR_HIC_ICU_0005,Critical care local identifier / ICNARC admission number
 Direct identifier,NIHR_HIC_ICU_0073,NHS number
+Direct identifier,NIHR_HIC_ICU_0100,Transferring unit admission number
 Key variable,NIHR_HIC_ICU_0003,Code of GP
 Key variable,NIHR_HIC_ICU_0032,Date of admission to your hospital
 Key variable,NIHR_HIC_ICU_0033,Date of birth
+Key variable,NIHR_HIC_ICU_0034,Date of last critical care visit prior to this admission to your unit
+Key variable,NIHR_HIC_ICU_0035,Date of original admission to/attendance at acute hospital
+Key variable,NIHR_HIC_ICU_0036,Date of original admission to ICU/HDU
 Key variable,NIHR_HIC_ICU_0037,Date of ultimate discharge from ICU/HDU
+Key variable,NIHR_HIC_ICU_0042,Date of death on your unit
+Key variable,NIHR_HIC_ICU_0044,Date of declaration of brain stem death
 Key variable,NIHR_HIC_ICU_0050,Date fully ready for discharge
 Key variable,NIHR_HIC_ICU_0051,Time fully ready for discharge
 Key variable,NIHR_HIC_ICU_0076,Postcode
@@ -43,14 +49,9 @@ Non-identifying,NIHR_HIC_ICU_0027,classification of surgery
 Non-identifying,NIHR_HIC_ICU_0029,Congenital immunohumoral or cellular immune deficiency state
 Non-identifying,NIHR_HIC_ICU_0030,Critical care visit post-discharge from your unit
 Non-identifying,NIHR_HIC_ICU_0031,Critical care visit prior to this admission to your unit
-Non-identifying,NIHR_HIC_ICU_0034,Date of last critical care visit prior to this admission to your unit
-Non-identifying,NIHR_HIC_ICU_0035,Date of original admission to/attendance at acute hospital
-Non-identifying,NIHR_HIC_ICU_0036,Date of original admission to ICU/HDU
 Non-identifying,NIHR_HIC_ICU_0038,Date body removed from your unit
 Non-identifying,NIHR_HIC_ICU_0039,Time body removed from your unit
-Non-identifying,NIHR_HIC_ICU_0042,Date of death on yout unit
 Non-identifying,NIHR_HIC_ICU_0043,Time of death on your unit
-Non-identifying,NIHR_HIC_ICU_0044,Date of declaration of brain stem death
 Non-identifying,NIHR_HIC_ICU_0045,Time of declaration of brain stem death
 Non-identifying,NIHR_HIC_ICU_0048,Date treatment first withdrawn
 Non-identifying,NIHR_HIC_ICU_0049,Time treatment first withdrawn
@@ -91,7 +92,6 @@ Non-identifying,NIHR_HIC_ICU_0095,Status at discharge from your hospital
 Non-identifying,NIHR_HIC_ICU_0097,Dead or alive on discharge
 Non-identifying,NIHR_HIC_ICU_0098,Status at ultimate discharge from hospital
 Non-identifying,NIHR_HIC_ICU_0099,Steroid treatment
-Non-identifying,NIHR_HIC_ICU_0100,Transferring unit admission number
 Non-identifying,NIHR_HIC_ICU_0101,Transferring unit identifier (in)
 Non-identifying,NIHR_HIC_ICU_0103,Treatment withheld/withdrawn
 Non-identifying,NIHR_HIC_ICU_0104,Type of adult ICU/HDU (in)

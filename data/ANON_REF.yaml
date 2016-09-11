@@ -389,7 +389,7 @@ NIHR_HIC_ICU_0097:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0097
 NIHR_HIC_ICU_0035:
-  Anonymisation: Non-identifying
+  Anonymisation: Key variable
   Classification1: Demographic
   Classification2: Pre_episode_descriptors
   Classification3: Date
@@ -419,7 +419,7 @@ NIHR_HIC_ICU_0077:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0077
 NIHR_HIC_ICU_0100:
-  Anonymisation: Non-identifying
+  Anonymisation: Direct identifier
   Classification1: Demographic
   Classification2: Pre_episode_descriptors
   Classification3: Transferring_in
@@ -429,7 +429,7 @@ NIHR_HIC_ICU_0100:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0100
 NIHR_HIC_ICU_0036:
-  Anonymisation: Non-identifying
+  Anonymisation: Key variable
   Classification1: Demographic
   Classification2: Pre_episode_descriptors
   Classification3: Transferring_in
@@ -479,7 +479,7 @@ NIHR_HIC_ICU_0031:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0031
 NIHR_HIC_ICU_0034:
-  Anonymisation: Non-identifying
+  Anonymisation: Key variable
   Classification1: Demographic
   Classification2: Pre_episode_descriptors
   Classification3: Critical_care_visit
@@ -1009,7 +1009,7 @@ NIHR_HIC_ICU_0400:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0400
 NIHR_HIC_ICU_0044:
-  Anonymisation: Non-identifying
+  Anonymisation: Key variable
   Classification1: Demographic
   Classification2: End_of_life
   Classification3: Death
@@ -1029,12 +1029,12 @@ NIHR_HIC_ICU_0045:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0045
 NIHR_HIC_ICU_0042:
-  Anonymisation: Non-identifying
+  Anonymisation: Key variable
   Classification1: Demographic
   Classification2: End_of_life
   Classification3: Death
   Classification4: Date_of_death
-  dataItem: Date of death on yout unit
+  dataItem: Date of death on your unit
   ICNARC_Fieldname: DOD
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0042
