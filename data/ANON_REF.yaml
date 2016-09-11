@@ -1,29 +1,2631 @@
-# Direct identifiers
-NIHR_HIC_ICU_0032:
-   shortName: DAH
-NIHR_HIC_ICU_0411:
-   shortName: DAICU
-NIHR_HIC_ICU_0038:
-   shortName: DBRICU
-   dataItem: Date body removed from your unit
-NIHR_HIC_ICU_0042:
-   shortName: DDICU
-NIHR_HIC_ICU_0033:
-   shortName: DOB
-NIHR_HIC_ICU_0095:
-   shortName: DOD
-NIHR_HIC_ICU_0098:
-   shortName: DUDH
-NIHR_HIC_ICU_0037:
-   shortName: DUDICU
+NIHR_HIC_ICU_0002:
+  Anonymisation: Direct identifier
+  Classification1: Demographic
+  Classification2: Unit
+  Classification3: Identifier
+  Classification4: ~
+  dataItem: Site code (ICNARC CMP number)
+  ICNARC_Fieldname: ICNNO
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0002
+NIHR_HIC_ICU_0006:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Unit
+  Classification3: CCU_bed_configuration
+  Classification4: ~
+  dataItem: CCU bed configuration 02
+  ICNARC_Fieldname: ~
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0006
+NIHR_HIC_ICU_0395:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Unit
+  Classification3: CCU_bed_configuration
+  Classification4: ~
+  dataItem: CCU bed configuration 03
+  ICNARC_Fieldname: ~
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0395
+NIHR_HIC_ICU_0396:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Unit
+  Classification3: CCU_bed_configuration
+  Classification4: ~
+  dataItem: CCU bed configuration 05
+  ICNARC_Fieldname: ~
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0396
+NIHR_HIC_ICU_0397:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Unit
+  Classification3: CCU_bed_configuration
+  Classification4: ~
+  dataItem: CCU bed configuration 90
+  ICNARC_Fieldname: ~
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0397
 NIHR_HIC_ICU_0073:
-   shortName: NHSNO
-NIHR_HIC_ICU_0076:
-   shortName: PCODE
+  Anonymisation: Direct identifier
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Identifier
+  Classification4: Numerical_national
+  dataItem: NHS number
+  ICNARC_Fieldname: NHSNO
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0073
 NIHR_HIC_ICU_0001:
-   shortName: HOSPNO
+  Anonymisation: Direct identifier
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Identifier
+  Classification4: Numerical_local
+  dataItem: PAS number
+  ICNARC_Fieldname: ~
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0001
+NIHR_HIC_ICU_0005:
+  Anonymisation: Direct identifier
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Identifier
+  Classification4: Episode
+  dataItem: Critical care local identifier / ICNARC admission number
+  ICNARC_Fieldname: ADNO
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0005
+NIHR_HIC_ICU_0033:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Identifier
+  Classification4: Birth_date
+  dataItem: Date of birth
+  ICNARC_Fieldname: DOB
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0033
+NIHR_HIC_ICU_0076:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Location
+  Classification4: Address
+  dataItem: Postcode
+  ICNARC_Fieldname: PCODE
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0076
 NIHR_HIC_ICU_0003:
-   shortName: GPCODE
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Location
+  Classification4: GP
+  dataItem: Code of GP
+  ICNARC_Fieldname: GPCODE
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0003
+NIHR_HIC_ICU_0058:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Descriptor
+  Classification4: Ethnicity
+  dataItem: Ethnicity
+  ICNARC_Fieldname: ETHNIC
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0058
+NIHR_HIC_ICU_0093:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Descriptor
+  Classification4: Sex
+  dataItem: Sex
+  ICNARC_Fieldname: SEX
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0093
+NIHR_HIC_ICU_0017:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Descriptor
+  Classification4: Height
+  dataItem: Height
+  ICNARC_Fieldname: HCM
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0017
+NIHR_HIC_ICU_0018:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Descriptor
+  Classification4: Height
+  dataItem: Height (Source)
+  ICNARC_Fieldname: HCMEST
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0018
+NIHR_HIC_ICU_0019:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Descriptor
+  Classification4: Weight
+  dataItem: Weight
+  ICNARC_Fieldname: WKG
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0019
+NIHR_HIC_ICU_0020:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Patient
+  Classification3: Descriptor
+  Classification4: Weight
+  dataItem: Weight (Source)
+  ICNARC_Fieldname: WKGEST
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0020
+NIHR_HIC_ICU_0032:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Dates
+  Classification3: Hospital_admission
+  Classification4: Date
+  dataItem: Date of admission to your hospital
+  ICNARC_Fieldname: DAH
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0032
+NIHR_HIC_ICU_0411:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Dates
+  Classification3: ICU_admission
+  Classification4: Date_Time
+  dataItem: Date & Time of admission to your unit
+  ICNARC_Fieldname: DAICU
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0411
+NIHR_HIC_ICU_0050:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Dates
+  Classification3: ICU_discharge
+  Classification4: Readiness
+  dataItem: Date fully ready for discharge
+  ICNARC_Fieldname: DWFRD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0050
+NIHR_HIC_ICU_0051:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Dates
+  Classification3: ICU_discharge
+  Classification4: Readiness
+  dataItem: Time fully ready for discharge
+  ICNARC_Fieldname: TWFRD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0051
+NIHR_HIC_ICU_0412:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Dates
+  Classification3: ICU_discharge
+  Classification4: Date_Time
+  dataItem: Date & Time of discharge from your unit
+  ICNARC_Fieldname: DDICU
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0412
+NIHR_HIC_ICU_0037:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Dates
+  Classification3: ICU_discharge
+  Classification4: Ultimate_discharge
+  dataItem: Date of ultimate discharge from ICU/HDU
+  ICNARC_Fieldname: DUDICU
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0037
+NIHR_HIC_ICU_0406:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Dates
+  Classification3: Hospital_discharge
+  Classification4: Date
+  dataItem: Date of discharge from your hospital
+  ICNARC_Fieldname: DDH
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0406
+NIHR_HIC_ICU_0408:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Dates
+  Classification3: Hospital_discharge
+  Classification4: Ultimate_discharge
+  dataItem: Date of ultimate discharge from your hospital
+  ICNARC_Fieldname: DUDH
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0408
+NIHR_HIC_ICU_0930:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_discharge
+  Classification4: Status_at_ultimate_discharge_from_your_ICUHDU
+  dataItem: Status at ultimate discharge from ICUHDU
+  ICNARC_Fieldname: UDIS
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0930
+NIHR_HIC_ICU_0085:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: Hospital_admission
+  Classification4: Location
+  dataItem: Residence prior to admission to acute hospital
+  ICNARC_Fieldname: RESA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0085
+NIHR_HIC_ICU_0065:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_admission
+  Classification4: Location
+  dataItem: Hospital housing location (in)
+  ICNARC_Fieldname: HLOCA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0065
+NIHR_HIC_ICU_0068:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_admission
+  Classification4: Inbound
+  dataItem: Location (in)
+  ICNARC_Fieldname: LOCA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0068
+NIHR_HIC_ICU_0398:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_admission
+  Classification4: Type
+  dataItem: Admission type
+  ICNARC_Fieldname: PA_V3
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0398
+NIHR_HIC_ICU_0004:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_admission
+  Classification4: Specialty
+  dataItem: Treatment function code
+  ICNARC_Fieldname: SCODE
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0004
+NIHR_HIC_ICU_0027:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_admission
+  Classification4: Surgical_priority
+  dataItem: classification of surgery
+  ICNARC_Fieldname: CLASSNS
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0027
+NIHR_HIC_ICU_0007:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: Acuity
+  Classification4: ~
+  dataItem: Level 2 (HDU) days
+  ICNARC_Fieldname: CCL2D
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0007
+NIHR_HIC_ICU_0008:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: Acuity
+  Classification4: ~
+  dataItem: Level 3 (ICU) days
+  ICNARC_Fieldname: CCL3D
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0008
+NIHR_HIC_ICU_0081:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_discharge
+  Classification4: Status
+  dataItem: Discharge status (Reason for discharge from your unit)
+  ICNARC_Fieldname: RDIS_V3
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0081
+NIHR_HIC_ICU_0069:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_discharge
+  Classification4: Outbound
+  dataItem: Discharge location (location out)
+  ICNARC_Fieldname: LOCD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0069
+NIHR_HIC_ICU_0405:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: ICU_discharge
+  Classification4: Timeliness
+  dataItem: Timeliness of discharge from your unit
+  ICNARC_Fieldname: TNESSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0405
+NIHR_HIC_ICU_0066:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: Level_of_care_at_discharge
+  Classification4: ~
+  dataItem: Level of care at discharge from your unit
+  ICNARC_Fieldname: LEVD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0066
+NIHR_HIC_ICU_0097:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Episode_descriptors
+  Classification3: Status_at_discharge_from_your_ICUHDU
+  Classification4: ~
+  dataItem: Dead or alive on discharge
+  ICNARC_Fieldname: DIS
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0097
+NIHR_HIC_ICU_0035:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Date
+  Classification4: Date_of_original_admission
+  dataItem: Date of original admission to/attendance at acute hospital
+  ICNARC_Fieldname: DOAH
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0035
+NIHR_HIC_ICU_0089:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Transferring_in
+  Classification4: Hospital
+  dataItem: Sector of other hospital (in)
+  ICNARC_Fieldname: SOHA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0089
+NIHR_HIC_ICU_0077:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Transferring_in
+  Classification4: Hospital
+  dataItem: Prior location (in)
+  ICNARC_Fieldname: PLOCA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0077
+NIHR_HIC_ICU_0100:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Transferring_in
+  Classification4: Patient_episode_identifier
+  dataItem: Transferring unit admission number
+  ICNARC_Fieldname: TUADNO
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0100
+NIHR_HIC_ICU_0036:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Transferring_in
+  Classification4: Patient_episode_identifier
+  dataItem: Date of original admission to ICU/HDU
+  ICNARC_Fieldname: DOAICU
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0036
+NIHR_HIC_ICU_0101:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Transferring_in
+  Classification4: Unit_identifier
+  dataItem: Transferring unit identifier (in)
+  ICNARC_Fieldname: TUIDI
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0101
+NIHR_HIC_ICU_0104:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Transferring_in
+  Classification4: Unit_identifier
+  dataItem: Type of adult ICU/HDU (in)
+  ICNARC_Fieldname: TYPEIHA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0104
+NIHR_HIC_ICU_0013:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Transferring_in
+  Classification4: Unit_identifier
+  dataItem: Adult ICU/HDU within your critical care transfer group (in)
+  ICNARC_Fieldname: TGA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0013
+NIHR_HIC_ICU_0031:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Critical_care_visit
+  Classification4: Outreach
+  dataItem: Critical care visit prior to this admission to your unit
+  ICNARC_Fieldname: CCA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0031
+NIHR_HIC_ICU_0034:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Pre_episode_descriptors
+  Classification3: Critical_care_visit
+  Classification4: Date_of_last_visit_prior_to_admission
+  dataItem: Date of last critical care visit prior to this admission to your unit
+  ICNARC_Fieldname: DLCCA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0034
+NIHR_HIC_ICU_0057:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Transferring_out
+  Classification4: Hospital
+  dataItem: Hospital housing location (out)
+  ICNARC_Fieldname: HLOCD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0057
+NIHR_HIC_ICU_0090:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Transferring_out
+  Classification4: Hospital
+  dataItem: Sector of other hospital (out)
+  ICNARC_Fieldname: SOHD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0090
+NIHR_HIC_ICU_0568:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Transferring_out
+  Classification4: Unit
+  dataItem: Type of adult ICU/HDU (out)
+  ICNARC_Fieldname: TYPEIHD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0568
+NIHR_HIC_ICU_0014:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Transferring_out
+  Classification4: Unit
+  dataItem: Adult ICU/HDU within your critical care transfer group (out)
+  ICNARC_Fieldname: TGD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0014
+NIHR_HIC_ICU_0095:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Status_at_discharge_from_your_hospital
+  Classification4: ~
+  dataItem: Status at discharge from your hospital
+  ICNARC_Fieldname: HDIS
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0095
+NIHR_HIC_ICU_0030:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Critical_care_visit
+  Classification4: Outreach
+  dataItem: Critical care visit post-discharge from your unit
+  ICNARC_Fieldname: CCD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0030
+NIHR_HIC_ICU_0407:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Critical_care_visit
+  Classification4: Date_of_first_visit_post_discharge
+  dataItem: Date of first critical care post-discharge from your unit
+  ICNARC_Fieldname: DFCCD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0407
+NIHR_HIC_ICU_0573:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Discharge_destination
+  Classification4: Destination_post_discharge_within_your_hospital
+  dataItem: Destination post discharge within your hospital
+  ICNARC_Fieldname: DESTH_V3
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0573
+NIHR_HIC_ICU_0084:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Discharge_destination
+  Classification4: Residence_post_discharge_from_acute_hospital
+  dataItem: Residence post discharge from acute hospital
+  ICNARC_Fieldname: RESD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0084
+NIHR_HIC_ICU_0098:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Post_episode_descriptors
+  Classification3: Status_at_ultimate_discharge_from_hospital
+  Classification4: ~
+  dataItem: Status at ultimate discharge from hospital
+  ICNARC_Fieldname: UHDIS
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0098
+NIHR_HIC_ICU_0011:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: Reason_for_admission
+  Classification4: Admission_for_pre_surgical_preparation
+  dataItem: Admission for pre-surgical preparation
+  ICNARC_Fieldname: PSP
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0011
+NIHR_HIC_ICU_0021:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: Reason_for_admission
+  Classification4: CPR_within_24_hours_prior_to_admission
+  dataItem: Cardiopulmonary resuscitation within 24 hours prior to admission to unit
+  ICNARC_Fieldname: CPR_V3
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0021
+NIHR_HIC_ICU_0399:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: Reason_for_admission
+  Classification4: Primary_reason_for_admission
+  dataItem: Primary reason for admission to your unit
+  ICNARC_Fieldname: RAICU1
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0399
+NIHR_HIC_ICU_0088:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: Reason_for_admission
+  Classification4: Secondary_reasons_for_admission
+  dataItem: Secondary reasons for admission to your unit
+  ICNARC_Fieldname: RAICU2
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0088
+NIHR_HIC_ICU_0912:
+  Anonymisation: Key variable
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: Reason_for_admission
+  Classification4: Ultimate_primary_reason_for_admission_to_unit
+  dataItem: Ultimate primary reason for admission to unit
+  ICNARC_Fieldname: URAICU
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0912
+NIHR_HIC_ICU_0024:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Chemotherapy (within the last 6months) steroids alone excluded
+  ICNARC_Fieldname: CHEMOX
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0024
+NIHR_HIC_ICU_0080:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Radiotherapy
+  ICNARC_Fieldname: RADIOX
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0080
+NIHR_HIC_ICU_0029:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Congenital immunohumoral or cellular immune deficiency state
+  ICNARC_Fieldname: CICIDS
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0029
+NIHR_HIC_ICU_0010:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Acute myeloid/lymphocytic leukaemia or myeloma
+  ICNARC_Fieldname: AMLALLMM
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0010
+NIHR_HIC_ICU_0025:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Chronic myelogenous /lymphocytic leukaemia
+  ICNARC_Fieldname: CMLCLL
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0025
+NIHR_HIC_ICU_0070:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Lymphoma
+  ICNARC_Fieldname: LYM
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0070
+NIHR_HIC_ICU_0071:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Metastatic disease
+  ICNARC_Fieldname: META
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0071
+NIHR_HIC_ICU_0026:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Chronic renal replacement therapy
+  ICNARC_Fieldname: CRRX
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0026
+NIHR_HIC_ICU_0016:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Biopsy proven cirrhosis
+  ICNARC_Fieldname: BPC
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0016
+NIHR_HIC_ICU_0060:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Heaptic encephalopathy
+  ICNARC_Fieldname: HE
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0060
+NIHR_HIC_ICU_0075:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Portal hypertension
+  ICNARC_Fieldname: PH
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0075
+NIHR_HIC_ICU_0062:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: HIV/AIDS
+  ICNARC_Fieldname: AIDS_V3
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0062
+NIHR_HIC_ICU_0063:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Home ventilation
+  ICNARC_Fieldname: HV
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0063
+NIHR_HIC_ICU_0092:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Severe respiratory disease
+  ICNARC_Fieldname: SRD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0092
+NIHR_HIC_ICU_0099:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Steroid treatment
+  ICNARC_Fieldname: STERX
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0099
+NIHR_HIC_ICU_0107:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Very severe cardiovascular disease
+  ICNARC_Fieldname: VSCD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0107
+NIHR_HIC_ICU_0074:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Other condition in past medical history
+  ICNARC_Fieldname: OCPMH
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0074
+NIHR_HIC_ICU_0055:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: Co_morbidities
+  dataItem: Dependency prior to admission
+  ICNARC_Fieldname: DEP
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0055
+NIHR_HIC_ICU_0409:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: APACHE_II_score
+  dataItem: APACHE II Score
+  ICNARC_Fieldname: ~
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0409
+NIHR_HIC_ICU_0410:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: APACHE_II
+  Classification4: APACHE_II_probability
+  dataItem: APACHE II Probability
+  ICNARC_Fieldname: ~
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0410
+NIHR_HIC_ICU_0053:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: Delayed_admission
+  Classification4: Delayed_admission
+  dataItem: Delayed admission
+  ICNARC_Fieldname: TNESSA
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0053
+NIHR_HIC_ICU_0054:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: Delayed_admission
+  Classification4: Delay
+  dataItem: Delay
+  ICNARC_Fieldname: DHRS
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0054
+NIHR_HIC_ICU_0015:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Prognostication_variables
+  Classification3: Antimicrobial_use
+  Classification4: ~
+  dataItem: Antimicrobial use after 48 hours in your unit
+  ICNARC_Fieldname: AMUAI
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0015
+NIHR_HIC_ICU_0009:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: ~
+  dataItem: Organ support maximum
+  ICNARC_Fieldname: TOTOS
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0009
+NIHR_HIC_ICU_0087:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Advanced respiratory support days
+  ICNARC_Fieldname: ARSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0087
+NIHR_HIC_ICU_0086:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Basic respiratory support days
+  ICNARC_Fieldname: BRSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0086
+NIHR_HIC_ICU_0023:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Advanced Cardiovascular support days
+  ICNARC_Fieldname: ACSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0023
+NIHR_HIC_ICU_0022:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Basic Cardiovascular support days
+  ICNARC_Fieldname: BCSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0022
+NIHR_HIC_ICU_0083:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Renal support days
+  ICNARC_Fieldname: RSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0083
+NIHR_HIC_ICU_0072:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Neurological support days
+  ICNARC_Fieldname: NSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0072
+NIHR_HIC_ICU_0067:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Liver support days
+  ICNARC_Fieldname: LSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0067
+NIHR_HIC_ICU_0056:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Dermatological support days
+  ICNARC_Fieldname: DSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0056
+NIHR_HIC_ICU_0059:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: Organ_dysfunction
+  Classification3: Cumulative
+  Classification4: Individual
+  dataItem: Gastrointestinal support days
+  ICNARC_Fieldname: GSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0059
+NIHR_HIC_ICU_0103:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Limitation_of_therapy
+  Classification4: Treatment_withheldwithdrawn
+  dataItem: Treatment withheld/withdrawn
+  ICNARC_Fieldname: ITW_V3
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0103
+NIHR_HIC_ICU_0048:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Limitation_of_therapy
+  Classification4: Date_treatment_first_withdrawn
+  dataItem: Date treatment first withdrawn
+  ICNARC_Fieldname: DTW
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0048
+NIHR_HIC_ICU_0049:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Limitation_of_therapy
+  Classification4: Time_treatment_first_withdrawn
+  dataItem: Time treatment first withdrawn
+  ICNARC_Fieldname: TTW
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0049
+NIHR_HIC_ICU_0400:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Death
+  Classification4: Brain_stem_death
+  dataItem: Brain stem death declared
+  ICNARC_Fieldname: BSDTP
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0400
+NIHR_HIC_ICU_0044:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Death
+  Classification4: Brain_stem_death
+  dataItem: Date of declaration of brain stem death
+  ICNARC_Fieldname: DDBSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0044
+NIHR_HIC_ICU_0045:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Death
+  Classification4: Brain_stem_death
+  dataItem: Time of declaration of brain stem death
+  ICNARC_Fieldname: TDBSD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0045
+NIHR_HIC_ICU_0042:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Death
+  Classification4: Date_of_death
+  dataItem: Date of death on yout unit
+  ICNARC_Fieldname: DOD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0042
+NIHR_HIC_ICU_0043:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Death
+  Classification4: Time_of_death
+  dataItem: Time of death on your unit
+  ICNARC_Fieldname: TOD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0043
+NIHR_HIC_ICU_0082:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Organ_donation
+  Classification4: Refferral_made
+  dataItem: Referred for solid organ or tissue donation
+  ICNARC_Fieldname: REFOD
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0082
+NIHR_HIC_ICU_0094:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Organ_donation
+  Classification4: Solid_organ_or_tissue_donor
+  dataItem: Solid organ or tissue donor
+  ICNARC_Fieldname: OD_V3
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0094
+NIHR_HIC_ICU_0038:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Body_removal
+  Classification4: Date_body_removed
+  dataItem: Date body removed from your unit
+  ICNARC_Fieldname: DBRICU
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0038
+NIHR_HIC_ICU_0039:
+  Anonymisation: Non-identifying
+  Classification1: Demographic
+  Classification2: End_of_life
+  Classification3: Body_removal
+  Classification4: Time_body_removed
+  dataItem: Time body removed from your unit
+  ICNARC_Fieldname: TBRICU
+  ClinicalTag: ~
+  NHICcode: NIHR_HIC_ICU_0039
+NIHR_HIC_ICU_0931:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Advanced respiratory support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-advanced-respiratory
+  NHICcode: NIHR_HIC_ICU_0931
+NIHR_HIC_ICU_0932:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Basic respiratory support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-basic-respiratory
+  NHICcode: NIHR_HIC_ICU_0932
+NIHR_HIC_ICU_0933:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Advanced Cardiovascular support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-advanced-cardiovascular
+  NHICcode: NIHR_HIC_ICU_0933
+NIHR_HIC_ICU_0934:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Basic Cardiovascular support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-basic-cardiovascular
+  NHICcode: NIHR_HIC_ICU_0934
+NIHR_HIC_ICU_0935:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Renal support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-renal-support
+  NHICcode: NIHR_HIC_ICU_0935
+NIHR_HIC_ICU_0936:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Neurological support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-neurological-support
+  NHICcode: NIHR_HIC_ICU_0936
+NIHR_HIC_ICU_0937:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Liver support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-live-support
+  NHICcode: NIHR_HIC_ICU_0937
+NIHR_HIC_ICU_0938:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Dermatological support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-dermatological-support
+  NHICcode: NIHR_HIC_ICU_0938
+NIHR_HIC_ICU_0939:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Organ_dysfunction
+  Classification3: Daily
+  Classification4: ~
+  dataItem: Gastrointestinal support
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-organ-dysfunction-gastrointestinal-support
+  NHICcode: NIHR_HIC_ICU_0939
+NIHR_HIC_ICU_0156:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Neurology
+  Classification3: GCS
+  Classification4: gcs_total
+  dataItem: GCS - total
+  ICNARC_Fieldname: ~
+  ClinicalTag: clinical-gcs-score-total
+  NHICcode: NIHR_HIC_ICU_0156
+NIHR_HIC_ICU_0157:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Neurology
+  Classification3: GCS
+  Classification4: gcs_motor_component
+  dataItem: GCS - motor component
+  ICNARC_Fieldname: ~
+  ClinicalTag: clinical-gcs-score-motor
+  NHICcode: NIHR_HIC_ICU_0157
+NIHR_HIC_ICU_0158:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Neurology
+  Classification3: GCS
+  Classification4: gcs_eye_component
+  dataItem: GCS - eye component
+  ICNARC_Fieldname: ~
+  ClinicalTag: clinical-gcs-score-eye
+  NHICcode: NIHR_HIC_ICU_0158
+NIHR_HIC_ICU_0159:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Neurology
+  Classification3: GCS
+  Classification4: gcs_verbal_component
+  dataItem: GCS - verbal component
+  ICNARC_Fieldname: ~
+  ClinicalTag: clinical-gcs-score-verbal
+  NHICcode: NIHR_HIC_ICU_0159
+NIHR_HIC_ICU_0160:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Neurology
+  Classification3: Sedation
+  Classification4: Richmond_Agitation_Sedation_Score_RASS
+  dataItem: Sedation score (hourly)
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-neurological-sedation-score-hourly
+  NHICcode: NIHR_HIC_ICU_0160
+NIHR_HIC_ICU_0911:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Neurology
+  Classification3: Sedation
+  Classification4: Sedated
+  dataItem: Sedation yes/no
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-neurological-sedation-yesno
+  NHICcode: NIHR_HIC_ICU_0911
+NIHR_HIC_ICU_0108:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: ECG
+  Classification4: Heart_rate
+  dataItem: Heart rate
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-heart-rate
+  NHICcode: NIHR_HIC_ICU_0108
+NIHR_HIC_ICU_0109:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: ECG
+  Classification4: Heart_rhythm
+  dataItem: Heart rhythm
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-heart-rhythm
+  NHICcode: NIHR_HIC_ICU_0109
+NIHR_HIC_ICU_0110:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Blood_pressure
+  Classification4: Arterial
+  dataItem: Mean arterial blood pressure - Art BPMean arterial blood pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-mean-art-bp
+  NHICcode: NIHR_HIC_ICU_0110
+NIHR_HIC_ICU_0111:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Blood_pressure
+  Classification4: Arterial
+  dataItem: Mean arterial blood pressure - NBPMean arterial blood pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-mean-nbp
+  NHICcode: NIHR_HIC_ICU_0111
+NIHR_HIC_ICU_0112:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Blood_pressure
+  Classification4: Arterial
+  dataItem: Systolic Arterial blood pressure - Art BPSystolic Arterial blood pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-systolic-art-bp
+  NHICcode: NIHR_HIC_ICU_0112
+NIHR_HIC_ICU_0113:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Blood_pressure
+  Classification4: Arterial
+  dataItem: Systolic Arterial blood pressure - NBPSystolic Arterial blood pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-systolic-nbp
+  NHICcode: NIHR_HIC_ICU_0113
+NIHR_HIC_ICU_0114:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Blood_pressure
+  Classification4: Arterial
+  dataItem: Diastolic arterial blood pressure - Art BPDiastolic arterial blood pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-diastolic-art-bp
+  NHICcode: NIHR_HIC_ICU_0114
+NIHR_HIC_ICU_0115:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Blood_pressure
+  Classification4: Arterial
+  dataItem: Diastolic arterial blood pressure - NBPDiastolic arterial blood pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-diastolic-nbp
+  NHICcode: NIHR_HIC_ICU_0115
+NIHR_HIC_ICU_0116:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Blood_pressure
+  Classification4: Venous
+  dataItem: Central venous pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-cvp
+  NHICcode: NIHR_HIC_ICU_0116
+NIHR_HIC_ICU_0117:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Cardiac_ouput_monitoring
+  Classification4: Cardiac_output_CO
+  dataItem: Cardiac output - LiDCO Plus
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-lidco-plus
+  NHICcode: NIHR_HIC_ICU_0117
+NIHR_HIC_ICU_0118:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Cardiac_ouput_monitoring
+  Classification4: Cardiac_output_CO
+  dataItem: Cardiac output - LiDCO Rapid
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-lidco-rapid
+  NHICcode: NIHR_HIC_ICU_0118
+NIHR_HIC_ICU_0119:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Cardiac_ouput_monitoring
+  Classification4: Cardiac_output_CO
+  dataItem: Cardiac output - PICCO
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-pico
+  NHICcode: NIHR_HIC_ICU_0119
+NIHR_HIC_ICU_0120:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Cardiac_ouput_monitoring
+  Classification4: Cardiac_output_CO
+  dataItem: Cardiac output - PA Catheter
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-pa-catheter
+  NHICcode: NIHR_HIC_ICU_0120
+NIHR_HIC_ICU_0121:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Cardiovascular
+  Classification3: Cardiac_ouput_monitoring
+  Classification4: Cardiac_output_CO
+  dataItem: Cardiac output - Doppler
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-doppler
+  NHICcode: NIHR_HIC_ICU_0121
+NIHR_HIC_ICU_0126:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Endtracheal_airway
+  Classification4: ~
+  dataItem: Airway
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-airway
+  NHICcode: NIHR_HIC_ICU_0126
+NIHR_HIC_ICU_0144:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Ventilated
+  dataItem: Invasive or non-invasive (ventilation)
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-invasive
+  NHICcode: NIHR_HIC_ICU_0144
+NIHR_HIC_ICU_0549:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Respiratory_rate_patient_observation
+  dataItem: Spontaneous Respiratory Rate
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-spontanious-rate
+  NHICcode: NIHR_HIC_ICU_0549
+NIHR_HIC_ICU_0145:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Respiratory_rate_patient_observation
+  dataItem: Total respiratory rate (monitor)
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-monitor-measured-rate
+  NHICcode: NIHR_HIC_ICU_0145
+NIHR_HIC_ICU_0129:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Oxygenation
+  dataItem: SpO2
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-spo2
+  NHICcode: NIHR_HIC_ICU_0129
+NIHR_HIC_ICU_0913:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Oxygenation
+  dataItem: PaO2/FiO2 ratio
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-paO2-fiO2
+  NHICcode: NIHR_HIC_ICU_0913
+NIHR_HIC_ICU_0150:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Ventilator_settings
+  dataItem: Inspired fraction of oxygen
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-inspired-fraction-oxygen
+  NHICcode: NIHR_HIC_ICU_0150
+NIHR_HIC_ICU_0151:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Ventilator_settings
+  dataItem: Positive End Expiratory Pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-positive-end-expiratory-pressure
+  NHICcode: NIHR_HIC_ICU_0151
+NIHR_HIC_ICU_0147:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Ventilator_settings
+  dataItem: Mandatory Respiratory Rate
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-mandatory-rate
+  NHICcode: NIHR_HIC_ICU_0147
+NIHR_HIC_ICU_0146:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Ventilator_observations
+  dataItem: Total respiratory rate (ventilator)
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-vantilator-measured-rate
+  NHICcode: NIHR_HIC_ICU_0146
+NIHR_HIC_ICU_0148:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Ventilator_observations
+  dataItem: Minute volume
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-minute-volume
+  NHICcode: NIHR_HIC_ICU_0148
+NIHR_HIC_ICU_0550:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Ventilator_observations
+  dataItem: Tidal volume
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-tidal-volume
+  NHICcode: NIHR_HIC_ICU_0550
+NIHR_HIC_ICU_0149:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: Ventilator_observations
+  dataItem: Peak airway pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-peak-airway-pressure
+  NHICcode: NIHR_HIC_ICU_0149
+NIHR_HIC_ICU_0153:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: HFOV_settings
+  dataItem: Frequency (Hz)
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-frequency
+  NHICcode: NIHR_HIC_ICU_0153
+NIHR_HIC_ICU_0154:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: HFOV_settings
+  dataItem: Cycle Volume
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-cycle-volume
+  NHICcode: NIHR_HIC_ICU_0154
+NIHR_HIC_ICU_0155:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: HFOV_settings
+  dataItem: Base flow
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-base-flow
+  NHICcode: NIHR_HIC_ICU_0155
+NIHR_HIC_ICU_0152:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Respiratory
+  Classification3: Ventilation
+  Classification4: HFOV_observations
+  dataItem: Airway pressure
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-airway-pressure
+  NHICcode: NIHR_HIC_ICU_0152
+NIHR_HIC_ICU_0915:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Fluid_volumes
+  Classification4: Balance
+  dataItem: Fluid Balance (daily)
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-fluid-balance-daily
+  NHICcode: NIHR_HIC_ICU_0915
+NIHR_HIC_ICU_0413:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Fluid_volumes
+  Classification4: Balance
+  dataItem: Fluid Balance (hourly)
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-fluid-balance-hourly
+  NHICcode: NIHR_HIC_ICU_0413
+NIHR_HIC_ICU_0162:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Fluid_volumes
+  Classification4: Urine_output
+  dataItem: Urine output
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-renal-urine-output
+  NHICcode: NIHR_HIC_ICU_0162
+NIHR_HIC_ICU_0161:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Renal_replacement_therapy_RRT
+  Classification4: Mode
+  dataItem: Renal replacement mode
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-renal-replacement-mode
+  NHICcode: NIHR_HIC_ICU_0161
+NIHR_HIC_ICU_0552:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Renal_replacement_therapy_RRT
+  Classification4: Duration_of_therapy
+  dataItem: Duration of therapy (hours per day)
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-renal-time-on-filter-per-day
+  NHICcode: NIHR_HIC_ICU_0552
+NIHR_HIC_ICU_0553:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Renal_replacement_therapy_RRT
+  Classification4: Fluid_volumes_RRT
+  dataItem: Total effluent per day
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-renal-total-effluent-per-day
+  NHICcode: NIHR_HIC_ICU_0553
+NIHR_HIC_ICU_0554:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Renal_replacement_therapy_RRT
+  Classification4: Fluid_volumes_RRT
+  dataItem: Dialysate
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-renal-Dialysate
+  NHICcode: NIHR_HIC_ICU_0554
+NIHR_HIC_ICU_0555:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Renal_replacement_therapy_RRT
+  Classification4: Fluid_volumes_RRT
+  dataItem: Replacement fluid during RRT
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-renal-Replacement-fluid-during-RRT
+  NHICcode: NIHR_HIC_ICU_0555
+NIHR_HIC_ICU_0556:
+  Anonymisation: Non-identifying
+  Classification1: Physiology
+  Classification2: Renal
+  Classification3: Renal_replacement_therapy_RRT
+  Classification4: Anticoagulation
+  dataItem: Type of anticoagulation
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-renal-Type-of-anticoagulation
+  NHICcode: NIHR_HIC_ICU_0556
+NIHR_HIC_ICU_0143:
+  Anonymisation: Non-identifying
+  Classification1: Nursing_other
+  Classification2: Position
+  Classification3: Position_measurement
+  Classification4: ~
+  dataItem: Position
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-nursing-position
+  NHICcode: NIHR_HIC_ICU_0143
+NIHR_HIC_ICU_0141:
+  Anonymisation: Non-identifying
+  Classification1: Nursing_other
+  Classification2: Temperature
+  Classification3: Central
+  Classification4: ~
+  dataItem: Temperature - Central
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-temp-central
+  NHICcode: NIHR_HIC_ICU_0141
+NIHR_HIC_ICU_0142:
+  Anonymisation: Non-identifying
+  Classification1: Nursing_other
+  Classification2: Temperature
+  Classification3: Non_central
+  Classification4: ~
+  dataItem: Temperature - Non-central
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-temp-non-central
+  NHICcode: NIHR_HIC_ICU_0142
+NIHR_HIC_ICU_0168:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Electrolytes
+  Classification4: Sodium
+  dataItem: Sodium
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-sodium
+  NHICcode: NIHR_HIC_ICU_0168
+NIHR_HIC_ICU_0169:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Electrolytes
+  Classification4: Sodium
+  dataItem: Sodium ABG/VBG
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-sodium-abg-vbg
+  NHICcode: NIHR_HIC_ICU_0169
+NIHR_HIC_ICU_0171:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Electrolytes
+  Classification4: Potassium
+  dataItem: Potassium
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-potassium
+  NHICcode: NIHR_HIC_ICU_0171
+NIHR_HIC_ICU_0172:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Electrolytes
+  Classification4: Potassium
+  dataItem: Potassium ABG/VBG
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-potassium-abg-vbg
+  NHICcode: NIHR_HIC_ICU_0172
+NIHR_HIC_ICU_0164:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Renal_markers
+  Classification4: Urea
+  dataItem: Urea
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-urea
+  NHICcode: NIHR_HIC_ICU_0164
+NIHR_HIC_ICU_0166:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Renal_markers
+  Classification4: Creatinine
+  dataItem: Creatinine
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-creatinine
+  NHICcode: NIHR_HIC_ICU_0166
+NIHR_HIC_ICU_0174:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Liver_markers
+  Classification4: Bilirubin
+  dataItem: Bilirubin
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-bilirubin
+  NHICcode: NIHR_HIC_ICU_0174
+NIHR_HIC_ICU_0918:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Glucose
+  Classification4: ~
+  dataItem: Glucose (laboratory)
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-glucose-laboratory
+  NHICcode: NIHR_HIC_ICU_0918
+NIHR_HIC_ICU_0175:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Glucose
+  Classification4: ~
+  dataItem: Glucose ABG/VBG
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-glucose-abg-vbg
+  NHICcode: NIHR_HIC_ICU_0175
+NIHR_HIC_ICU_0176:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Glucose
+  Classification4: ~
+  dataItem: Glucose bedside test
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-glucose-bedside
+  NHICcode: NIHR_HIC_ICU_0176
+NIHR_HIC_ICU_0557:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Inflammatory_markers
+  Classification4: CRP
+  dataItem: C reactive protein
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-haematology-C-reactive-protein
+  NHICcode: NIHR_HIC_ICU_0557
+NIHR_HIC_ICU_0136:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Acid_base
+  Classification4: pH
+  dataItem: pH - ABG / VBG
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-ph-abg-vbg
+  NHICcode: NIHR_HIC_ICU_0136
+NIHR_HIC_ICU_0138:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Acid_base
+  Classification4: HCO3
+  dataItem: HCO3 - ABG / VBG
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-chemistry-hco3-abg-vbg
+  NHICcode: NIHR_HIC_ICU_0138
+NIHR_HIC_ICU_0122:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Lactate
+  Classification4: Lactate_blood_gas
+  dataItem: Lactate - ABG
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-lactate-abg
+  NHICcode: NIHR_HIC_ICU_0122
+NIHR_HIC_ICU_0123:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Chemistry
+  Classification3: Lactate
+  Classification4: Lactate_laboratory
+  dataItem: Lactate - Lab
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-lactate-lab
+  NHICcode: NIHR_HIC_ICU_0123
+NIHR_HIC_ICU_0179:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Haematology
+  Classification3: Blood_count
+  Classification4: Haemoglobin_laboratory
+  dataItem: Haemoglobin
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-haematology-hb
+  NHICcode: NIHR_HIC_ICU_0179
+NIHR_HIC_ICU_0178:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Haematology
+  Classification3: Blood_count
+  Classification4: Haemoglobin_blood_gas
+  dataItem: Haemoglobin ABG/VBG
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-haematology-hb-abg-vbg
+  NHICcode: NIHR_HIC_ICU_0178
+NIHR_HIC_ICU_0182:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Haematology
+  Classification3: Blood_count
+  Classification4: White_cell_count
+  dataItem: White cell count
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-haematology-white-cell-count
+  NHICcode: NIHR_HIC_ICU_0182
+NIHR_HIC_ICU_0183:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Haematology
+  Classification3: Blood_count
+  Classification4: White_cell_count
+  dataItem: Neutrophil count
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-haematology-neutrophil-count
+  NHICcode: NIHR_HIC_ICU_0183
+NIHR_HIC_ICU_0184:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Haematology
+  Classification3: Blood_count
+  Classification4: Platelets
+  dataItem: Platelets
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-haematology-platelets
+  NHICcode: NIHR_HIC_ICU_0184
+NIHR_HIC_ICU_0186:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Microbiology
+  Classification3: Culture
+  Classification4: ~
+  dataItem: Site
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-microbiology-culture
+  NHICcode: NIHR_HIC_ICU_0186
+NIHR_HIC_ICU_0187:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Microbiology
+  Classification3: Culture
+  Classification4: ~
+  dataItem: Organism
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-microbiology-culture
+  NHICcode: NIHR_HIC_ICU_0187
+NIHR_HIC_ICU_0188:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Microbiology
+  Classification3: Culture
+  Classification4: ~
+  dataItem: Sensitivity
+  ICNARC_Fieldname: ~
+  ClinicalTag: laboratory-microbiology-culture
+  NHICcode: NIHR_HIC_ICU_0188
+NIHR_HIC_ICU_0132:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Respiratory
+  Classification3: Gases
+  Classification4: Oxygenation
+  dataItem: PaO2 - ABG
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-pao2-abg
+  NHICcode: NIHR_HIC_ICU_0132
+NIHR_HIC_ICU_0130:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Respiratory
+  Classification3: Gases
+  Classification4: Oxygenation
+  dataItem: SaO2 - ABG
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-sao2-abg
+  NHICcode: NIHR_HIC_ICU_0130
+NIHR_HIC_ICU_0125:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Respiratory
+  Classification3: Gases
+  Classification4: Oxygenation
+  dataItem: Central venous saturation
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-cardiovascular-cvs
+  NHICcode: NIHR_HIC_ICU_0125
+NIHR_HIC_ICU_0134:
+  Anonymisation: Non-identifying
+  Classification1: Laboratory
+  Classification2: Respiratory
+  Classification3: Gases
+  Classification4: Carbon_dioxide
+  dataItem: PaCO2 - ABG
+  ICNARC_Fieldname: ~
+  ClinicalTag: physiology-respiratory-paco2-abg
+  NHICcode: NIHR_HIC_ICU_0134
+NIHR_HIC_ICU_0414:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Aminoglycosides
+  Classification4: ~
+  dataItem: Amikacin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-amikacin
+  NHICcode: NIHR_HIC_ICU_0414
+NIHR_HIC_ICU_0437:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Aminoglycosides
+  Classification4: ~
+  dataItem: Gentamicin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-gentamicin
+  NHICcode: NIHR_HIC_ICU_0437
+NIHR_HIC_ICU_0444:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Aminoglycosides
+  Classification4: ~
+  dataItem: Neomycin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-neomycin
+  NHICcode: NIHR_HIC_ICU_0444
+NIHR_HIC_ICU_0459:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Aminoglycosides
+  Classification4: ~
+  dataItem: Tobramycin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-tobramycin
+  NHICcode: NIHR_HIC_ICU_0459
+NIHR_HIC_ICU_0447:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Anti_protozoal
+  Classification4: ~
+  dataItem: Pentamidine
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-pentamidine
+  NHICcode: NIHR_HIC_ICU_0447
+NIHR_HIC_ICU_0434:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Anti_tuberculous
+  Classification4: ~
+  dataItem: Ethambutal HCL
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-Ethambutal-hcl
+  NHICcode: NIHR_HIC_ICU_0434
+NIHR_HIC_ICU_0438:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Anti_tuberculous
+  Classification4: ~
+  dataItem: Isoniazid
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-isoniazid
+  NHICcode: NIHR_HIC_ICU_0438
+NIHR_HIC_ICU_0450:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Anti_tuberculous
+  Classification4: ~
+  dataItem: Pyrazinamide
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-pyrazinamide
+  NHICcode: NIHR_HIC_ICU_0450
+NIHR_HIC_ICU_0452:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Anti_tuberculous
+  Classification4: ~
+  dataItem: Rifampacin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-rifampacin
+  NHICcode: NIHR_HIC_ICU_0452
+NIHR_HIC_ICU_0453:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Anti_tuberculous
+  Classification4: ~
+  dataItem: Rifater
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-rifater
+  NHICcode: NIHR_HIC_ICU_0453
+NIHR_HIC_ICU_0454:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Anti_tuberculous
+  Classification4: ~
+  dataItem: Rifinah
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-rifinah
+  NHICcode: NIHR_HIC_ICU_0454
+NIHR_HIC_ICU_0432:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Carbapenems
+  Classification4: ~
+  dataItem: Ertapenem
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-ertapenem
+  NHICcode: NIHR_HIC_ICU_0432
+NIHR_HIC_ICU_0441:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Carbapenems
+  Classification4: ~
+  dataItem: Meropenem
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-meropenem
+  NHICcode: NIHR_HIC_ICU_0441
+NIHR_HIC_ICU_0418:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Cephalosporins
+  Classification4: ~
+  dataItem: Cefotaxime
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-cefotaxime
+  NHICcode: NIHR_HIC_ICU_0418
+NIHR_HIC_ICU_0419:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Cephalosporins
+  Classification4: ~
+  dataItem: Ceftazidime
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-ceftazidime
+  NHICcode: NIHR_HIC_ICU_0419
+NIHR_HIC_ICU_0420:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Cephalosporins
+  Classification4: ~
+  dataItem: Ceftriaxone
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-ceftriaxone
+  NHICcode: NIHR_HIC_ICU_0420
+NIHR_HIC_ICU_0421:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Cephalosporins
+  Classification4: ~
+  dataItem: Cefuroxime
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-cefuroxime
+  NHICcode: NIHR_HIC_ICU_0421
+NIHR_HIC_ICU_0422:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Chloramphenicol
+  Classification4: ~
+  dataItem: Chloramphenicol
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-chloramphenicol
+  NHICcode: NIHR_HIC_ICU_0422
+NIHR_HIC_ICU_0436:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Fusidanes
+  Classification4: ~
+  dataItem: Fuscidic acid
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-fusidic-acid-ng
+  NHICcode: NIHR_HIC_ICU_0436
+NIHR_HIC_ICU_0456:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Fusidanes
+  Classification4: ~
+  dataItem: Sodium Fusidate
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-sodium-fusidate
+  NHICcode: NIHR_HIC_ICU_0456
+NIHR_HIC_ICU_0457:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Glycopeptides
+  Classification4: ~
+  dataItem: Teicoplanin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-teicoplanin
+  NHICcode: NIHR_HIC_ICU_0457
+NIHR_HIC_ICU_0461:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Glycopeptides
+  Classification4: ~
+  dataItem: Vancomycin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-vancomycin
+  NHICcode: NIHR_HIC_ICU_0461
+NIHR_HIC_ICU_0425:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Lincosamides
+  Classification4: ~
+  dataItem: Clindamycin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-clindamycin
+  NHICcode: NIHR_HIC_ICU_0425
+NIHR_HIC_ICU_0416:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Macrolides
+  Classification4: ~
+  dataItem: Azithromycin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-azithromycin
+  NHICcode: NIHR_HIC_ICU_0416
+NIHR_HIC_ICU_0424:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Macrolides
+  Classification4: ~
+  dataItem: Clarithromycin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-clarithromycin
+  NHICcode: NIHR_HIC_ICU_0424
+NIHR_HIC_ICU_0433:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Macrolides
+  Classification4: ~
+  dataItem: Erythromycin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-erythromycin
+  NHICcode: NIHR_HIC_ICU_0433
+NIHR_HIC_ICU_0445:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Nitrofurans
+  Classification4: ~
+  dataItem: Nitrofurantion
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-nitrofurantion
+  NHICcode: NIHR_HIC_ICU_0445
+NIHR_HIC_ICU_0442:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Nitroimidazole
+  Classification4: ~
+  dataItem: Metronidazole
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-metronidazole
+  NHICcode: NIHR_HIC_ICU_0442
+NIHR_HIC_ICU_0440:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Oxazolidinone
+  Classification4: ~
+  dataItem: Linezolid
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-linezolid
+  NHICcode: NIHR_HIC_ICU_0440
+NIHR_HIC_ICU_0415:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Penicillins
+  Classification4: ~
+  dataItem: Amoxicillin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-amoxicillin
+  NHICcode: NIHR_HIC_ICU_0415
+NIHR_HIC_ICU_0417:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Penicillins
+  Classification4: ~
+  dataItem: Benzylpenicillin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-benzylpenicillin
+  NHICcode: NIHR_HIC_ICU_0417
+NIHR_HIC_ICU_0426:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Penicillins
+  Classification4: ~
+  dataItem: Co-Amoxiclav
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-co-amoxiclav
+  NHICcode: NIHR_HIC_ICU_0426
+NIHR_HIC_ICU_0435:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Penicillins
+  Classification4: ~
+  dataItem: Flucloxacillin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-flucloxacillin
+  NHICcode: NIHR_HIC_ICU_0435
+NIHR_HIC_ICU_0448:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Penicillins
+  Classification4: ~
+  dataItem: Phenoxymethylpenicillin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-phenoxymethylpenicillin
+  NHICcode: NIHR_HIC_ICU_0448
+NIHR_HIC_ICU_0449:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Penicillins
+  Classification4: ~
+  dataItem: Piperacillin/Tazobactam
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-piperacillin-tazobactam
+  NHICcode: NIHR_HIC_ICU_0449
+NIHR_HIC_ICU_0427:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Polymyxins
+  Classification4: ~
+  dataItem: Colistin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-colistin
+  NHICcode: NIHR_HIC_ICU_0427
+NIHR_HIC_ICU_0423:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Quinolones
+  Classification4: ~
+  dataItem: Ciprofloxacin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-ciprofloxacin
+  NHICcode: NIHR_HIC_ICU_0423
+NIHR_HIC_ICU_0439:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Quinolones
+  Classification4: ~
+  dataItem: Levofloxacin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-levofloxacin
+  NHICcode: NIHR_HIC_ICU_0439
+NIHR_HIC_ICU_0443:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Quinolones
+  Classification4: ~
+  dataItem: Moxifloxacin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-moxifloxacin
+  NHICcode: NIHR_HIC_ICU_0443
+NIHR_HIC_ICU_0446:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Quinolones
+  Classification4: ~
+  dataItem: Ofloxacin
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-ofloxacin
+  NHICcode: NIHR_HIC_ICU_0446
+NIHR_HIC_ICU_0428:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Sulfonamides_trimethoprim
+  Classification4: ~
+  dataItem: Co-Trimoxazole
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-co-trimoxazole
+  NHICcode: NIHR_HIC_ICU_0428
+NIHR_HIC_ICU_0460:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Sulfonamides_trimethoprim
+  Classification4: ~
+  dataItem: Trimethoprim
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-trimethoprim
+  NHICcode: NIHR_HIC_ICU_0460
+NIHR_HIC_ICU_0429:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Tetracyclines
+  Classification4: ~
+  dataItem: Demeclocycline HCL
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-demeclocycline-hcl
+  NHICcode: NIHR_HIC_ICU_0429
+NIHR_HIC_ICU_0430:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Tetracyclines
+  Classification4: ~
+  dataItem: Doxycycline
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-doxycycline
+  NHICcode: NIHR_HIC_ICU_0430
+NIHR_HIC_ICU_0458:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: Anti_microbials
+  Classification3: Tetracyclines
+  Classification4: ~
+  dataItem: Tigecycline
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-anti-microbials-tigecycline
+  NHICcode: NIHR_HIC_ICU_0458
+NIHR_HIC_ICU_0462:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Sedatives_continuous_infusion
+  Classification4: Induction_agent
+  dataItem: Propofol
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-propofol
+  NHICcode: NIHR_HIC_ICU_0462
+NIHR_HIC_ICU_0558:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Sedatives_continuous_infusion
+  Classification4: Barbiturates
+  dataItem: Thiopentone / Thiopental
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-Thiopentone-Thiopental
+  NHICcode: NIHR_HIC_ICU_0558
+NIHR_HIC_ICU_0463:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Sedatives_continuous_infusion
+  Classification4: Benzodiazepines
+  dataItem: Midazolam
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-midazolam
+  NHICcode: NIHR_HIC_ICU_0463
+NIHR_HIC_ICU_0559:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Sedatives_continuous_infusion
+  Classification4: Alpha_2_agonists
+  dataItem: Clonidine
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-clonidine
+  NHICcode: NIHR_HIC_ICU_0559
+NIHR_HIC_ICU_0560:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Sedatives_continuous_infusion
+  Classification4: Alpha_2_agonists
+  dataItem: Dexmedetomidine
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-dexmedetomidine
+  NHICcode: NIHR_HIC_ICU_0560
+NIHR_HIC_ICU_0561:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Sedatives_continuous_infusion
+  Classification4: Phencyclidines
+  dataItem: Ketamine
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-ketamine
+  NHICcode: NIHR_HIC_ICU_0561
+NIHR_HIC_ICU_0242:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Analgesics
+  Classification4: Opioids
+  dataItem: Fentanyl
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-fentanyl
+  NHICcode: NIHR_HIC_ICU_0242
+NIHR_HIC_ICU_0563:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Analgesics
+  Classification4: Opioids
+  dataItem: Morphine
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-morphine
+  NHICcode: NIHR_HIC_ICU_0563
+NIHR_HIC_ICU_0464:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CNS
+  Classification3: Analgesics
+  Classification4: Opioids
+  dataItem: Remifentanil
+  ICNARC_Fieldname: ~
+  ClinicalTag: drug-cns-remifentanil
+  NHICcode: NIHR_HIC_ICU_0464
+NIHR_HIC_ICU_0469:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Inotropes
+  Classification4: Calcium_sensitiser
+  dataItem: Levosimendan
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-levosimendan
+  NHICcode: NIHR_HIC_ICU_0469
+NIHR_HIC_ICU_0465:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Inotropes
+  Classification4: Catecholamines
+  dataItem: Adrenaline
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-adrenaline
+  NHICcode: NIHR_HIC_ICU_0465
+NIHR_HIC_ICU_0466:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Inotropes
+  Classification4: Catecholamines
+  dataItem: Dobutamine
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-dobutamine
+  NHICcode: NIHR_HIC_ICU_0466
+NIHR_HIC_ICU_0467:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Inotropes
+  Classification4: Catecholamines
+  dataItem: Dopamine
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-dopamine
+  NHICcode: NIHR_HIC_ICU_0467
+NIHR_HIC_ICU_0564:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Inotropes
+  Classification4: Catecholamines
+  dataItem: Dopexamine
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-dopexamine
+  NHICcode: NIHR_HIC_ICU_0564
+NIHR_HIC_ICU_0468:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Inotropes
+  Classification4: Phosphodiesterase_inhibitors
+  dataItem: Enoximone
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-enoximone
+  NHICcode: NIHR_HIC_ICU_0468
+NIHR_HIC_ICU_0252:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Inotropes
+  Classification4: Phosphodiesterase_inhibitors
+  dataItem: Milrinone
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-milrinone
+  NHICcode: NIHR_HIC_ICU_0252
+NIHR_HIC_ICU_0470:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Vasopressors
+  Classification4: Catecholamines
+  dataItem: Noradrenaline
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-noradrenaline
+  NHICcode: NIHR_HIC_ICU_0470
+NIHR_HIC_ICU_0471:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Vasopressors
+  Classification4: Vasopressin
+  dataItem: Vasopressin
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-vasopressin
+  NHICcode: NIHR_HIC_ICU_0471
+NIHR_HIC_ICU_0565:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Vasopressors
+  Classification4: Vasopressin_analogue
+  dataItem: Terlipressin
+  ICNARC_Fieldname: ~
+  ClinicalTag: infusion-cvs-vasoactive-terlipressin
+  NHICcode: NIHR_HIC_ICU_0565
+NIHR_HIC_ICU_0906:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Adjuncts
+  Classification4: IV_beta_blockers
+  dataItem: Esmolol
+  ICNARC_Fieldname: ~
+  ClinicalTag: Infusion-cvs-vasoactive-adjuncts-esmolol
+  NHICcode: NIHR_HIC_ICU_0906
+NIHR_HIC_ICU_0907:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Adjuncts
+  Classification4: IV_beta_blockers
+  dataItem: Metoprolol
+  ICNARC_Fieldname: ~
+  ClinicalTag: Infusion-cvs-vasoactive-adjuncts-metoprolol
+  NHICcode: NIHR_HIC_ICU_0907
+NIHR_HIC_ICU_0908:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Adjuncts
+  Classification4: IV_steroids
+  dataItem: Dexamethasone
+  ICNARC_Fieldname: ~
+  ClinicalTag: Infusion-cvs-vasoactive-adjuncts-dexamethasone
+  NHICcode: NIHR_HIC_ICU_0908
+NIHR_HIC_ICU_0909:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Adjuncts
+  Classification4: IV_steroids
+  dataItem: Hydrocortisone
+  ICNARC_Fieldname: ~
+  ClinicalTag: Infusion-cvs-vasoactive-adjuncts-hydrocortisone
+  NHICcode: NIHR_HIC_ICU_0909
+NIHR_HIC_ICU_0910:
+  Anonymisation: Non-identifying
+  Classification1: Drugs
+  Classification2: CVSvasoactive
+  Classification3: Adjuncts
+  Classification4: IV_steroids
+  dataItem: Methylprednisolone
+  ICNARC_Fieldname: ~
+  ClinicalTag: Infusion-cvs-vasoactive-adjuncts-methylprednisolone
+  NHICcode: NIHR_HIC_ICU_0910
 
-# Key variables
-# shortName: SEX
