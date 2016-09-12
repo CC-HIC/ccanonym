@@ -1,19 +1,269 @@
-direct_var: 
-  - ICNNO   # 
-  - NHSNO   # NHS number
-  - pasno   # PAS number
-  - DOB     # date of birth
-  - PCODE   # post code
-  - ETHNIC  # ethnic 
+direct_var:
+- ICNNO # PAS number
+- bed02 # Site code (ICNARC CMP number)
+- bed50 # Critical care local identifier / ICNARC admission number
+- URAICU # NHS number
+- AMUAI # Transferring unit admission number
+- NHSNO # CCU bed configuration 02
+- pasno # Level 2 (HDU) days
 
 key_var:
-  - Height:
-    - recode: 15
-  - SEX:
-    - PRAM
-  - DDH: # date of ultimate discharge from ICU
-    - microaggregation
-
-
-l-diversity: 0.7
-k-anonymity: 3
+- bed03 # Code of GP
+  - recode: 10
+- PA_V3 # Date of admission to your hospital
+  - microaggregation
+- SCODE # Date of birth
+- CLASSNS # Date of last critical care visit prior to this admission to your unit
+- CCL2D # Date of original admission to/attendance at acute hospital
+- CCL3D # Date of original admission to ICU/HDU
+- RDIS_V3 # Date of ultimate discharge from ICU/HDU
+- LEVD # Date of death on your unit
+- DOAH # Date of declaration of brain stem death
+- DOAICU # Date fully ready for discharge
+- TUIDI # Time fully ready for discharge
+- CICIDS # Postcode
+- HV # Secondary reasons for admission to your unit
+- OCPMH # Sex
+- effluent_per_day # Primary reason for admission to your unit
+- anticoagulation # Date of discharge from your hospital
+- temperature_central # Date of ultimate discharge from your hospital
+- sodium_abg_vbg # Date & Time of admission to your unit
+- potassium # Date & Time of discharge from your unit
+- adrenaline # Ultimate primary reason for admission to unit
+nonidentify_var:
+- bed05 # Treatment function code
+- ADNO # Level 3 (ICU) days
+- DOB # Organ support maximum
+- PCODE # Acute myeloid/lymphocytic leukaemia or myeloma
+- GPCODE # Admission for pre-surgical preparation
+- ETHNIC # Adult ICU/HDU within your critical care transfer group (in)
+- SEX # Adult ICU/HDU within your critical care transfer group (out)
+- HCM # Antimicrobial use after 48 hours in your unit
+- HCMEST # Biopsy proven cirrhosis
+- WKG # Height
+- WKGEST # Height (Source)
+- DAH # Weight
+- DAICU # Weight (Source)
+- DWFRD # Cardiopulmonary resuscitation within 24 hours prior to admission to unit
+- TWFRD # Basic Cardiovascular support days
+- DDICU # Advanced Cardiovascular support days
+- DUDICU # Chemotherapy (within the last 6months) steroids alone excluded
+- DDH # Chronic myelogenous /lymphocytic leukaemia
+- DUDH # Chronic renal replacement therapy
+- UDIS # classification of surgery
+- RESA # Congenital immunohumoral or cellular immune deficiency state
+- HLOCA # Critical care visit post-discharge from your unit
+- LOCA # Critical care visit prior to this admission to your unit
+- LOCD # Date body removed from your unit
+- TNESSD # Time body removed from your unit
+- DIS # Time of death on your unit
+- SOHA # Time of declaration of brain stem death
+- PLOCA # Date treatment first withdrawn
+- TUADNO # Time treatment first withdrawn
+- TYPEIHA # Delayed admission
+- TGA # Delay
+- CCA # Dependency prior to admission
+- DLCCA # Dermatological support days
+- HLOCD # Hospital housing location (out)
+- SOHD # Ethnicity
+- TYPEIHD # Gastrointestinal support days
+- TGD # Heaptic encephalopathy
+- HDIS # HIV/AIDS
+- CCD # Home ventilation
+- DFCCD # Hospital housing location (in)
+- DESTH_V3 # Level of care at discharge from your unit
+- RESD # Liver support days
+- UHDIS # Location (in)
+- PSP # Discharge location (location out)
+- CPR_V3 # Lymphoma
+- RAICU1 # Metastatic disease
+- RAICU2 # Neurological support days
+- CHEMOX # Other condition in past medical history
+- RADIOX # Portal hypertension
+- AMLALLMM # Prior location (in)
+- CMLCLL # Radiotherapy
+- LYM # Discharge status (Reason for discharge from your unit)
+- META # Referred for solid organ or tissue donation
+- CRRX # Renal support days
+- BPC # Residence post discharge from acute hospital
+- HE # Residence prior to admission to acute hospital
+- PH # Basic respiratory support days
+- AIDS_V3 # Advanced respiratory support days
+- SRD # Sector of other hospital (in)
+- STERX # Sector of other hospital (out)
+- VSCD # Severe respiratory disease
+- DEP # Solid organ or tissue donor
+- apache_score # Status at discharge from your hospital
+- apache_prob # Dead or alive on discharge
+- TNESSA # Status at ultimate discharge from hospital
+- DHRS # Steroid treatment
+- ORGAN_SUPPORT # Transferring unit identifier (in)
+- ARSD # Treatment withheld/withdrawn
+- BRSD # Type of adult ICU/HDU (in)
+- ACSD # Very severe cardiovascular disease
+- BCSD # Heart rate
+- RSD # Heart rhythm
+- NSD # Mean arterial blood pressure - Art BPMean arterial blood pressure
+- LSD # Mean arterial blood pressure - NBPMean arterial blood pressure
+- DSD # Systolic Arterial blood pressure - Art BPSystolic Arterial blood pressure
+- GSD # Systolic Arterial blood pressure - NBPSystolic Arterial blood pressure
+- ITW_V3 # Diastolic arterial blood pressure - Art BPDiastolic arterial blood pressure
+- DTW # Diastolic arterial blood pressure - NBPDiastolic arterial blood pressure
+- TTW # Central venous pressure
+- BSDTP # Cardiac output - LiDCO Plus
+- DDBSD # Cardiac output - LiDCO Rapid
+- TDBSD # Cardiac output - PICCO
+- DOD # Cardiac output - PA Catheter
+- TOD # Cardiac output - Doppler
+- REFOD # Lactate - ABG
+- OD_V3 # Lactate - Lab
+- DBRICU # Central venous saturation
+- TBRICU # Airway
+- advsupt_resp # SpO2
+- basicsupt_resp # SaO2 - ABG
+- advsupt_resp # PaO2 - ABG
+- basicsupt_cardv # PaCO2 - ABG
+- supt_renal # pH - ABG / VBG
+- supt_neuro # HCO3 - ABG / VBG
+- supt_liver # Temperature - Central
+- supt_dermat # Temperature - Non-central
+- supt_gastr # Position
+- gcs_total # Invasive or non-invasive (ventilation)
+- gcs_motor # Total respiratory rate (monitor)
+- gcs_eye # Total respiratory rate (ventilator)
+- gcs_verbal # Mandatory Respiratory Rate
+- sedation_score # Minute volume
+- sedataion # Peak airway pressure
+- h_rate # Inspired fraction of oxygen
+- h_rhythm # Positive End Expiratory Pressure
+- bp_m_a # Airway pressure
+- bp_m_ni # Frequency (Hz)
+- bp_sys_a # Cycle Volume
+- bp_sys_ni # Base flow
+- bp_dia_a # GCS - total
+- bp_dia_ni # GCS - motor component
+- venous_p # GCS - eye component
+- lidco_plus # GCS - verbal component
+- lidco_rapid # Sedation score (hourly)
+- picco # Renal replacement mode
+- pa_catheter # Urine output
+- doppler # Urea
+- airway # Creatinine
+- ventilation # Sodium
+- respiratory_rate_spon # Sodium ABG/VBG
+- respiratory_rate_totl # Potassium
+- spo2 # Potassium ABG/VBG
+- pao2_fio2 # Bilirubin
+- fraction_oxygen # Glucose ABG/VBG
+- pe_expiratory_pressure # Glucose bedside test
+- mand_resp_rate # Haemoglobin ABG/VBG
+- total_resp_rate # Haemoglobin
+- minute_volume # White cell count
+- tidal_volume # Neutrophil count
+- airway_pressure # Platelets
+- frequency # Site
+- cycle_volumn # Organism
+- base_flow # Sensitivity
+- airway_pressure # Fentanyl
+- fluid_balance # Milrinone
+- fluid_balance # CCU bed configuration 03
+- urine_output # CCU bed configuration 05
+- renal_replace # CCU bed configuration 90
+- duration_therapy # Admission type
+- dialysate # Brain stem death declared
+- replace_fluid_RRT # Timeliness of discharge from your unit
+- position # Date of first critical care post-discharge from your unit
+- temperature_non_central # APACHE II Score
+- sodium # APACHE II Probability
+- potassium_abg_vbg # Fluid Balance (hourly)
+- urea # Amikacin
+- creatinine # Amoxicillin
+- bilirubin # Azithromycin
+- glucose_lab # Benzylpenicillin
+- glucode_abg_vbg # Cefotaxime
+- glucode_bedtest # Ceftazidime
+- cprotein # Ceftriaxone
+- ph_abg_vbg # Cefuroxime
+- hco3_abg_vbg # Chloramphenicol
+- lactate_abg # Ciprofloxacin
+- lactate_lab # Clarithromycin
+- haemoglobin # Clindamycin
+- haemoglobin_abg_vbg # Co-Amoxiclav
+- white_cell # Colistin
+- neutrophil # Co-Trimoxazole
+- platelets # Demeclocycline HCL
+- site # Doxycycline
+- organism # Ertapenem
+- sensitivity # Erythromycin
+- pao2_abg # Ethambutal HCL
+- sao2_abg # Flucloxacillin
+- venous_saturation # Fuscidic acid
+- paco2_abg # Gentamicin
+- amikacin # Isoniazid
+- gentamicin # Levofloxacin
+- neomycin # Linezolid
+- tobramycin # Meropenem
+- pentamidine # Metronidazole
+- ethambutal hcl # Moxifloxacin
+- isoniazid # Neomycin
+- pyrazinamide # Nitrofurantion
+- rifampacin # Ofloxacin
+- rifater # Pentamidine
+- rifinah # Phenoxymethylpenicillin
+- ertapenem # Piperacillin/Tazobactam
+- meropenem # Pyrazinamide
+- cefotaxime # Rifampacin
+- ceftazidime # Rifater
+- ceftriaxone # Rifinah
+- cefuroxime # Sodium Fusidate
+- chloramphenicol # Teicoplanin
+- fuscidic acid # Tigecycline
+- sodium fusidate # Tobramycin
+- teicoplanin # Trimethoprim
+- vancomycin # Vancomycin
+- clindamycin # Propofol
+- azithromycin # Midazolam
+- clarithromycin # Remifentanil
+- erythromycin # Adrenaline
+- nitrofurantion # Dobutamine
+- metronidazole # Dopamine
+- linezolid # Enoximone
+- amoxicillin # Levosimendan
+- benzylpenicillin # Noradrenaline
+- co-amoxiclav # Vasopressin
+- flucloxacillin # Spontaneous Respiratory Rate
+- phenoxymethylpenicillin # Tidal volume
+- piperacillin_tazobactam # Duration of therapy (hours per day)
+- colistin # Total effluent per day
+- ciprofloxacin # Dialysate
+- levofloxacin # Replacement fluid during RRT
+- moxifloxacin # Type of anticoagulation
+- ofloxacin # C reactive protein
+- co-trimoxazole # Thiopentone / Thiopental
+- trimethoprim # Clonidine
+- demeclocycline hcl # Dexmedetomidine
+- doxycycline # Ketamine
+- tigecycline # Morphine
+- propofol # Dopexamine
+- thiopentone_thiopental # Terlipressin
+- midazolam # Type of adult ICU/HDU (out)
+- clonidine # Destination post discharge within your hospital
+- dexmedetomidine # Esmolol
+- ketamine # Metoprolol
+- fentanyl # Dexamethasone
+- morphine # Hydrocortisone
+- remifentanil # Methylprednisolone
+- levosimendan # Sedation yes/no
+- dobutamine # PaO2/FiO2 ratio
+- dopamine # Fluid Balance (daily)
+- dopexamine # Glucose (laboratory)
+- enoximone # Status at ultimate discharge from ICUHDU
+- milrinone # Advanced respiratory support
+- noradrenaline # Basic respiratory support
+- vasopressin # Advanced Cardiovascular support
+- terlipressin # Basic Cardiovascular support
+- esmolol # Renal support
+- metoprolol # Neurological support
+- dexamethasone # Liver support
+- hydrocortisone # Dermatological support
+- methylprednisolone # Gastrointestinal support
