@@ -1,0 +1,19 @@
+direct_var: 
+  - ICNNO   # 
+  - NHSNO   # NHS number
+  - pasno   # PAS number
+  - DOB     # date of birth
+  - PCODE   # post code
+  - ETHNIC  # ethnic 
+
+key_var:
+  - Height:
+    - recode: 15
+  - SEX:
+    - PRAM
+  - DDH: # date of ultimate discharge from ICU
+    - microaggregation
+
+
+l-diversity: 0.7
+k-anonymity: 3
