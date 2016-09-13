@@ -8,9 +8,9 @@ direct_var:
 - pasno # Level 2 (HDU) days
 
 key_var:
-- bed03 # Code of GP
+- bed03: # Code of GP
   - recode: 10
-- PA_V3 # Date of admission to your hospital
+- PA_V3: # Date of admission to your hospital
   - microaggregation
 - SCODE # Date of birth
 - CLASSNS # Date of last critical care visit prior to this admission to your unit
