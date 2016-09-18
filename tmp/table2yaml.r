@@ -1,6 +1,6 @@
 library(ccdata)
 an <- read.csv("data/ANON_REF.csv")
-newan <- paste(code2stname(an$NHICcode), an$dataItem, sep=" # ")
+newan <- paste(code2stname(as.character(an$NHICcode)), an$dataItem, sep=" # ")
 newlist <- list()
 
 newlist[["direct_var"]] <- newan[an$Anonymisation == "Direct identifier"]
