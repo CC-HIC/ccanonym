@@ -609,7 +609,7 @@ NIHR_HIC_ICU_0021:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0021
 NIHR_HIC_ICU_0399:
-  Anonymisation: Key variable
+  Anonymisation: Sensitive
   Classification1: Demographic
   Classification2: Prognostication_variables
   Classification3: Reason_for_admission
@@ -619,7 +619,7 @@ NIHR_HIC_ICU_0399:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0399
 NIHR_HIC_ICU_0088:
-  Anonymisation: Key variable
+  Anonymisation: Sensitive
   Classification1: Demographic
   Classification2: Prognostication_variables
   Classification3: Reason_for_admission
@@ -629,7 +629,7 @@ NIHR_HIC_ICU_0088:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0088
 NIHR_HIC_ICU_0912:
-  Anonymisation: Key variable
+  Anonymisation: Sensitive
   Classification1: Demographic
   Classification2: Prognostication_variables
   Classification3: Reason_for_admission
@@ -719,7 +719,7 @@ NIHR_HIC_ICU_0026:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0026
 NIHR_HIC_ICU_0016:
-  Anonymisation: Non-identifying
+  Anonymisation: Sensitive
   Classification1: Demographic
   Classification2: Prognostication_variables
   Classification3: APACHE_II
@@ -739,7 +739,7 @@ NIHR_HIC_ICU_0060:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0060
 NIHR_HIC_ICU_0075:
-  Anonymisation: Non-identifying
+  Anonymisation: Sensitive
   Classification1: Demographic
   Classification2: Prognostication_variables
   Classification3: APACHE_II
@@ -749,7 +749,7 @@ NIHR_HIC_ICU_0075:
   ClinicalTag: ~
   NHICcode: NIHR_HIC_ICU_0075
 NIHR_HIC_ICU_0062:
-  Anonymisation: Non-identifying
+  Anonymisation: Sensitive
   Classification1: Demographic
   Classification2: Prognostication_variables
   Classification3: APACHE_II

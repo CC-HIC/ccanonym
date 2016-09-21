@@ -1,220 +1,106 @@
-# 2016-09-07 anonymisation specification from Arihdia
-# Saved here for reference
-input_file: N_Episodes.csv
-output_file: /deid_files/uclh_critical_care/anon_N_Episodes_160524.csv
-project_id: 1
-
-columns:
- - name: episodeID
-   func: CLEAR
- - name: ACSD
-   func: CLEAR
- - name: ADNO
-   func: CLEAR
- - name: AIDS_V3
-   func: CLEAR
- - name: AMLALLMM
-   func: CLEAR
- - name: AMUAI
-   func: CLEAR
- - name: ARSD
-   func: CLEAR
- - name: BCSD
-   func: CLEAR
- - name: BPC
-   func: CLEAR
- - name: BRSD
-   func: CLEAR
- - name: BSDTP
-   func: CLEAR
- - name: CCA
-   func: CLEAR
- - name: CCD
-   func: CLEAR
- - name: CCL2D
-   func: CLEAR
- - name: CCL3D
-   func: CLEAR
- - name: CHEMOX
-   func: CLEAR
- - name: CICIDS
-   func: CLEAR
- - name: CLASSNS
-   func: CLEAR
- - name: CMLCLL
-   func: CLEAR
- - name: CPR_V3
-   func: CLEAR
- - name: CRRX
-   func: CLEAR
- - name: DAH
-   func: DEIDENTIFY
- - name: DAICU
-   func: DEIDENTIFY
- - name: DBRICU
-   func: DEIDENTIFY
- - name: DDBSD
-   func: CLEAR
- - name: DDH
-   func: CLEAR
- - name: DDICU
-   func: DEIDENTIFY
- - name: DEP
-   func: CLEAR
- - name: DESTH_V3
-   func: CLEAR
- - name: DFCCD
-   func: CLEAR
- - name: DHRS
-   func: CLEAR
- - name: DIS
-   func: CLEAR
- - name: DLCCA
-   func: CLEAR
- - name: DOAH
-   func: CLEAR
- - name: DOAICU
-   func: CLEAR
- - name: DOB
-   func: DEIDENTIFY
- - name: DOD
-   func: DEIDENTIFY
- - name: DSD
-   func: CLEAR
- - name: DTW
-   func: CLEAR
- - name: DUDH
-   func: DEIDENTIFY
- - name: DUDICU
-   func: DEIDENTIFY
- - name: DWFRD
-   func: CLEAR
- - name: ETHNIC
-   func: CLEAR
- - name: GSD
-   func: CLEAR
- - name: HCM
-   func: CLEAR
- - name: HCMEST
-   func: CLEAR
- - name: HDIS
-   func: CLEAR
- - name: HE
-   func: CLEAR
- - name: HLOCA
-   func: CLEAR
- - name: HLOCD
-   func: CLEAR
- - name: HV
-   func: CLEAR
- - name: ICNNO
-   func: CLEAR
- - name: ITW_V3
-   func: CLEAR
- - name: LEVD
-   func: CLEAR
- - name: LOCA
-   func: CLEAR
- - name: LOCD
-   func: CLEAR
- - name: LSD
-   func: CLEAR
- - name: LYM
-   func: CLEAR
- - name: META
-   func: CLEAR
- - name: NHSNO
-   rename: Subject Id
-   func: DEIDENTIFY
- - name: NSD
-   func: CLEAR
- - name: OCPMH
-   func: CLEAR
- - name: OD_V3
-   func: CLEAR
- - name: PA_V3
-   func: CLEAR
- - name: PCODE
-   func: DEIDENTIFY
- - name: PH
-   func: CLEAR
- - name: PLOCA
-   func: CLEAR
- - name: PSP
-   func: CLEAR
- - name: RADIOX
-   func: CLEAR
- - name: RAICU1
-   func: CLEAR
- - name: RAICU2
-   func: CLEAR
- - name: RDIS_V3
-   func: CLEAR
- - name: REFOD
-   func: CLEAR
- - name: RESA
-   func: CLEAR
- - name: RESD
-   func: CLEAR
- - name: RSD
-   func: CLEAR
- - name: SCODE
-   func: CLEAR
- - name: SEX
-   func: DEIDENTIFY
- - name: SOHA
-   func: CLEAR
- - name: SOHD
-   func: CLEAR
- - name: SRD
-   func: CLEAR
- - name: STERX
-   func: CLEAR
- - name: TBRICU
-   func: CLEAR
- - name: TDBSD
-   func: CLEAR
- - name: TGA
-   func: CLEAR
- - name: TGD
-   func: CLEAR
- - name: TNESSA
-   func: CLEAR
- - name: TNESSD
-   func: CLEAR
- - name: TOD
-   func: CLEAR
- - name: TTW
-   func: CLEAR
- - name: TUADNO
-   func: CLEAR
- - name: TUIDI
-   func: CLEAR
- - name: TWFRD
-   func: CLEAR
- - name: TYPEIHA
-   func: CLEAR
- - name: TYPEIHD
-   func: CLEAR
- - name: UDIS
-   func: CLEAR
- - name: UHDIS
-   func: CLEAR
- - name: URAICU
-   func: CLEAR
- - name: VSCD
-   func: CLEAR
- - name: WKG
-   func: CLEAR
- - name: WKGEST
-   func: CLEAR
- - name: HOSPNO
-   func: DEIDENTIFY
- - name: APACHEIIS
-   func: CLEAR
- - name: APACHEIIP
-   func: CLEAR
- - name: TOTOS
-   func: CLEAR
- - name: GPCODE
-   func: DEIDENTIFY
+episodeID	Direct identifier
+ACSD	Non-identifying
+ADNO	Direct identifier
+AIDS_V3	Non-identifying
+AMLALLMM	Non-identifying
+AMUAI	Non-identifying
+ARSD	Non-identifying
+BCSD	Non-identifying
+BPC	Non-identifying
+BRSD	Non-identifying
+BSDTP	Non-identifying
+CCA	Non-identifying
+CCD	Non-identifying
+CCL2D	Non-identifying
+CCL3D	Non-identifying
+CHEMOX	Non-identifying
+CICIDS	Non-identifying
+CLASSNS	Non-identifying
+CMLCLL	Non-identifying
+CPR_V3	Non-identifying
+CRRX	Non-identifying
+DAH	Key variable
+DAICU	Key variable
+DBRICU	Key variable
+DDBSD	Non-identifying
+DDH	Non-identifying
+DDICU	Key variable
+DEP	Non-identifying
+DESTH_V3	Non-identifying
+DFCCD	Non-identifying
+DHRS	Non-identifying
+DIS	Non-identifying
+DLCCA	Non-identifying
+DOAH	Non-identifying
+DOAICU	Non-identifying
+DOB	Key variable
+DOD	Key variable
+DSD	Non-identifying
+DTW	Non-identifying
+DUDH	Key variable
+DUDICU	Key variable
+DWFRD	Non-identifying
+ETHNIC	Non-identifying
+GSD	Non-identifying
+HCM	Non-identifying
+HCMEST	Non-identifying
+HDIS	Non-identifying
+HE	Non-identifying
+HLOCA	Non-identifying
+HLOCD	Non-identifying
+HV	Non-identifying
+ICNNO	Non-identifying
+ITW_V3	Non-identifying
+LEVD	Non-identifying
+LOCA	Non-identifying
+LOCD	Non-identifying
+LSD	Non-identifying
+LYM	Non-identifying
+META	Non-identifying
+NHSNO	Direct identifier
+NSD	Non-identifying
+OCPMH	Non-identifying
+OD_V3	Non-identifying
+PA_V3	Non-identifying
+PCODE	Direct identifier
+PH	Non-identifying
+PLOCA	Non-identifying
+PSP	Non-identifying
+RADIOX	Non-identifying
+RAICU1	Key variable
+RAICU2	Key variable
+RDIS_V3	Non-identifying
+REFOD	Non-identifying
+RESA	Non-identifying
+RESD	Non-identifying
+RSD	Non-identifying
+SCODE	Non-identifying
+SEX	Key variable
+SOHA	Non-identifying
+SOHD	Non-identifying
+SRD	Non-identifying
+STERX	Non-identifying
+TBRICU	Non-identifying
+TDBSD	Non-identifying
+TGA	Non-identifying
+TGD	Non-identifying
+TNESSA	Non-identifying
+TNESSD	Non-identifying
+TOD	Non-identifying
+TTW	Non-identifying
+TUADNO	Non-identifying
+TUIDI	Non-identifying
+TWFRD	Non-identifying
+TYPEIHA	Non-identifying
+TYPEIHD	Non-identifying
+UDIS	Non-identifying
+UHDIS	Non-identifying
+URAICU	Non-identifying
+VSCD	Non-identifying
+WKG	Non-identifying
+WKGEST	Non-identifying
+HOSPNO	Direct identifier
+APACHEIIS	Non-identifying
+APACHEIIP	Non-identifying
+TOTOS	Non-identifying
+GPCODE	Key variable
