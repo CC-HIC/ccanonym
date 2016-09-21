@@ -1,0 +1,788 @@
+NIHR_HIC_ICU_0002:
+  shortName: ICNNO
+NIHR_HIC_ICU_0006:
+  shortName: bed02
+  dataItem: CCU bed configuration 02
+NIHR_HIC_ICU_0395:
+  shortName: bed03
+  dataItem: CCU bed configuration 03
+NIHR_HIC_ICU_0396:
+  shortName: bed05
+  dataItem: CCU bed configuration 05
+NIHR_HIC_ICU_0397:
+  shortName: bed50
+  dataItem: CCU bed configuration 90
+NIHR_HIC_ICU_0073:
+  shortName: NHSNO
+  dataItem: NHS number
+NIHR_HIC_ICU_0001:
+  shortName: pasno
+  dataItem: PAS number
+NIHR_HIC_ICU_0005:
+  shortName: ADNO
+NIHR_HIC_ICU_0033:
+  shortName: DOB
+  dataItem: Date of birth
+NIHR_HIC_ICU_0076:
+  shortName: PCODE
+  dataItem: Postcode
+NIHR_HIC_ICU_0003:
+  shortName: GPCODE
+  dataItem: Code of GP
+NIHR_HIC_ICU_0058:
+  shortName: ETHNIC
+  dataItem: Ethnicity
+NIHR_HIC_ICU_0093:
+  shortName: SEX
+  dataItem: Sex
+NIHR_HIC_ICU_0017:
+  shortName: HCM
+  dataItem: Height
+NIHR_HIC_ICU_0018:
+  shortName: HCMEST
+  dataItem: Height (Source)
+NIHR_HIC_ICU_0019:
+  shortName: WKG
+  dataItem: Weight
+NIHR_HIC_ICU_0020:
+  shortName: WKGEST
+  dataItem: Weight (Source)
+NIHR_HIC_ICU_0032:
+  shortName: DAH
+  dataItem: Date of admission to your hospital
+NIHR_HIC_ICU_0411:
+  shortName: DAICU
+  dataItem: Date & Time of admission to your unit
+NIHR_HIC_ICU_0050:
+  shortName: DWFRD
+  dataItem: Date fully ready for discharge
+NIHR_HIC_ICU_0051:
+  shortName: TWFRD
+  dataItem: Time fully ready for discharge
+NIHR_HIC_ICU_0412:
+  shortName: DDICU
+  dataItem: Date & Time of discharge from your unit
+NIHR_HIC_ICU_0037:
+  shortName: DUDICU
+  dataItem: Date of ultimate discharge from ICU/HDU
+NIHR_HIC_ICU_0406:
+  shortName: DDH
+  dataItem: Date of discharge from your hospital
+NIHR_HIC_ICU_0408:
+  shortName: DUDH
+  dataItem: Date of ultimate discharge from your hospital
+NIHR_HIC_ICU_0930:
+  shortName: UDIS
+  dataItem: Status at ultimate discharge from ICUHDU
+NIHR_HIC_ICU_0085:
+  shortName: RESA
+  dataItem: Residence prior to admission to acute hospital
+NIHR_HIC_ICU_0065:
+  shortName: HLOCA
+  dataItem: Hospital housing location (in)
+NIHR_HIC_ICU_0068:
+  shortName: LOCA
+  dataItem: Location (in)
+NIHR_HIC_ICU_0398:
+  shortName: PA_V3
+  dataItem: Admission type
+NIHR_HIC_ICU_0004:
+  shortName: SCODE
+  dataItem: Treatment function code
+NIHR_HIC_ICU_0027:
+  shortName: CLASSNS
+  dataItem: classification of surgery
+NIHR_HIC_ICU_0007:
+  shortName: CCL2D
+  dataItem: Level 2 (HDU) days
+NIHR_HIC_ICU_0008:
+  shortName: CCL3D
+  dataItem: Level 3 (ICU) days
+NIHR_HIC_ICU_0081:
+  shortName: RDIS_V3
+  dataItem: Discharge status (Reason for discharge from your unit)
+NIHR_HIC_ICU_0069:
+  shortName: LOCD
+  dataItem: Discharge location (location out)
+NIHR_HIC_ICU_0405:
+  shortName: TNESSD
+  dataItem: Timeliness of discharge from your unit
+NIHR_HIC_ICU_0066:
+  shortName: LEVD
+  dataItem: Level of care at discharge from your unit
+NIHR_HIC_ICU_0097:
+  shortName: DIS
+  dataItem: Dead or alive on discharge
+NIHR_HIC_ICU_0035:
+  shortName: DOAH
+  dataItem: Date of original admission to/attendance at acute hospital
+NIHR_HIC_ICU_0089:
+  shortName: SOHA
+  dataItem: Sector of other hospital (in)
+NIHR_HIC_ICU_0077:
+  shortName: PLOCA
+  dataItem: Prior location (in)
+NIHR_HIC_ICU_0100:
+  shortName: TUADNO
+  dataItem: Transferring unit admission number
+NIHR_HIC_ICU_0036:
+  shortName: DOAICU
+  dataItem: Date of original admission to ICU/HDU
+NIHR_HIC_ICU_0101:
+  shortName: TUIDI
+  dataItem: Transferring unit identifier (in)
+NIHR_HIC_ICU_0104:
+  shortName: TYPEIHA
+  dataItem: Type of adult ICU/HDU (in)
+NIHR_HIC_ICU_0013:
+  shortName: TGA
+  dataItem: Adult ICU/HDU within your critical care transfer group (in)
+NIHR_HIC_ICU_0031:
+  shortName: CCA
+  dataItem: Critical care visit prior to this admission to your unit
+NIHR_HIC_ICU_0034:
+  shortName: DLCCA
+  dataItem: Date of last critical care visit prior to this admission to your unit
+NIHR_HIC_ICU_0057:
+  shortName: HLOCD
+  dataItem: Hospital housing location (out)
+NIHR_HIC_ICU_0090:
+  shortName: SOHD
+  dataItem: Sector of other hospital (out)
+NIHR_HIC_ICU_0568:
+  shortName: TYPEIHD
+  dataItem: Type of adult ICU/HDU (out)
+NIHR_HIC_ICU_0014:
+  shortName: TGD
+  dataItem: Adult ICU/HDU within your critical care transfer group (out)
+NIHR_HIC_ICU_0095:
+  shortName: HDIS
+  dataItem: Status at discharge from your hospital
+NIHR_HIC_ICU_0030:
+  shortName: CCD
+  dataItem: Critical care visit post-discharge from your unit
+NIHR_HIC_ICU_0407:
+  shortName: DFCCD
+  dataItem: Date of first critical care post-discharge from your unit
+NIHR_HIC_ICU_0573:
+  shortName: DESTH_V3
+  dataItem: Destination post discharge within your hospital
+NIHR_HIC_ICU_0084:
+  shortName: RESD
+  dataItem: Residence post discharge from acute hospital
+NIHR_HIC_ICU_0098:
+  shortName: UHDIS
+  dataItem: Status at ultimate discharge from hospital
+NIHR_HIC_ICU_0011:
+  shortName: PSP
+  dataItem: Admission for pre-surgical preparation
+NIHR_HIC_ICU_0021:
+  shortName: CPR_V3
+  dataItem: Cardiopulmonary resuscitation within 24 hours prior to admission to unit
+NIHR_HIC_ICU_0399:
+  shortName: RAICU1
+  dataItem: Primary reason for admission to your unit
+NIHR_HIC_ICU_0088:
+  shortName: RAICU2
+  dataItem: Secondary reasons for admission to your unit
+NIHR_HIC_ICU_0912:
+  shortName: URAICU
+  dataItem: Ultimate primary reason for admission to unit
+NIHR_HIC_ICU_0024:
+  shortName: CHEMOX
+  dataItem: Chemotherapy (within the last 6months) steroids alone excluded
+NIHR_HIC_ICU_0080:
+  shortName: RADIOX
+  dataItem: Radiotherapy
+NIHR_HIC_ICU_0029:
+  shortName: CICIDS
+  dataItem: Congenital immunohumoral or cellular immune deficiency state
+NIHR_HIC_ICU_0010:
+  shortName: AMLALLMM
+  dataItem: Acute myeloid/lymphocytic leukaemia or myeloma
+NIHR_HIC_ICU_0025:
+  shortName: CMLCLL
+  dataItem: Chronic myelogenous /lymphocytic leukaemia
+NIHR_HIC_ICU_0070:
+  shortName: LYM
+  dataItem: Lymphoma
+NIHR_HIC_ICU_0071:
+  shortName: META
+  dataItem: Metastatic disease
+NIHR_HIC_ICU_0026:
+  shortName: CRRX
+  dataItem: Chronic renal replacement therapy
+NIHR_HIC_ICU_0016:
+  shortName: BPC
+  dataItem: Biopsy proven cirrhosis
+NIHR_HIC_ICU_0060:
+  shortName: HE
+  dataItem: Heaptic encephalopathy
+NIHR_HIC_ICU_0075:
+  shortName: PH
+  dataItem: Portal hypertension
+NIHR_HIC_ICU_0062:
+  shortName: AIDS_V3
+  dataItem: HIV/AIDS
+NIHR_HIC_ICU_0063:
+  shortName: HV
+  dataItem: Home ventilation
+NIHR_HIC_ICU_0092:
+  shortName: SRD
+  dataItem: Severe respiratory disease
+NIHR_HIC_ICU_0099:
+  shortName: STERX
+  dataItem: Steroid treatment
+NIHR_HIC_ICU_0107:
+  shortName: VSCD
+  dataItem: Very severe cardiovascular disease
+NIHR_HIC_ICU_0074:
+  shortName: OCPMH
+  dataItem: Other condition in past medical history
+NIHR_HIC_ICU_0055:
+  shortName: DEP
+  dataItem: Dependency prior to admission
+NIHR_HIC_ICU_0409:
+  shortName: apache_score
+  dataItem: APACHE II Score
+NIHR_HIC_ICU_0410:
+  shortName: apache_prob
+  dataItem: APACHE II Probability
+NIHR_HIC_ICU_0053:
+  shortName: TNESSA
+  dataItem: Delayed admission
+NIHR_HIC_ICU_0054:
+  shortName: DHRS
+  dataItem: Delay
+NIHR_HIC_ICU_0015:
+  shortName: AMUAI
+  dataItem: Antimicrobial use after 48 hours in your unit
+NIHR_HIC_ICU_0009:
+  shortName: ORGAN_SUPPORT
+  dataItem: Organ support maximum
+NIHR_HIC_ICU_0087:
+  shortName: ARSD
+  dataItem: Advanced respiratory support days
+NIHR_HIC_ICU_0086:
+  shortName: BRSD
+  dataItem: Basic respiratory support days
+NIHR_HIC_ICU_0023:
+  shortName: ACSD
+  dataItem: Advanced Cardiovascular support days
+NIHR_HIC_ICU_0022:
+  shortName: BCSD
+  dataItem: Basic Cardiovascular support days
+NIHR_HIC_ICU_0083:
+  shortName: RSD
+  dataItem: Renal support days
+NIHR_HIC_ICU_0072:
+  shortName: NSD
+  dataItem: Neurological support days
+NIHR_HIC_ICU_0067:
+  shortName: LSD
+  dataItem: Liver support days
+NIHR_HIC_ICU_0056:
+  shortName: DSD
+  dataItem: Dermatological support days
+NIHR_HIC_ICU_0059:
+  shortName: GSD
+  dataItem: Gastrointestinal support days
+NIHR_HIC_ICU_0103:
+  shortName: ITW_V3
+  dataItem: Treatment withheld/withdrawn
+NIHR_HIC_ICU_0048:
+  shortName: DTW
+  dataItem: Date treatment first withdrawn
+NIHR_HIC_ICU_0049:
+  shortName: TTW
+  dataItem: Time treatment first withdrawn
+NIHR_HIC_ICU_0400:
+  shortName: BSDTP
+  dataItem: Brain stem death declared
+NIHR_HIC_ICU_0044:
+  shortName: DDBSD
+  dataItem: Date of declaration of brain stem death
+NIHR_HIC_ICU_0045:
+  shortName: TDBSD
+  dataItem: Time of declaration of brain stem death
+NIHR_HIC_ICU_0042:
+  shortName: DOD
+  dataItem: Date of death on yout unit
+NIHR_HIC_ICU_0043:
+  shortName: TOD
+  dataItem: Time of death on your unit
+NIHR_HIC_ICU_0082:
+  shortName: REFOD
+  dataItem: Referred for solid organ or tissue donation
+NIHR_HIC_ICU_0094:
+  shortName: OD_V3
+  dataItem: Solid organ or tissue donor
+NIHR_HIC_ICU_0038:
+  shortName: DBRICU
+  dataItem: Date body removed from your unit
+NIHR_HIC_ICU_0039:
+  shortName: TBRICU
+  dataItem: Time body removed from your unit
+NIHR_HIC_ICU_0931:
+  shortName: advsupt_resp
+  dataItem: Advanced respiratory support
+NIHR_HIC_ICU_0932:
+  shortName: basicsupt_resp
+  dataItem: Basic respiratory support
+NIHR_HIC_ICU_0933:
+  shortName: advsupt_resp
+  dataItem: Advanced Cardiovascular support
+NIHR_HIC_ICU_0934:
+  shortName: basicsupt_cardv
+  dataItem: Basic Cardiovascular support
+NIHR_HIC_ICU_0935:
+  shortName: supt_renal
+  dataItem: Renal support
+NIHR_HIC_ICU_0936:
+  shortName: supt_neuro
+  dataItem: Neurological support
+NIHR_HIC_ICU_0937:
+  shortName: supt_liver
+  dataItem: Liver support
+NIHR_HIC_ICU_0938:
+  shortName: supt_dermat
+  dataItem: Dermatological support
+NIHR_HIC_ICU_0939:
+  shortName: supt_gastr
+  dataItem: Gastrointestinal support
+NIHR_HIC_ICU_0156:
+  shortName: gcs_total
+  dataItem: GCS - total
+NIHR_HIC_ICU_0157:
+  shortName: gcs_motor
+  dataItem: GCS - motor component
+NIHR_HIC_ICU_0158:
+  shortName: gcs_eye
+  dataItem: GCS - eye component
+NIHR_HIC_ICU_0159:
+  shortName: gcs_verbal
+  dataItem: GCS - verbal component
+NIHR_HIC_ICU_0160:
+  shortName: sedation_score
+  dataItem: Sedation score (hourly)
+NIHR_HIC_ICU_0911:
+  shortName: sedataion
+  dataItem: Sedation yes/no
+NIHR_HIC_ICU_0108:
+  shortName: h_rate
+  dataItem: Heart rate
+NIHR_HIC_ICU_0109:
+  shortName: h_rhythm
+  dataItem: Heart rhythm
+NIHR_HIC_ICU_0110:
+  shortName: bp_m_a
+  dataItem: Mean arterial blood pressure - Art BPMean arterial blood pressure
+NIHR_HIC_ICU_0111:
+  shortName: bp_m_ni
+  dataItem: Mean arterial blood pressure - NBPMean arterial blood pressure
+NIHR_HIC_ICU_0112:
+  shortName: bp_sys_a
+  dataItem: Systolic Arterial blood pressure - Art BPSystolic Arterial blood pressure
+NIHR_HIC_ICU_0113:
+  shortName: bp_sys_ni
+  dataItem: Systolic Arterial blood pressure - NBPSystolic Arterial blood pressure
+NIHR_HIC_ICU_0114:
+  shortName: bp_dia_a
+  dataItem: Diastolic arterial blood pressure - Art BPDiastolic arterial blood pressure
+NIHR_HIC_ICU_0115:
+  shortName: bp_dia_ni
+  dataItem: Diastolic arterial blood pressure - NBPDiastolic arterial blood pressure
+NIHR_HIC_ICU_0116:
+  shortName: venous_p
+  dataItem: Central venous pressure
+NIHR_HIC_ICU_0117:
+  shortName: lidco_plus
+  dataItem: Cardiac output - LiDCO Plus
+NIHR_HIC_ICU_0118:
+  shortName: lidco_rapid
+  dataItem: Cardiac output - LiDCO Rapid
+NIHR_HIC_ICU_0119:
+  shortName: picco
+  dataItem: Cardiac output - PICCO
+NIHR_HIC_ICU_0120:
+  shortName: pa_catheter
+  dataItem: Cardiac output - PA Catheter
+NIHR_HIC_ICU_0121:
+  shortName: doppler
+  dataItem: Cardiac output - Doppler
+NIHR_HIC_ICU_0126:
+  shortName: airway
+  dataItem: Airway
+NIHR_HIC_ICU_0144:
+  shortName: ventilation
+  dataItem: Invasive or non-invasive (ventilation)
+NIHR_HIC_ICU_0549:
+  shortName: respiratory_rate_spon
+  dataItem: Spontaneous Respiratory Rate
+NIHR_HIC_ICU_0145:
+  shortName: respiratory_rate_totl
+  dataItem: Total respiratory rate (monitor)
+NIHR_HIC_ICU_0129:
+  shortName: spo2
+  dataItem: SpO2
+NIHR_HIC_ICU_0913:
+  shortName: pao2_fio2
+  dataItem: PaO2/FiO2 ratio
+NIHR_HIC_ICU_0150:
+  shortName: fraction_oxygen
+  dataItem: Inspired fraction of oxygen
+NIHR_HIC_ICU_0151:
+  shortName: pe_expiratory_pressure
+  dataItem: Positive End Expiratory Pressure
+NIHR_HIC_ICU_0147:
+  shortName: mand_resp_rate
+  dataItem: Mandatory Respiratory Rate
+NIHR_HIC_ICU_0146:
+  shortName: total_resp_rate
+  dataItem: Total respiratory rate (ventilator)
+NIHR_HIC_ICU_0148:
+  shortName: minute_volume
+  dataItem: Minute volume
+NIHR_HIC_ICU_0550:
+  shortName: tidal_volume
+  dataItem: Tidal volume
+NIHR_HIC_ICU_0149:
+  shortName: airway_pressure
+  dataItem: Peak airway pressure
+NIHR_HIC_ICU_0153:
+  shortName: frequency
+  dataItem: Frequency (Hz)
+NIHR_HIC_ICU_0154:
+  shortName: cycle_volumn
+  dataItem: Cycle Volume
+NIHR_HIC_ICU_0155:
+  shortName: base_flow
+  dataItem: Base flow
+NIHR_HIC_ICU_0152:
+  shortName: airway_pressure
+  dataItem: Airway pressure
+NIHR_HIC_ICU_0915:
+  shortName: fluid_balance
+  dataItem: Fluid Balance (daily)
+NIHR_HIC_ICU_0413:
+  shortName: fluid_balance
+  dataItem: Fluid Balance (hourly)
+NIHR_HIC_ICU_0162:
+  shortName: urine_output
+  dataItem: Urine output
+NIHR_HIC_ICU_0161:
+  shortName: renal_replace
+  dataItem: Renal replacement mode
+NIHR_HIC_ICU_0552:
+  shortName: duration_therapy
+  dataItem: Duration of therapy (hours per day)
+NIHR_HIC_ICU_0553:
+  shortName: effluent_per_day
+  dataItem: Total effluent per day
+NIHR_HIC_ICU_0554:
+  shortName: dialysate
+  dataItem: Dialysate
+NIHR_HIC_ICU_0555:
+  shortName: replace_fluid_RRT
+  dataItem: Replacement fluid during RRT
+NIHR_HIC_ICU_0556:
+  shortName: anticoagulation
+  dataItem: Type of anticoagulation
+NIHR_HIC_ICU_0143:
+  shortName: position
+  dataItem: Position
+NIHR_HIC_ICU_0141:
+  shortName: temperature_central
+  dataItem: Temperature - Central
+NIHR_HIC_ICU_0142:
+  shortName: temperature_non_central
+  dataItem: Temperature - Non-central
+NIHR_HIC_ICU_0168:
+  shortName: sodium
+  dataItem: Sodium
+NIHR_HIC_ICU_0169:
+  shortName: sodium_abg_vbg
+  dataItem: Sodium ABG/VBG
+NIHR_HIC_ICU_0171:
+  shortName: potassium
+  dataItem: Potassium
+NIHR_HIC_ICU_0172:
+  shortName: potassium_abg_vbg
+  dataItem: Potassium ABG/VBG
+NIHR_HIC_ICU_0164:
+  shortName: urea
+  dataItem: Urea
+NIHR_HIC_ICU_0166:
+  shortName: creatinine
+  dataItem: Creatinine
+NIHR_HIC_ICU_0174:
+  shortName: bilirubin
+  dataItem: Bilirubin
+NIHR_HIC_ICU_0918:
+  shortName: glucose_lab
+  dataItem: Glucose (laboratory)
+NIHR_HIC_ICU_0175:
+  shortName: glucode_abg_vbg
+  dataItem: Glucose ABG/VBG
+NIHR_HIC_ICU_0176:
+  shortName: glucode_bedtest
+  dataItem: Glucose bedside test
+NIHR_HIC_ICU_0557:
+  shortName: cprotein
+  dataItem: C reactive protein
+NIHR_HIC_ICU_0136:
+  shortName: ph_abg_vbg
+  dataItem: pH - ABG / VBG
+NIHR_HIC_ICU_0138:
+  shortName: hco3_abg_vbg
+  dataItem: HCO3 - ABG / VBG
+NIHR_HIC_ICU_0122:
+  shortName: lactate_abg
+  dataItem: Lactate - ABG
+NIHR_HIC_ICU_0123:
+  shortName: lactate_lab
+  dataItem: Lactate - Lab
+NIHR_HIC_ICU_0179:
+  shortName: haemoglobin
+  dataItem: Haemoglobin
+NIHR_HIC_ICU_0178:
+  shortName: haemoglobin_abg_vbg
+  dataItem: Haemoglobin ABG/VBG
+NIHR_HIC_ICU_0182:
+  shortName: white_cell
+  dataItem: White cell count
+NIHR_HIC_ICU_0183:
+  shortName: neutrophil
+  dataItem: Neutrophil count
+NIHR_HIC_ICU_0184:
+  shortName: platelets
+  dataItem: Platelets
+NIHR_HIC_ICU_0186:
+  shortName: site
+  dataItem: Site
+NIHR_HIC_ICU_0187:
+  shortName: organism
+  dataItem: Organism
+NIHR_HIC_ICU_0188:
+  shortName: sensitivity
+  dataItem: Sensitivity
+NIHR_HIC_ICU_0132:
+  shortName: pao2_abg
+  dataItem: PaO2 - ABG
+NIHR_HIC_ICU_0130:
+  shortName: sao2_abg
+  dataItem: SaO2 - ABG
+NIHR_HIC_ICU_0125:
+  shortName: venous_saturation
+  dataItem: Central venous saturation
+NIHR_HIC_ICU_0134:
+  shortName: paco2_abg
+  dataItem: PaCO2 - ABG
+NIHR_HIC_ICU_0414:
+  shortName: amikacin
+  dataItem: Amikacin
+NIHR_HIC_ICU_0437:
+  shortName: gentamicin
+  dataItem: Gentamicin
+NIHR_HIC_ICU_0444:
+  shortName: neomycin
+  dataItem: Neomycin
+NIHR_HIC_ICU_0459:
+  shortName: tobramycin
+  dataItem: Tobramycin
+NIHR_HIC_ICU_0447:
+  shortName: pentamidine
+  dataItem: Pentamidine
+NIHR_HIC_ICU_0434:
+  shortName: ethambutal hcl
+  dataItem: Ethambutal HCL
+NIHR_HIC_ICU_0438:
+  shortName: isoniazid
+  dataItem: Isoniazid
+NIHR_HIC_ICU_0450:
+  shortName: pyrazinamide
+  dataItem: Pyrazinamide
+NIHR_HIC_ICU_0452:
+  shortName: rifampacin
+  dataItem: Rifampacin
+NIHR_HIC_ICU_0453:
+  shortName: rifater
+  dataItem: Rifater
+NIHR_HIC_ICU_0454:
+  shortName: rifinah
+  dataItem: Rifinah
+NIHR_HIC_ICU_0432:
+  shortName: ertapenem
+  dataItem: Ertapenem
+NIHR_HIC_ICU_0441:
+  shortName: meropenem
+  dataItem: Meropenem
+NIHR_HIC_ICU_0418:
+  shortName: cefotaxime
+  dataItem: Cefotaxime
+NIHR_HIC_ICU_0419:
+  shortName: ceftazidime
+  dataItem: Ceftazidime
+NIHR_HIC_ICU_0420:
+  shortName: ceftriaxone
+  dataItem: Ceftriaxone
+NIHR_HIC_ICU_0421:
+  shortName: cefuroxime
+  dataItem: Cefuroxime
+NIHR_HIC_ICU_0422:
+  shortName: chloramphenicol
+  dataItem: Chloramphenicol
+NIHR_HIC_ICU_0436:
+  shortName: fuscidic acid
+  dataItem: Fuscidic acid
+NIHR_HIC_ICU_0456:
+  shortName: sodium fusidate
+  dataItem: Sodium Fusidate
+NIHR_HIC_ICU_0457:
+  shortName: teicoplanin
+  dataItem: Teicoplanin
+NIHR_HIC_ICU_0461:
+  shortName: vancomycin
+  dataItem: Vancomycin
+NIHR_HIC_ICU_0425:
+  shortName: clindamycin
+  dataItem: Clindamycin
+NIHR_HIC_ICU_0416:
+  shortName: azithromycin
+  dataItem: Azithromycin
+NIHR_HIC_ICU_0424:
+  shortName: clarithromycin
+  dataItem: Clarithromycin
+NIHR_HIC_ICU_0433:
+  shortName: erythromycin
+  dataItem: Erythromycin
+NIHR_HIC_ICU_0445:
+  shortName: nitrofurantion
+  dataItem: Nitrofurantion
+NIHR_HIC_ICU_0442:
+  shortName: metronidazole
+  dataItem: Metronidazole
+NIHR_HIC_ICU_0440:
+  shortName: linezolid
+  dataItem: Linezolid
+NIHR_HIC_ICU_0415:
+  shortName: amoxicillin
+  dataItem: Amoxicillin
+NIHR_HIC_ICU_0417:
+  shortName: benzylpenicillin
+  dataItem: Benzylpenicillin
+NIHR_HIC_ICU_0426:
+  shortName: co-amoxiclav
+  dataItem: Co-Amoxiclav
+NIHR_HIC_ICU_0435:
+  shortName: flucloxacillin
+  dataItem: Flucloxacillin
+NIHR_HIC_ICU_0448:
+  shortName: phenoxymethylpenicillin
+  dataItem: Phenoxymethylpenicillin
+NIHR_HIC_ICU_0449:
+  shortName: piperacillin_tazobactam
+  dataItem: Piperacillin/Tazobactam
+NIHR_HIC_ICU_0427:
+  shortName: colistin
+  dataItem: Colistin
+NIHR_HIC_ICU_0423:
+  shortName: ciprofloxacin
+  dataItem: Ciprofloxacin
+NIHR_HIC_ICU_0439:
+  shortName: levofloxacin
+  dataItem: Levofloxacin
+NIHR_HIC_ICU_0443:
+  shortName: moxifloxacin
+  dataItem: Moxifloxacin
+NIHR_HIC_ICU_0446:
+  shortName: ofloxacin
+  dataItem: Ofloxacin
+NIHR_HIC_ICU_0428:
+  shortName: co-trimoxazole
+  dataItem: Co-Trimoxazole
+NIHR_HIC_ICU_0460:
+  shortName: trimethoprim
+  dataItem: Trimethoprim
+NIHR_HIC_ICU_0429:
+  shortName: demeclocycline hcl
+  dataItem: Demeclocycline HCL
+NIHR_HIC_ICU_0430:
+  shortName: doxycycline
+  dataItem: Doxycycline
+NIHR_HIC_ICU_0458:
+  shortName: tigecycline
+  dataItem: Tigecycline
+NIHR_HIC_ICU_0462:
+  shortName: propofol
+  dataItem: Propofol
+NIHR_HIC_ICU_0558:
+  shortName: thiopentone_thiopental
+  dataItem: Thiopentone / Thiopental
+NIHR_HIC_ICU_0463:
+  shortName: midazolam
+  dataItem: Midazolam
+NIHR_HIC_ICU_0559:
+  shortName: clonidine
+  dataItem: Clonidine
+NIHR_HIC_ICU_0560:
+  shortName: dexmedetomidine
+  dataItem: Dexmedetomidine
+NIHR_HIC_ICU_0561:
+  shortName: ketamine
+  dataItem: Ketamine
+NIHR_HIC_ICU_0242:
+  shortName: fentanyl
+  dataItem: Fentanyl
+NIHR_HIC_ICU_0563:
+  shortName: morphine
+  dataItem: Morphine
+NIHR_HIC_ICU_0464:
+  shortName: remifentanil
+  dataItem: Remifentanil
+NIHR_HIC_ICU_0469:
+  shortName: levosimendan
+  dataItem: Levosimendan
+NIHR_HIC_ICU_0465:
+  shortName: adrenaline
+  dataItem: Adrenaline
+NIHR_HIC_ICU_0466:
+  shortName: dobutamine
+  dataItem: Dobutamine
+NIHR_HIC_ICU_0467:
+  shortName: dopamine
+  dataItem: Dopamine
+NIHR_HIC_ICU_0564:
+  shortName: dopexamine
+  dataItem: Dopexamine
+NIHR_HIC_ICU_0468:
+  shortName: enoximone
+  dataItem: Enoximone
+NIHR_HIC_ICU_0252:
+  shortName: milrinone
+  dataItem: Milrinone
+NIHR_HIC_ICU_0470:
+  shortName: noradrenaline
+  dataItem: Noradrenaline
+NIHR_HIC_ICU_0471:
+  shortName: vasopressin
+  dataItem: Vasopressin
+NIHR_HIC_ICU_0565:
+  shortName: terlipressin
+  dataItem: Terlipressin
+NIHR_HIC_ICU_0906:
+  shortName: esmolol
+  dataItem: Esmolol
+NIHR_HIC_ICU_0907:
+  shortName: metoprolol
+  dataItem: Metoprolol
+NIHR_HIC_ICU_0908:
+  shortName: dexamethasone
+  dataItem: Dexamethasone
+NIHR_HIC_ICU_0909:
+  shortName: hydrocortisone
+  dataItem: Hydrocortisone
+NIHR_HIC_ICU_0910:
+  shortName: methylprednisolone
+  dataItem: Methylprednisolone
+
