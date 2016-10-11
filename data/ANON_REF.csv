@@ -16,14 +16,17 @@ Key variable,NIHR_HIC_ICU_0044,Date of declaration of brain stem death
 Key variable,NIHR_HIC_ICU_0050,Date fully ready for discharge
 Key variable,NIHR_HIC_ICU_0051,Time fully ready for discharge
 Key variable,NIHR_HIC_ICU_0076,Postcode
-Key variable,NIHR_HIC_ICU_0088,Secondary reasons for admission to your unit
 Key variable,NIHR_HIC_ICU_0093,Sex
-Key variable,NIHR_HIC_ICU_0399,Primary reason for admission to your unit
 Key variable,NIHR_HIC_ICU_0406,Date of discharge from your hospital
 Key variable,NIHR_HIC_ICU_0408,Date of ultimate discharge from your hospital
 Key variable,NIHR_HIC_ICU_0411,Date & Time of admission to your unit
 Key variable,NIHR_HIC_ICU_0412,Date & Time of discharge from your unit
-Key variable,NIHR_HIC_ICU_0912,Ultimate primary reason for admission to unit
+Sensitive,NIHR_HIC_ICU_0016,Biopsy proven cirrhosis
+Sensitive,NIHR_HIC_ICU_0062,HIV/AIDS
+Sensitive,NIHR_HIC_ICU_0075,Portal hypertension
+Sensitive,NIHR_HIC_ICU_0088,Secondary reasons for admission to your unit
+Sensitive,NIHR_HIC_ICU_0399,Primary reason for admission to your unit
+Sensitive,NIHR_HIC_ICU_0912,Ultimate primary reason for admission to unit
 Non-identifying,NIHR_HIC_ICU_0004,Treatment function code
 Non-identifying,NIHR_HIC_ICU_0006,CCU bed configuration 02
 Non-identifying,NIHR_HIC_ICU_0007,Level 2 (HDU) days
@@ -34,7 +37,6 @@ Non-identifying,NIHR_HIC_ICU_0011,Admission for pre-surgical preparation
 Non-identifying,NIHR_HIC_ICU_0013,Adult ICU/HDU within your critical care transfer group (in)
 Non-identifying,NIHR_HIC_ICU_0014,Adult ICU/HDU within your critical care transfer group (out)
 Non-identifying,NIHR_HIC_ICU_0015,Antimicrobial use after 48 hours in your unit
-Non-identifying,NIHR_HIC_ICU_0016,Biopsy proven cirrhosis
 Non-identifying,NIHR_HIC_ICU_0017,Height
 Non-identifying,NIHR_HIC_ICU_0018,Height (Source)
 Non-identifying,NIHR_HIC_ICU_0019,Weight
@@ -63,7 +65,6 @@ Non-identifying,NIHR_HIC_ICU_0057,Hospital housing location (out)
 Non-identifying,NIHR_HIC_ICU_0058,Ethnicity
 Non-identifying,NIHR_HIC_ICU_0059,Gastrointestinal support days
 Non-identifying,NIHR_HIC_ICU_0060,Heaptic encephalopathy
-Non-identifying,NIHR_HIC_ICU_0062,HIV/AIDS
 Non-identifying,NIHR_HIC_ICU_0063,Home ventilation
 Non-identifying,NIHR_HIC_ICU_0065,Hospital housing location (in)
 Non-identifying,NIHR_HIC_ICU_0066,Level of care at discharge from your unit
@@ -74,7 +75,6 @@ Non-identifying,NIHR_HIC_ICU_0070,Lymphoma
 Non-identifying,NIHR_HIC_ICU_0071,Metastatic disease
 Non-identifying,NIHR_HIC_ICU_0072,Neurological support days
 Non-identifying,NIHR_HIC_ICU_0074,Other condition in past medical history
-Non-identifying,NIHR_HIC_ICU_0075,Portal hypertension
 Non-identifying,NIHR_HIC_ICU_0077,Prior location (in)
 Non-identifying,NIHR_HIC_ICU_0080,Radiotherapy
 Non-identifying,NIHR_HIC_ICU_0081,Discharge status (Reason for discharge from your unit)
