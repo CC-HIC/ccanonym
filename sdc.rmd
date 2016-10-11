@@ -1,0 +1,51 @@
+---
+title: "SDC demo"
+outpu:
+  pdf_document: 
+    toc: true
+    number_sections: true
+    highlight: tango
+  html_document:
+    mathjax: local
+    self_contained: no
+    theme: journal
+--- 
+
+
+```{r}
+library(ccdata)
+library(ccanonym)
+load('demg.RData')
+names(demg)
+sdc <- create.sdc(demg, 'data/test.yaml')
+print(sdc)
+
+## Local suppression
+```{r}
+sdc <- localSuppression(sdc, k=5)
+print(sdc)
+print(which(is.na(sdc@manipKeyVars$GPCODE)))
+print(which(is.na(demg$GPCODE)))
+```
+
+
+## Microaggregation
+```{r}
+sdc <- microaggregation(sdc)
+print(sdc)
+```
+
+## Add noise
+
+```{r}
+sdc <- addNoise(sdc)
+print(sdc)
+```
+
+## l-diversity
+```{r}
+sdc <- ldiversity(sdc)
+print(sdc@risk$global)
+print(head(sdc@risk$individual))
+print(sdc@risk$ldiversity)
+```
