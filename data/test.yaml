@@ -7,33 +7,42 @@ directVars:
 keyVars:
 - GPCODE: # Code of GP
     - methods
-#- DAH: # Date of admission to your hospital
+- DAH: # Date of admission to your hospital
     - methods
-#- DOB: # Date of birth
+- DOB: # Date of birth
     - methods
-  #- 'DLCCA # Date of last critical care visit prior to this admission to your unit'
-  #- 'DOAH # Date of original admission to/attendance at acute hospital'
-  #- 'DOAICU # Date of original admission to ICU/HDU'
-  #- 'DUDICU # Date of ultimate discharge from ICU/HDU'
-  #- 'DOD # Date of death on your unit'
-  #- 'DDBSD # Date of declaration of brain stem death'
-  #- 'DWFRD # Date fully ready for discharge'
-  #- 'TWFRD # Time fully ready for discharge'
-  #- 'PCODE # Postcode'
+- DLCCA: # Date of last critical care visit prior to this admission to your unit
+    - methods
+  #- PCODE: # Postcode
+- LYM:
+    - methods
   #- 'RAICU2 # Secondary reasons for admission to your unit'
 - SEX: # Sex'
     - methods 
-#- RAICU1: # Primary reason for admission to your unit
+- RAICU1: # Primary reason for admission to your unit
     - methods
-  #- 'DDH # Date of discharge from your hospital'
-  #- 'DUDH # Date of ultimate discharge from your hospital'
-  #- 'DAICU # Date & Time of admission to your unit'
-  #- 'DDICU # Date & Time of discharge from your unit'
-  #- 'URAICU # Ultimate primary reason for admission to unit'
-  #
+
+
 numVars:
 - HCM: 
     - methods
+
+keyDate:
+- DOAH # Date of original admission to/attendance at acute hospital'
+- DOAICU # Date of original admission to ICU/HDU'
+- DUDICU # Date of ultimate discharge from ICU/HDU'
+- DOD # Date of death on your unit'
+- DDBSD # Date of declaration of brain stem death'
+- DWFRD # Date fully ready for discharge'
+- TWFRD # Time fully ready for discharge'
+#- DDH: # Date of discharge from your hospital'
+#- DUDH: # Date of ultimate discharge from your hospital'
+#- DAICU: # Date & Time of admission to your unit'
+#- DDICU: # Date & Time of discharge from your unit'
+#- URAICU:  # Ultimate primary reason for admission to unit'
+
+
+
 
 sensibleVar:
 - bed02 
