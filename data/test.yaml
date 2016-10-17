@@ -27,19 +27,20 @@ numVars:
 - HCM: 
     - methods
 
-keyDate:
-- DOAH # Date of original admission to/attendance at acute hospital'
-- DOAICU # Date of original admission to ICU/HDU'
-- DUDICU # Date of ultimate discharge from ICU/HDU'
-- DOD # Date of death on your unit'
-- DDBSD # Date of declaration of brain stem death'
-- DWFRD # Date fully ready for discharge'
-- TWFRD # Time fully ready for discharge'
-#- DDH: # Date of discharge from your hospital'
-#- DUDH: # Date of ultimate discharge from your hospital'
-#- DAICU: # Date & Time of admission to your unit'
-#- DDICU: # Date & Time of discharge from your unit'
-#- URAICU:  # Ultimate primary reason for admission to unit'
+keyDateTime:
+ #    - DOAH: 1 # Date of original admission to/attendance at acute hospital'
+      #    - DOAICU: 1 # Date of original admission to ICU/HDU'
+      #    - DUDICU: 1 # Date of ultimate discharge from ICU/HDU'
+      #    - DOD: 1 # Date of death on your unit'
+      #    - DDBSD: 1 # Date of declaration of brain stem death'
+      #    - DWFRD: 1 # Date fully ready for discharge'
+      #    - TWFRD: 1 # Time fully ready for discharge'
+      #- DDH: # Date of discharge from your hospital'
+      #- DUDH: # Date of ultimate discharge from your hospital'
+      #- DAICU: # Date & Time of admission to your unit'
+      #- DDICU: # Date & Time of discharge from your unit'
+      #- URAICU:  # Ultimate primary reason for admission to unit'
+    - DFCCD: 1
 
 
 

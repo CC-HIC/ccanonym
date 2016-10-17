@@ -4,10 +4,10 @@
 \alias{create.sdc}
 \title{read.config}
 \usage{
-create.sdc(data, path)
+create.sdc(ccd, path, remove.alive = T)
 }
 \arguments{
-\item{data}{the input confidential data in data.frame or data.table}
+\item{ccd}{the identifiable ccRecord object}
 
 \item{config}{yaml file location}
 }

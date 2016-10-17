@@ -1,17 +1,30 @@
 #' read.config
-#' @param data the input confidential data in data.frame or data.table
+#' @param ccd the identifiable ccRecord object
 #' @param config yaml file location
 #' @export create.sdc
-create.sdc <- function(data, path) {
+#' @import data.table
+create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
+    demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
 
-# NOTE:  configuration security check is required. 
+    if (remove.alive)
+        demg <- demg[DIS=="D"]
 
     conf <- yaml.load_file(path)
     keyv <- sapply(conf$keyVars, names)
     numv <- sapply(conf$numVars, names)
+    datetimev <- sapply(conf$keyDateTime, names)
+    if (verbose) {
+        cat("--------------------------\n")
+        print(short2longname(numv))
+        cat("--------------------------\n")
+    }
 
-    if (length(numv) == 0 ) numv <- NULL
-    return(createSdcObj(data, 
+
+    numv <- c(numv, datetimev)
+    demg <- convert.numeric.datetime(demg, datetimev)
+
+
+    return(createSdcObj(demg, 
                  keyVars=keyv,
                  numVars=numv,
                  sensibleVar=conf$sensibleVar))
@@ -19,54 +32,83 @@ create.sdc <- function(data, path) {
 
 
 
-date2numeric <- function(dt, datecol) {
-    for (i in datecol)
-        dt[[i]] <- dt
-        
+get.age <- function(demg) {
 
 }
 
+#' @export remove.direct
+remove.direct <- function(data, path) {
+    conf <- yaml.load_file(path)
+    dirvars <- sapply(conf$directVars, names)
+    for (i in dirvars) 
+        data[[i]] <- NULL
+    data 
+}
 
-remove.direct <- function(data, dirvar) {}
 
+#' @export convert.numeric.datetime
+convert.numeric.datetime<- function(data, items=NULL) {
+    if (is.null(items))
+        items <- names(data)
 
+    hic.code <- stname2code(items)
 
-convert.numeric.datetime<- function(data) {
-    items <- names(data)
+    for (i in items) {
+        dtype <- ccdata:::ITEM_REF[[stname2code(i)]]$Datatype
+        if (dtype == "date") 
+            data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%Y-%m-%d"))
+        if (dtype == "time") 
+            data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%H:%M:%S"))
+
+        if (dtype == "date/time") 
+            data[[i]] <- as.numeric(as.POSIXct(data[[i]])) 
+    }
+    data
+}
+     
+#' @export convert.back.datetime
+convert.back.datetime <- function(data, items=NULL) {
+
+    if (is.null(items))
+        items <- names(data)
     hic.code <- stname2code(items)
 
     for (i in items) {
         dtype <- ccdata:::ITEM_REF[[stname2code(i)]]$Datatype
         if (dtype == "date") {
-            data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%Y-%m-%d",
-                                               origin="1970-01-01"))
+            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
+            data[[i]] <- as.character(data[[i]])
         }
 
         if (dtype == "time") {
-            data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%H:%M:%S", 
-                                               origin="1970-01-01"))
+            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
+            data[[i]] <- strftime(data[[i]], format="%H:%M:%S")
         }
 
         if (dtype == "date/time") {
-            data[[i]] <- as.numeric(as.POSIXct(data[[i]]), 
-                                    origin="1970-01-01")
+            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
+            data[[i]] <- strftime(data[[i]], format="%Y-%m-%d %H:%M:%S")
         }
+
     }
     data
 }
-     
-    
-convert.back.datetime <- function(data) {
+
+
+#' @export apply.dataset 
+apply.dataset <- function(ccd, demgsdc) {
 
 
 }
 
-apply.dataset <- function() {
+
+security.check <- function(ccd) {
+
 }
 
-#as.POSIXct(
-#           as.numeric(
-#                      as.POSIXct(
-#                                 
-#    c('07:51:00', '01:00:00', "NULL", ""),
-#    format='%H:%M:% origin="1970-01-01")
+
+
+annonymisation <- function(ccd) {
+
+
+}
