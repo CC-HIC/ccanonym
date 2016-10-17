@@ -20,7 +20,7 @@ test_that("convert to numeric", {
     expect_equal(as.POSIXct("2010-01-01"), as.POSIXct(as.numeric(result[1]), origin="1970-01-01"))
     expect_equivalent(convert.back.datetime(result), test_data)
 
-    test_data <- create.test.data(ttime, "00:00:00")
+    test_data <- create.test.data(ttime, "00:00")
     result <- convert.numeric.datetime(test_data)
     expect_equal(length(unique(t(result))), 1)
     expect_true(!NA %in% result)
