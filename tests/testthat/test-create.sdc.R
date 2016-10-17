@@ -4,5 +4,6 @@ context("create sdc object from the yaml configuration file")
 test_that("create sdc object", {
     ccd <<- xml2Data("../data/test_data_anonym.xml")
     sdc <- create.sdc(ccd, '../../data/test.yaml', verbose=T)
+    print(sdc)
     
 })

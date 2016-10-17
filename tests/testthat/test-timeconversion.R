@@ -28,7 +28,7 @@ test_that("convert to numeric", {
    expect_equivalent(convert.back.datetime(result), test_data)
 
 
-    test_data <- create.test.data(tdatetime, "2010-01-01 00:00:01")
+    test_data <- create.test.data(tdatetime, "2010-01-01 00:00")
     result <- convert.numeric.datetime(test_data)
     expect_equal(length(unique(t(result))), 1)
     expect_true(!NA %in% result)

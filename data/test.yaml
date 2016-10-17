@@ -7,16 +7,16 @@ directVars:
 keyVars:
 - GPCODE: # Code of GP
     - methods
-- DAH: # Date of admission to your hospital
-    - methods
-- DOB: # Date of birth
-    - methods
-- DLCCA: # Date of last critical care visit prior to this admission to your unit
-    - methods
-  #- PCODE: # Postcode
-- LYM:
-    - methods
-  #- 'RAICU2 # Secondary reasons for admission to your unit'
+      #- DAH: # Date of admission to your hospital
+      #    - methods
+      #- DOB: # Date of birth
+      #    - methods
+      #- DLCCA: # Date of last critical care visit prior to this admission to your unit
+      #    - methods
+      #  #- PCODE: # Postcode
+      #- LYM:
+      #    - methods
+      #  #- 'RAICU2 # Secondary reasons for admission to your unit'
 - SEX: # Sex'
     - methods 
 - RAICU1: # Primary reason for admission to your unit
@@ -27,8 +27,8 @@ numVars:
 - HCM: 
     - methods
 
-keyDateTime:
- #    - DOAH: 1 # Date of original admission to/attendance at acute hospital'
+keyDateTime:  
+- DOAH: 1 # Date of original admission to/attendance at acute hospital'
       #    - DOAICU: 1 # Date of original admission to ICU/HDU'
       #    - DUDICU: 1 # Date of ultimate discharge from ICU/HDU'
       #    - DOD: 1 # Date of death on your unit'
@@ -37,10 +37,10 @@ keyDateTime:
       #    - TWFRD: 1 # Time fully ready for discharge'
       #- DDH: # Date of discharge from your hospital'
       #- DUDH: # Date of ultimate discharge from your hospital'
-      #- DAICU: # Date & Time of admission to your unit'
+- DAICU: # Date & Time of admission to your unit'
       #- DDICU: # Date & Time of discharge from your unit'
       #- URAICU:  # Ultimate primary reason for admission to unit'
-    - DFCCD: 1
+      #    - DFCCD: 1
 
 
 

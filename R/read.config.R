@@ -13,16 +13,28 @@ create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
     keyv <- sapply(conf$keyVars, names)
     numv <- sapply(conf$numVars, names)
     datetimev <- sapply(conf$keyDateTime, names)
+
+
+#    numv <- c(numv, datetimev)
+
     if (verbose) {
         cat("--------------------------\n")
         print(short2longname(numv))
+        print(short2longname(keyv))
         cat("--------------------------\n")
     }
 
 
-    numv <- c(numv, datetimev)
-    demg <- convert.numeric.datetime(demg, datetimev)
+    print(datetimev)
+    demg <- data.frame(convert.numeric.datetime(demg, datetimev))
 
+    # check the data type and avoid processing on the all NA columns.
+    for (i in seq(numv)) {
+        if (!is.numeric(demg[[numv[i]]]))
+            stop("numeric vars has to be in numeric type.")
+        if (!all(is.na(demg[[numv[i]]])))
+            numv <- numv[-i]
+    }
 
     return(createSdcObj(demg, 
                  keyVars=keyv,
@@ -35,6 +47,7 @@ create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
 get.age <- function(demg) {
 
 }
+
 
 #' @export remove.direct
 remove.direct <- function(data, path) {
@@ -59,9 +72,8 @@ convert.numeric.datetime<- function(data, items=NULL) {
             data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%Y-%m-%d"))
         if (dtype == "time") 
             data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%H:%M:%S"))
-
         if (dtype == "date/time") 
-            data[[i]] <- as.numeric(as.POSIXct(data[[i]])) 
+            data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%Y-%m-%d %H:%M")) 
     }
     data
 }
@@ -87,7 +99,7 @@ convert.back.datetime <- function(data, items=NULL) {
 
         if (dtype == "date/time") {
             data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
-            data[[i]] <- strftime(data[[i]], format="%Y-%m-%d %H:%M:%S")
+            data[[i]] <- strftime(data[[i]], format="%Y-%m-%d %H:%M")
         }
 
     }
@@ -108,7 +120,8 @@ security.check <- function(ccd) {
 
 
 
-annonymisation <- function(ccd) {
+anonymisation <- function(ccd) {
 
+    security.check(ccd)
 
 }

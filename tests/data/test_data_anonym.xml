@@ -9,7 +9,9 @@
         </d:metadata>
         <d:data>
 
-          <d:subject>
+            <d:subject>
+
+                <d:NIHR_HIC_ICU_0017>170</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
                 <d:Numerical_local><d:NIHR_HIC_ICU_0001 m="2015-02-26">pas_1</d:NIHR_HIC_ICU_0001></d:Numerical_local>
@@ -28,7 +30,7 @@
                   <d:Dates>
                     <d:ICU_admission>
                       <d:Date_Time>
-                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-07</d:NIHR_HIC_ICU_0411>
+                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-07 10:00</d:NIHR_HIC_ICU_0411>
                       </d:Date_Time>
                     </d:ICU_admission>
                     <d:ICU_discharge>
@@ -72,12 +74,14 @@
               </d:subject>
               
               <d:subject>
+                  <d:NIHR_HIC_ICU_0017>180</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_2</d:NIHR_HIC_ICU_0073></d:Numerical_national>
                 <d:Numerical_local><d:NIHR_HIC_ICU_0001 m="2015-02-26">pas_2</d:NIHR_HIC_ICU_0001></d:Numerical_local>
                 <d:Hospital_discharge><d:Date><d:NIHR_HIC_ICU_0406 m="2015-02-26">2014-02-07</d:NIHR_HIC_ICU_0406></d:Date></d:Hospital_discharge>
                 <d:NIHR_HIC_ICU_0002 m="2015-02-26">site_1</d:NIHR_HIC_ICU_0002>
                 <d:NIHR_HIC_ICU_0005 m="2015-02-26">episode_id2</d:NIHR_HIC_ICU_0005>
+                <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01 10:00</d:NIHR_HIC_ICU_0411>
 
                 <d:Heart_rate>
                     <d:physiology-cardiovascular-heart-rate>
@@ -94,6 +98,34 @@
                     </d:physiology-cardiovascular-heart-rate>
                 </d:Heart_rate>
             </d:subject>
+
+
+
+              <d:subject>
+                <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
+                <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_2</d:NIHR_HIC_ICU_0073></d:Numerical_national>
+                <d:Numerical_local><d:NIHR_HIC_ICU_0001 m="2015-02-26">pas_2</d:NIHR_HIC_ICU_0001></d:Numerical_local>
+                <d:Hospital_discharge><d:Date><d:NIHR_HIC_ICU_0406 m="2015-02-26">2014-02-07</d:NIHR_HIC_ICU_0406></d:Date></d:Hospital_discharge>
+                <d:NIHR_HIC_ICU_0002 m="2015-02-26">site_1</d:NIHR_HIC_ICU_0002>
+                <d:NIHR_HIC_ICU_0005 m="2015-02-26">episode_id3</d:NIHR_HIC_ICU_0005>
+                <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-02 10:00</d:NIHR_HIC_ICU_0411>
+
+                <d:Heart_rate>
+                    <d:physiology-cardiovascular-heart-rate>
+                        <d:NIHR_HIC_ICU_0108 m="2015-02-26">103</d:NIHR_HIC_ICU_0108>
+                        <d:NIHR_HIC_ICU_0254 m="2015-02-26">2014-02-01T10:00:00</d:NIHR_HIC_ICU_0254>
+                    </d:physiology-cardiovascular-heart-rate>
+                    <d:physiology-cardiovascular-heart-rate>
+                        <d:NIHR_HIC_ICU_0108 m="2015-02-26">93</d:NIHR_HIC_ICU_0108>
+                        <d:NIHR_HIC_ICU_0254 m="2015-02-26">2014-02-01T11:00:00</d:NIHR_HIC_ICU_0254>
+                    </d:physiology-cardiovascular-heart-rate>
+                    <d:physiology-cardiovascular-heart-rate>
+                        <d:NIHR_HIC_ICU_0108 m="2015-02-26">89</d:NIHR_HIC_ICU_0108>
+                        <d:NIHR_HIC_ICU_0254 m="2015-02-26">2014-02-01T12:00:00</d:NIHR_HIC_ICU_0254>
+                    </d:physiology-cardiovascular-heart-rate>
+                </d:Heart_rate>
+            </d:subject>
+
         </d:data>
     </d:context>
 </d:document>
