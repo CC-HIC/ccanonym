@@ -6,6 +6,7 @@
 create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
 
+    print(demg)
     if (remove.alive)
         demg <- demg[DIS=="D"]
 
@@ -28,14 +29,16 @@ create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
             new.numv <- c(new.numv, numv[i])
     }
     numv <- new.numv
-    for (i in numv)
-    print(demg[[i]])
-    print(numv)
 
-    return(createSdcObj(demg, 
-                 keyVars=keyv,
-                 numVars=numv[1:3],
-                 sensibleVar=conf$sensibleVar))
+    sdc <- createSdcObj(demg, keyVars=keyv, numVars=numv,
+                        sensibleVar=conf$sensibleVar)
+    sdc <- addNoise(sdc, noise=1)
+
+    demg[, numv] <- sdc@manipNumVars
+    demg <- convert.back.datetime(demg, numv)
+
+
+    return(demg)
 }
 
 
@@ -76,7 +79,6 @@ convert.numeric.datetime<- function(data, items=NULL) {
      
 #' @export convert.back.datetime
 convert.back.datetime <- function(data, items=NULL) {
-
     if (is.null(items))
         items <- names(data)
     hic.code <- stname2code(items)
@@ -105,6 +107,7 @@ convert.back.datetime <- function(data, items=NULL) {
 
 #' @export apply.dataset 
 apply.dataset <- function(ccd, demgsdc) {
+
 
 
 }
