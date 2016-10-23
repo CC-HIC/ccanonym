@@ -6,14 +6,13 @@
 create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
 
-    print(demg)
     if (remove.alive)
         demg <- demg[DIS=="D"]
 
     conf <- yaml.load_file(path)
-    keyv <- sapply(conf$keyVars, names)
-    numv <- sapply(conf$numVars, names)
-    datetimev <- sapply(conf$keyDateTime, names)
+    keyv <- conf$keyVars
+    numv <- names(conf$numVars)
+    datetimev <- names(conf$datetimeVars)
 
     numv <- c(numv, datetimev)
     demg <- data.frame(convert.numeric.datetime(demg, datetimev))
@@ -30,13 +29,18 @@ create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
     }
     numv <- new.numv
 
-    sdc <- createSdcObj(demg, keyVars=keyv, numVars=numv,
+    sdc <<- createSdcObj(demg, keyVars=keyv, numVars=numv,
                         sensibleVar=conf$sensibleVar)
+
+    sdc <- localSuppression(sdc)
     sdc <- addNoise(sdc, noise=1)
+    
+    if (verbose)
+        print(sdc)
 
     demg[, numv] <- sdc@manipNumVars
+    demg[, keyv] <- sdc@manipKeyVars
     demg <- convert.back.datetime(demg, numv)
-
 
     return(demg)
 }

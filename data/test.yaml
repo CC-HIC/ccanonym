@@ -1,49 +1,72 @@
 directVars:
-- pasno # PAS number
-- ICNNO # Site code (ICNARC CMP number)
-- ADNO # Critical care local identifier / ICNARC admission number
-- NHSNO # NHS number
-- TUADNO # Transferring unit admission number
-keyVars:
-- GPCODE: # Code of GP
-    - methods
-      #- DAH: # Date of admission to your hospital
-      #    - methods
-      #- DOB: # Date of birth
-      #    - methods
-      #- DLCCA: # Date of last critical care visit prior to this admission to your unit
-      #    - methods
-      #  #- PCODE: # Postcode
-      #- LYM:
-      #    - methods
-      #  #- 'RAICU2 # Secondary reasons for admission to your unit'
-- SEX: # Sex'
-    - methods 
-- RAICU1: # Primary reason for admission to your unit
-    - methods
+    - pasno # PAS number
+    - ICNNO # Site code (ICNARC CMP number)
+    - ADNO # Critical care local identifier / ICNARC admission number
+    - NHSNO # NHS number
+    - TUADNO # Transferring unit admission number
 
+
+keyVars:
+    - GPCODE 
+    - SEX
+    - RAICU1 # Primary reason for admission to your unit
+
+
+sensVars:
+    - bed02 
 
 numVars:
-- HCM: 
-    - methods
+    HCM: # Height 
+        microaggregation: 2
 
-keyDateTime:  
-- DOAH: 1 # Date of original admission to/attendance at acute hospital'
-- DOAICU: 1 # Date of original admission to ICU/HDU'
-- DUDICU: 1 # Date of ultimate discharge from ICU/HDU'
-- DOD: 1 # Date of death on your unit'
-- DDBSD: 1 # Date of declaration of brain stem death'
-- DWFRD: 1 # Date fully ready for discharge'
-- TWFRD: 1 # Time fully ready for discharge'
-- DDH: 1 # Date of discharge from your hospital'
-- DUDH: 1 # Date of ultimate discharge from your hospital'
-- DAICU: 1 # Date & Time of admission to your unit'
-- DDICU: 1 # Date & Time of discharge from your unit'
+datetimeVars:
+    DOAH:  # Date of original admission to/attendance at acute hospital'
+        microaggregation: 1
+        addNoise: 1
+    
+    DOAICU:  # Date of original admission to ICU/HDU'
+        microaggregation: 1
+        addNoise: 1
+    
+    DUDICU:  # Date of ultimate discharge from ICU/HDU'
+        microaggregation: 1
+        addNoise: 1
+
+    DOD:  # Date of death on your unit'
+        microaggregation: 1
+        addNoise: 1
+
+    DDBSD:  # Date of declaration of brain stem death'
+        microaggregation: 1
+        addNoise: 1
+
+    DWFRD:  # Date fully ready for discharge'
+        microaggregation: 1
+        addNoise: 1
+
+    TWFRD:  # Time fully ready for discharge'
+        microaggregation: 1
+        addNoise: 1
+
+    DDH:  # Date of discharge from your hospital'
+        microaggregation: 1
+        addNoise: 1
+
+    DUDH:  # Date of ultimate discharge from your hospital'
+        microaggregation: 1
+        addNoise: 1
+
+    DAICU:  # Date & Time of admission to your unit'
+       microaggregation: 1
+       addNoise: 1
+    
+    DDICU:  # Date & Time of discharge from your unit'
+        microaggregation: 1
+        addNoise: 1
 
 
 
-sensibleVar:
-- bed02 
+
 
   #nonidentify_var:
   #- 'SCODE # Treatment function code'

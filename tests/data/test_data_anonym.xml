@@ -10,6 +10,9 @@
         <d:data>
 
             <d:subject>
+                <d:NIHR_HIC_ICU_0003>GPCODE1</d:NIHR_HIC_ICU_0003>
+                <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
+                <d:NIHR_HIC_ICU_0399>1.0</d:NIHR_HIC_ICU_0399>
                 <d:NIHR_HIC_ICU_0017>170</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
@@ -73,6 +76,10 @@
               </d:subject>
               
               <d:subject>
+                  <d:NIHR_HIC_ICU_0003>GPCODE1</d:NIHR_HIC_ICU_0003>
+                  <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
+                <d:NIHR_HIC_ICU_0399>2.0</d:NIHR_HIC_ICU_0399>
+
                   <d:NIHR_HIC_ICU_0017>180</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_2</d:NIHR_HIC_ICU_0073></d:Numerical_national>
@@ -101,6 +108,10 @@
             </d:subject>
 
             <d:subject>
+                <d:NIHR_HIC_ICU_0003>GPCODE2</d:NIHR_HIC_ICU_0003>
+                <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
+                <d:NIHR_HIC_ICU_0399>1.0</d:NIHR_HIC_ICU_0399>
+
                 <d:NIHR_HIC_ICU_0017>170</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
@@ -162,7 +173,11 @@
                 </d:Heart_rate>
               </d:subject>
 
-            <d:subject>
+              <d:subject>
+                <d:NIHR_HIC_ICU_0003>GPCODE2</d:NIHR_HIC_ICU_0003>
+                <d:NIHR_HIC_ICU_0093>M</d:NIHR_HIC_ICU_0093>
+                <d:NIHR_HIC_ICU_0399>3.0</d:NIHR_HIC_ICU_0399>
+
                 <d:NIHR_HIC_ICU_0017>170</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
@@ -224,7 +239,11 @@
                 </d:Heart_rate>
               </d:subject>
 
-            <d:subject>
+              <d:subject>
+                <d:NIHR_HIC_ICU_0003>GPCODE4</d:NIHR_HIC_ICU_0003>
+                <d:NIHR_HIC_ICU_0093>M</d:NIHR_HIC_ICU_0093>
+                <d:NIHR_HIC_ICU_0399>4.0</d:NIHR_HIC_ICU_0399>
+
                 <d:NIHR_HIC_ICU_0017>170</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
