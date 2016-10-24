@@ -80,7 +80,7 @@
                   <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
                 <d:NIHR_HIC_ICU_0399>2.0</d:NIHR_HIC_ICU_0399>
 
-                  <d:NIHR_HIC_ICU_0017>180</d:NIHR_HIC_ICU_0017>
+                <d:NIHR_HIC_ICU_0017>174</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_2</d:NIHR_HIC_ICU_0073></d:Numerical_national>
                 <d:Numerical_local><d:NIHR_HIC_ICU_0001 m="2015-02-26">pas_2</d:NIHR_HIC_ICU_0001></d:Numerical_local>
@@ -136,7 +136,7 @@
                     </d:ICU_admission>
                     <d:ICU_discharge>
                       <d:Readiness>
-                        <d:NIHR_HIC_ICU_0050 m="2015-02-26">2014-02-07</d:NIHR_HIC_ICU_0050>
+                        <d:NIHR_HIC_ICU_0050 m="2015-02-26">2014-02-08</d:NIHR_HIC_ICU_0050>
                         <d:NIHR_HIC_ICU_0051 m="2015-02-26">18:00:00</d:NIHR_HIC_ICU_0051>
                       </d:Readiness>
                       <d:Date_Time>
@@ -146,7 +146,7 @@
 
                     <d:Hospital_admission>
                       <d:Date>
-                        <d:NIHR_HIC_ICU_0032 m="2015-02-26">2014-02-07</d:NIHR_HIC_ICU_0032>
+                        <d:NIHR_HIC_ICU_0032 m="2015-02-26">2014-02-06</d:NIHR_HIC_ICU_0032>
                       </d:Date>
                     </d:Hospital_admission>
 
