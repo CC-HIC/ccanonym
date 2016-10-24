@@ -3,6 +3,6 @@
 export(apply.dataset)
 export(convert.back.datetime)
 export(convert.numeric.datetime)
-export(create.sdc)
+export(do.sdc)
 export(remove.direct)
 import(data.table)

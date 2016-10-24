@@ -1,9 +1,9 @@
 #' read.config
 #' @param ccd the identifiable ccRecord object
 #' @param config yaml file location
-#' @export create.sdc
+#' @export do.sdc
 #' @import data.table
-create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
+do.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
 
     if (remove.alive)
@@ -18,9 +18,7 @@ create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
 
     numv <- c(numv, datetimev)
     demg <- data.frame(convert.numeric.datetime(demg, datetimev))
-    numv <- remove.all.null.numvar(demg, numv)
-#    demg <- fill.na.numvar(demg, numv)
-    print(demg[, numv])
+    numv <- non.unique.columns(demg, numv)
 
     sdc <- createSdcObj(demg, keyVars=keyv, numVars=numv,
                         sensibleVar=conf$sensibleVar)
@@ -35,8 +33,10 @@ create.sdc <- function(ccd, path, remove.alive=T, verbose=F) {
     demg[, keyv] <- sdc@manipKeyVars
     demg <- convert.back.datetime(demg, numv)
 
-    return(demg)
+    return(list(data=demg, sdc=sdc))
 }
+
+
 
 sdc.numvar <- function(sdc, conf, numv) {
     numconf <- append(conf$numVars, conf$datetimeVars)
@@ -53,46 +53,26 @@ sdc.numvar <- function(sdc, conf, numv) {
     sdc
 }
 
-#' @description
-#' sdcMicro package failed to create the sdc object with numerical vector where NAs are 
-#' presented. To overcome this problem, we fill the NAs
-#' with the mean value of the vector and restore NAs by the end of the whole
-#' process. 
-#' @param numdata is a data.frame 
-#' @return a data.frame where the NAs in the columns are filled with the mean
-#' value. 
-fill.na.numvar <- function(data, numv) {
-    data[, numv]<- 
-        apply(data[, numv], 2, 
-              function(x) {
-                  x[is.na(x)] <- mean(x, na.rm=T)
-                  return(x)
-              })
-    data
-}
 
-
-
-na.index <- function(data){
-    apply(data, 2,
-          function(x) {
-              x[!is.na(x)] <- 1
-              x
-          })
-}
-remove.all.null.numvar <- function(data, numv) {
+non.unique.columns <- function(data, numv) {
     # check the data type and avoid processing on the 
     # all NA columns.
     new.numv <- vector()
     for (i in seq(numv)) {
         if (!is.numeric(data[[numv[i]]])) {
-            stop(paste(numv[i], "has to be in numeric type."))
+            stop(paste(numv[i], class(data[[numv[i]]]), "has to be a numeric vector."))
         }
-        if (!all(is.na(data[[numv[i]]])) & 
-            length(unique(data[[numv[[i]]]]) != 1))
+        unidata <- unique(data[[numv[i]]])
+        if (NA %in% unidata)
+            unidata <- unidata[-which(is.na(unidata))]
+        if (length(unidata) > 1)
             new.numv <- c(new.numv, numv[i])
     }
-    new.numv
+
+    if (length(new.numv) == 0)
+        return(NULL)
+    else
+        return(new.numv)
 }
 
 
