@@ -1,26 +1,17 @@
 context("create sdc object from the yaml configuration file")
 
+ccd <<- xml2Data("../data/test_data_anonym.xml")
+demg <- suppressWarnings(sql.demographic.table(ccd))
+conf <- yaml.load_file('../../data/test.yaml')
+keyvar <- conf$keyVars
+keydt <- names(conf$datetimeVars)
+numvar <- names(conf$numVars)
+var <- c(keydt, keyvar, numvar)
+
 test_that("create sdc object", {
-    ccd <- xml2Data("../data/test_data_anonym.xml")
-    demg <- suppressWarnings(sql.demographic.table(ccd))
-    demg <<- data.frame(demg)
-    conf <- yaml.load_file('../../data/test.yaml')
+    demg <- data.frame(demg)
 
-
-    keyvar <- conf$keyVars
-
-    keydt <- names(conf$datetimeVars)
-    numvar <- names(conf$numVars)
-
-    var <- c(keydt, keyvar, numvar)
-
-    print("")
-#    print(var)
-#    print(demg[, var, with=F])
-
-    sdc <<- do.sdc(ccd, '../../data/test.yaml', verbose=T)
-#    print(sdc)
-#    print(sdc[, var])
+    sdc <<- do.sdc(ccd, '../../data/test.yaml')
 })
 
 
@@ -44,4 +35,21 @@ test_that("remove unique columns", {
     tdata <- data.frame(a=c("x", "y"))
     expect_error(non.unique.columns(tdata, "a"))
 
+})
+
+
+test_that("get all the 2d data from a selected episodes but not the demographic
+          data", 
+{
+    cl <- clinic.data.list(ccd, 2)
+    expect_false(all(stname2code(var) %in% names(cl)))
+
+    cl <- clinic.data.list(ccd, 1)
+    expect_false(all(stname2code(var) %in% names(cl)))
+})
+
+
+
+test_that("anonymisation from ccdata", {
+    (anonymisation(ccd, conf))
 })

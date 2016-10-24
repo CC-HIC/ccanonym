@@ -4,7 +4,7 @@
 \alias{do.sdc}
 \title{read.config}
 \usage{
-do.sdc(ccd, path, remove.alive = T, verbose = F)
+do.sdc(ccd, conf, remove.alive = T, verbose = F)
 }
 \arguments{
 \item{ccd}{the identifiable ccRecord object}
