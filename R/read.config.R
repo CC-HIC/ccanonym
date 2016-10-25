@@ -1,4 +1,3 @@
-#' @title 
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
     nv <- variables.name(conf)
     ccd <- deltaTime(ccd, ...)
@@ -9,7 +8,8 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
 }
 
 
-
+#' do.sdc
+#' 
 #' @param ccd the identifiable ccRecord object
 #' @param config yaml file location
 #' @export do.sdc
