@@ -53,3 +53,12 @@ test_that("get all the 2d data from a selected episodes but not the demographic
 test_that("anonymisation from ccdata", {
     (anonymisation(ccd, conf))
 })
+
+
+test_that("appending age column", {
+    age <- append.age(demg)$AGE
+    expect_true(is.numeric(age))
+    expect_identical(age, c(25, 33, NA, NA, NA))
+
+
+})

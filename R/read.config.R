@@ -77,8 +77,6 @@ variables.name <- function(conf) {
                 all.vars=all.vars))
 }
 
-
-
 create.anonym.ccd <- function(ccd, sdc.data) {
     new.record <- ccRecord()
 
@@ -165,8 +163,14 @@ non.unique.columns <- function(data, numv) {
         return(new.numv)
 }
 
-get.age <- function(demg) {
-
+append.age <- function(demg) {
+    format.dob <- "%Y-%m-%d"
+    format.dah <- "%Y-%m-%d"
+    demg$AGE <- 
+        floor(as.numeric(difftime(as.POSIXct(demg$DAH, format=format.dah),
+                                  as.POSIXct(demg$DOB, format=format.dob), 
+                                  units="days"))/365)
+    return(demg)
 }
 
 

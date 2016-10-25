@@ -11,6 +11,8 @@
 
             <d:subject>
                 <d:NIHR_HIC_ICU_0003>GPCODE1</d:NIHR_HIC_ICU_0003>
+                <d:NIHR_HIC_ICU_0033>1988-06-07</d:NIHR_HIC_ICU_0033>
+                <d:NIHR_HIC_ICU_0032>2014-02-01</d:NIHR_HIC_ICU_0032>
                 <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
                 <d:NIHR_HIC_ICU_0399>1.0</d:NIHR_HIC_ICU_0399>
                 <d:NIHR_HIC_ICU_0017>170</d:NIHR_HIC_ICU_0017>
@@ -76,6 +78,8 @@
               </d:subject>
               
               <d:subject>
+                <d:NIHR_HIC_ICU_0033>1980-12-30</d:NIHR_HIC_ICU_0033>
+                <d:NIHR_HIC_ICU_0032>2014-02-01</d:NIHR_HIC_ICU_0032>
                   <d:NIHR_HIC_ICU_0003>GPCODE1</d:NIHR_HIC_ICU_0003>
                   <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
                 <d:NIHR_HIC_ICU_0399>2.0</d:NIHR_HIC_ICU_0399>
