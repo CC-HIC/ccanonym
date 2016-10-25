@@ -1,3 +1,4 @@
+#' @title 
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
     nv <- variables.name(conf)
     ccd <- deltaTime(ccd, ...)
@@ -9,12 +10,19 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
 
 
 
-#' read.config
 #' @param ccd the identifiable ccRecord object
 #' @param config yaml file location
 #' @export do.sdc
 #' @import data.table
 do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
+    
+    remove.direct.vars <- function(data, dirvs) {
+        for (i in dirvs) 
+            data[[i]] <- NULL
+        data 
+    }
+
+
     if (is.character(conf))
         conf <- yaml.load_file(conf)
 
@@ -54,11 +62,39 @@ do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
 }
 
 
-remove.direct.vars <- function(data, dirvs) {
-    for (i in dirvs) 
-        data[[i]] <- NULL
-    data 
+
+
+
+
+
+create.anonym.ccd <- function(ccd, sdc.data) {
+    new.record <- ccRecord()
+
+    for (i in seq(nrow(sdc.data))) {
+        cdl <- clinic.data.list(ccd, sdc.data$index[i])
+        sdcl <- sdc.row2list(sdc.data[i, ])
+        new.record <- new.record + new.episode(append(cdl, sdcl))
+    }
+    new.record
 }
+
+
+
+do.sdc.numvar <- function(sdc, conf, numv) {
+    numconf <- append(conf$numVars, conf$datetimeVars)
+    for (item in numv) {
+        operations  <- names(numconf[[item]])
+        for (op in operations) {
+            FUN <- eval(parse(text=op))
+            args <- 
+                append(numconf[[item]][[op]], list(obj=sdc, variables=item))
+            sdc <- do.call(FUN, args)
+        }
+    }
+    sdc
+}
+
+
 
 
 variables.name <- function(conf) {
@@ -75,17 +111,6 @@ variables.name <- function(conf) {
     return(list(dirv=dirv, keyv=keyv, numv=numv, 
                 datetimev=datetimev, sensv=sensv, 
                 all.vars=all.vars))
-}
-
-create.anonym.ccd <- function(ccd, sdc.data) {
-    new.record <- ccRecord()
-
-    for (i in seq(nrow(sdc.data))) {
-        cdl <- clinic.data.list(ccd, sdc.data$index[i])
-        sdcl <- sdc.row2list(sdc.data[i, ])
-        new.record <- new.record + new.episode(append(cdl, sdcl))
-    }
-    new.record
 }
 
 
@@ -127,19 +152,7 @@ clinic.data.list <- function(ccd, index) {
 
 
 
-do.sdc.numvar <- function(sdc, conf, numv) {
-    numconf <- append(conf$numVars, conf$datetimeVars)
-    for (item in numv) {
-        operations  <- names(numconf[[item]])
-        for (op in operations) {
-            FUN <- eval(parse(text=op))
-            args <- 
-                append(numconf[[item]][[op]], list(obj=sdc, variables=item))
-            sdc <- do.call(FUN, args)
-        }
-    }
-    sdc
-}
+
 
 
 non.unique.columns <- function(data, numv) {
@@ -173,51 +186,6 @@ append.age <- function(demg) {
     return(demg)
 }
 
-
-#' @export convert.numeric.datetime
-convert.numeric.datetime<- function(data, items=NULL) {
-    if (is.null(items))
-        items <- names(data)
-
-    hic.code <- stname2code(items)
-
-    for (i in items) {
-        dtype <- ccdata:::ITEM_REF[[stname2code(i)]]$Datatype
-        if (dtype == "date") 
-            data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%Y-%m-%d"))
-        if (dtype == "time") 
-            data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%H:%M"))
-        if (dtype == "date/time") 
-            data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%Y-%m-%d %H:%M")) 
-    }
-    data
-}
-
-#' @export convert.back.datetime
-convert.back.datetime <- function(data, items=NULL) {
-    if (is.null(items))
-        items <- names(data)
-    hic.code <- stname2code(items)
-
-    for (i in items) {
-        dtype <- ccdata:::ITEM_REF[[stname2code(i)]]$Datatype
-        if (dtype == "date") {
-            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
-            data[[i]] <- as.character(data[[i]])
-        }
-
-        if (dtype == "time") {
-            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
-            data[[i]] <- strftime(data[[i]], format="%H:%M")
-        }
-
-        if (dtype == "date/time") {
-            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
-            data[[i]] <- strftime(data[[i]], format="%Y-%m-%d %H:%M")
-        }
-    }
-    data
-}
 
 security.check <- function(ccd, dirv) {
     ccdata:::for_each_episode(ccd, 
