@@ -2,7 +2,7 @@
 % Please edit documentation in R/read.config.R
 \name{do.sdc}
 \alias{do.sdc}
-\title{read.config}
+\title{do.sdc}
 \usage{
 do.sdc(ccd, conf, remove.alive = T, verbose = F)
 }
@@ -12,6 +12,6 @@ do.sdc(ccd, conf, remove.alive = T, verbose = F)
 \item{config}{yaml file location}
 }
 \description{
-read.config
+do.sdc
 }
 
