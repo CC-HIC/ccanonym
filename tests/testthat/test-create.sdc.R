@@ -59,6 +59,4 @@ test_that("appending age column", {
     age <- append.age(demg)$AGE
     expect_true(is.numeric(age))
     expect_identical(age, c(25, 33, NA, NA, NA))
-
-
 })
