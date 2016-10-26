@@ -10,10 +10,10 @@ anony.var(conf)
 \item{conf}{either the path of YAML configuration of a list}
 }
 \value{
-a list contrains all the variable names broken down in each
+a list contrains all the anony.var broken down in each
 category.
 }
 \description{
-Parse the YAML configuration file and check the variable names.
+Parse the YAML configuration file and check the anony.var.
 }
 

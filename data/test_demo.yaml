@@ -1,9 +1,7 @@
 directVars:
     - pasno   
     - ICNNO   
-    - ADNO    
     - NHSNO   
-    - TUADNO
     - DOB
 
 keyVars:
@@ -12,12 +10,7 @@ keyVars:
     - PCODE #  Postcode
 
 sensVars:
-    - BPC # Biopsy proven cirrhosis
     - AIDS_V3 # HIC/AIDS
-    - PH # Portal hypertension
-    - RAICU1
-    - RAICU2 
-    - URAICU 
 
 numVars:
     HCM: # Height
@@ -25,29 +18,11 @@ numVars:
             aggr: 2
 
 datetimeVars:
-    DOAH:  # Date of original admission to/attendance at acute hospital'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 2
-    
     DAH: # Date of admission to your hospital
         addNoise: 
             noise: 2
 
-    DOAICU:  # Date of original admission to ICU/HDU'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-    
     DUDICU:  # Date of ultimate discharge from ICU/HDU'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
-    DOD:  # Date of death on your unit'
         microaggregation: 
             aggr: 1
         addNoise: 
@@ -77,23 +52,12 @@ datetimeVars:
         addNoise: 
             noise: 1
 
-    DUDH:  # Date of ultimate discharge from your hospital'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-    
     DAICU:  # Date & Time of admission to your unit'
         microaggregation: 
             aggr: 1
         addNoise: 
             noise: 20
-    
-    DLCCA: 
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 20
+
 
     DDICU:  # Date & Time of discharge from your unit'
         microaggregation: 
@@ -103,6 +67,18 @@ datetimeVars:
 
 
 nonidentifyVars:
+- DOAICU
+- ADNO #  Critical care local identifier / ICNARC admission number
+- DUDH #  Date of ultimate discharge from your hospital
+- DOAH #  Date of original admission to/attendance at acute hospital
+- TUADNO #  Transferring unit admission number
+- DLCCA #  Date of last critical care visit prior to this admission to
+- RAICU1 #  Primary reason for admission to your unit
+- RAICU2 #  Secondary reasons for admission to your unit
+- URAICU #  Ultimate primary reason for admission to unit
+- BPC #  Biopsy proven cirrhosis
+- PH #  Portal hypertension
+- DOD #  Date of death on yout unit
 - SCODE # Treatment function code
 - CCL2D # Level 2 (HDU) days
 - ORGAN_SUPPORT # Organ support maximum

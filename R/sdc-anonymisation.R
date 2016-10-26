@@ -14,7 +14,7 @@
 #'
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
-    nv <- variables.name(conf)
+    nv <- anony.var(conf)
     ccd <- deltaTime(ccd, ...)
     sdc <- do.sdc(ccd, conf, remove.alive, verbose)
     newccd <- create.anonym.ccd(ccd, sdc$data)
@@ -42,7 +42,7 @@ do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
         demg <- demg[DIS=="D"]
 
     # Read configuration 
-    vn <- variables.name(conf)
+    vn <- anony.var(conf)
     vn$numv <- c(vn$numv, vn$datetimev)
     demg <- data.frame(convert.numeric.datetime(demg, vn$datetimev))
     vn$numv <- non.unique.columns(demg, vn$numv)
@@ -113,9 +113,9 @@ do.sdc.numvar <- function(sdc, conf, numv) {
 
 #' Parse YAML configuration file
 #' 
-#' Parse the YAML configuration file and check the variable names. 
+#' Parse the YAML configuration file and check the anony.var. 
 #' @param conf either the path of YAML configuration of a list
-#' @return a list contrains all the variable names broken down in each
+#' @return a list contrains all the anony.var broken down in each
 #' category.
 #' @export 
 anony.var <- function(conf) {
