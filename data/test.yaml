@@ -4,6 +4,7 @@ directVars:
     - ADNO # Critical care local identifier / ICNARC admission number
     - NHSNO # NHS number
     - TUADNO # Transferring unit admission number
+    - DOB
 
 
 keyVars:
@@ -95,7 +96,6 @@ datetimeVars:
 
 nonidentifyVars:
 - SCODE # Treatment function code
-- bed02 # CCU bed configuration 02
 - CCL2D # Level 2 (HDU) days
 - CCL1D # Level 1 (ICU) days
 - ORGAN_SUPPORT # Organ support maximum
@@ -105,7 +105,6 @@ nonidentifyVars:
 - TGD # Adult ICU/HDU within your critical care transfer group (out)
 - AMUAI # Antimicrobial use after 48 hours in your unit
 - BPC # Biopsy proven cirrhosis
-- HCM # Height
 - HCMEST # Height (Source)
 - WKG # Weight
 - WKGEST # Weight (Source)

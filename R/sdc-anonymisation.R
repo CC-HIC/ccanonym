@@ -1,3 +1,18 @@
+#' Anonymise the critical care dataset
+#'
+#' This function is the sf
+#' 
+#'
+#' 
+#' @param ccd identifiable data set in ccRecord format (see. ccdata R package)
+#' @param conf yaml configuration which either characters of the path of yaml
+#'        file or the parsed list.
+#' @param remove.alive logical value determines whether removing all alive
+#'        episode.
+#' @param verbose
+#' @return ccRecord 
+#'
+#' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
     nv <- variables.name(conf)
     ccd <- deltaTime(ccd, ...)
@@ -7,7 +22,6 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
     newccd
 }
 
-
 #' do.sdc
 #' 
 #' @param ccd the identifiable ccRecord object
@@ -16,17 +30,12 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
 #' @import data.table
 do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
     
-    remove.direct.vars <- function(data, dirvs) {
-        for (i in dirvs) 
-            data[[i]] <- NULL
-        data 
-    }
-
 
     if (is.character(conf))
         conf <- yaml.load_file(conf)
 
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
+    demg <- append.age(demg)
     demg$index <- seq(nrow(demg))
 
     # Remove dead episodes 
@@ -45,7 +54,7 @@ do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
 
 
     sdc <- createSdcObj(demg, keyVars=vn$keyv, numVars=vn$numv,
-                        sensibleVar=conf$sensibleVar)
+                        sensibleVar=vn$sensv)
 
     # Do the SDC processes. 
     sdc <- localSuppression(sdc)
@@ -62,10 +71,21 @@ do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
 }
 
 
+remove.direct.vars <- function(data, dirvs) {
+    for (i in dirvs) 
+        data[[i]] <- NULL
+    data 
+}
 
-
-
-
+append.age <- function(demg) {
+    format.dob <- "%Y-%m-%d"
+    format.dah <- "%Y-%m-%d"
+    demg$AGE <- 
+        floor(as.numeric(difftime(as.POSIXct(demg$DAH, format=format.dah),
+                                  as.POSIXct(demg$DOB, format=format.dob), 
+                                  units="days"))/365)
+    return(demg)
+}
 
 create.anonym.ccd <- function(ccd, sdc.data) {
     new.record <- ccRecord()
@@ -77,8 +97,6 @@ create.anonym.ccd <- function(ccd, sdc.data) {
     }
     new.record
 }
-
-
 
 do.sdc.numvar <- function(sdc, conf, numv) {
     numconf <- append(conf$numVars, conf$datetimeVars)
@@ -94,9 +112,7 @@ do.sdc.numvar <- function(sdc, conf, numv) {
     sdc
 }
 
-
-
-
+#' Parse the confiuration file and check the variable names. 
 variables.name <- function(conf) {
     if (is.character(conf))
         conf <- yaml.load_file(conf)
@@ -105,14 +121,30 @@ variables.name <- function(conf) {
     keyv <- conf$keyVars
     numv <- names(conf$numVars)
     datetimev <- names(conf$datetimeVars)
-    sensv <- conf$sensibleVar
+    sensv <- conf$sensVar
+    nonidv <- conf$nonidentifyVars
     all.vars <- c(keyv, numv, datetimev, sensv)
+
+    # check the correctness of the configuration file. 
+    if (any(all.vars %in% nonidv)) {
+        print(all.vars[all.vars %in% nonidv])
+        stop("identifiable variables appeared in non-identifiable slot, check the yaml file!" )
+    
+    }
+
+    confvars <- c(all.vars, nonidv)
+    vars.in.index <- code2stname(names(ccdata:::ITEM_REF)) %in% confvars
+    if (!all(vars.in.index)){
+print(
+short2longname((as.character(code2stname(names(ccdata:::ITEM_REF))[!vars.in.index]))))
+    
+    }
+    
 
     return(list(dirv=dirv, keyv=keyv, numv=numv, 
                 datetimev=datetimev, sensv=sensv, 
                 all.vars=all.vars))
 }
-
 
 sdc.row2list <- function(sdcrow) {
     lst <- as.list(sdcrow)
@@ -133,8 +165,6 @@ sdc.row2list <- function(sdcrow) {
     lst
 }
 
-
-
 clinic.data.list <- function(ccd, index) {
     cdl  <- lapply(ccd@episodes[[index]]@data, 
                            function(x) {
@@ -149,11 +179,6 @@ clinic.data.list <- function(ccd, index) {
     }
     cdl
 }
-
-
-
-
-
 
 non.unique.columns <- function(data, numv) {
     # check the data type and avoid processing on the 
@@ -175,17 +200,6 @@ non.unique.columns <- function(data, numv) {
     else
         return(new.numv)
 }
-
-append.age <- function(demg) {
-    format.dob <- "%Y-%m-%d"
-    format.dah <- "%Y-%m-%d"
-    demg$AGE <- 
-        floor(as.numeric(difftime(as.POSIXct(demg$DAH, format=format.dah),
-                                  as.POSIXct(demg$DOB, format=format.dob), 
-                                  units="days"))/365)
-    return(demg)
-}
-
 
 security.check <- function(ccd, dirv) {
     ccdata:::for_each_episode(ccd, 
