@@ -29,7 +29,6 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
 #' @export do.sdc
 #' @import data.table
 do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
-    
 
     if (is.character(conf))
         conf <- yaml.load_file(conf)
@@ -125,22 +124,28 @@ variables.name <- function(conf) {
     nonidv <- conf$nonidentifyVars
     all.vars <- c(keyv, numv, datetimev, sensv)
 
+    all.ccd.stname <- code2stname(names(ccdata:::ITEM_REF))
+
     # check the correctness of the configuration file. 
+    index <- c(all.vars, nonidv) %in% all.ccd.stname
+    if (!all(index)) {
+        print(c(all.vars, nonidv)[!index])
+        stop("Items in configuration file do not appear in ccdata item list.")
+    }
+
     if (any(all.vars %in% nonidv)) {
         print(all.vars[all.vars %in% nonidv])
         stop("identifiable variables appeared in non-identifiable slot, check the yaml file!" )
-    
     }
 
-    confvars <- c(all.vars, nonidv)
-    vars.in.index <- code2stname(names(ccdata:::ITEM_REF)) %in% confvars
-    if (!all(vars.in.index)){
-print(
-short2longname((as.character(code2stname(names(ccdata:::ITEM_REF))[!vars.in.index]))))
+    confvars <- c(dirv, all.vars, nonidv)
+    index <- all.ccd.stname %in% confvars
+    if (!all(index)){
+        ss <- as.character(all.ccd.stname[!index])
+        cat(paste("-", ss, "# ", short2longname(ss), "\n"))
     
     }
     
-
     return(list(dirv=dirv, keyv=keyv, numv=numv, 
                 datetimev=datetimev, sensv=sensv, 
                 all.vars=all.vars))

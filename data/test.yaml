@@ -9,7 +9,7 @@ directVars:
 keyVars:
     - GPCODE 
     - SEX
-
+    - PCODE #  Postcode
 
 sensVars:
     - BPC # Biopsy proven cirrhosis
@@ -20,8 +20,8 @@ sensVars:
     - URAICU 
 
 numVars:
-    - HCM: # Height
-        - microaggregation:
+    HCM: # Height
+        microaggregation:
             aggr: 2
 
 datetimeVars:
@@ -105,7 +105,6 @@ datetimeVars:
 nonidentifyVars:
 - SCODE # Treatment function code
 - CCL2D # Level 2 (HDU) days
-- CCL1D # Level 1 (ICU) days
 - ORGAN_SUPPORT # Organ support maximum
 - AMLALLMM # Acute myeloid/lymphocytic leukaemia or myeloma
 - PSP # Admission for pre-surgical preparation
@@ -115,7 +114,6 @@ nonidentifyVars:
 - HCMEST # Height (Source)
 - WKG # Weight
 - WKGEST # Weight (Source)
-- CPR_V1 # Cardiopulmonary resuscitation within 24 hours prior to admission to unit
 - BCSD # Basic Cardiovascular support days
 - ACSD # Advanced Cardiovascular support days
 - CHEMOX # Chemotherapy (within the last 6months) steroids alone excluded
@@ -139,7 +137,6 @@ nonidentifyVars:
 - ETHNIC # Ethnicity
 - GSD # Gastrointestinal support days
 - HE # Heaptic encephalopathy
-- AIDS_V1 # HIV/AIDS
 - HV # Home ventilation
 - HLOCA # Hospital housing location (in)
 - LEVD # Level of care at discharge from your unit
@@ -152,7 +149,6 @@ nonidentifyVars:
 - OCPMH # Other condition in past medical history
 - PLOCA # Prior location (in)
 - RADIOX # Radiotherapy
-- RDIS_V1 # Discharge status (Reason for discharge from your unit)
 - REFOD # Referred for solid organ or tissue donation
 - RSD # Renal support days
 - RESD # Residence post discharge from acute hospital
@@ -162,13 +158,11 @@ nonidentifyVars:
 - SOHA # Sector of other hospital (in)
 - SOHD # Sector of other hospital (out)
 - SRD # Severe respiratory disease
-- OD_V1 # Solid organ or tissue donor
 - HDIS # Status at discharge from your hospital
 - DIS # Dead or alive on discharge
 - UHDIS # Status at ultimate discharge from hospital
 - STERX # Steroid treatment
 - TUIDI # Transferring unit identifier (in)
-- ITW_V1 # Treatment withheld/withdrawn
 - TYPEIHA # Type of adult ICU/HDU (in)
 - VSCD # Very severe cardiovascular disease
 - h_rate # Heart rate
@@ -194,7 +188,6 @@ nonidentifyVars:
 - pao2_abg # PaO2 - ABG
 - paco2_abg # PaCO2 - ABG
 - ph_abg_vbg # pH - ABG / VBG
-- hco1_abg_vbg # HCO1 - ABG / VBG
 - temperature_central # Temperature - Central
 - temperature_non_central # Temperature - Non-central
 - position # Position
@@ -236,10 +229,9 @@ nonidentifyVars:
 - sensitivity # Sensitivity
 - fentanyl # Fentanyl
 - milrinone # Milrinone
-- bed01 # CCU bed configuration 01
 - bed05 # CCU bed configuration 05
 - bed50 # CCU bed configuration 90
-- PA_V1 # Admission type
+- PA_V3 # Admission type
 - BSDTP # Brain stem death declared
 - TNESSD # Timeliness of discharge from your unit
 - DFCCD # Date of first critical care post-discharge from your unit
@@ -317,7 +309,6 @@ nonidentifyVars:
 - dopexamine # Dopexamine
 - terlipressin # Terlipressin
 - TYPEIHD # Type of adult ICU/HDU (out)
-- DESTH_V1 # Destination post discharge within your hospital
 - esmolol # Esmolol
 - metoprolol # Metoprolol
 - dexamethasone # Dexamethasone
@@ -337,3 +328,12 @@ nonidentifyVars:
 - supt_liver # Liver support
 - supt_dermat # Dermatological support
 - supt_gastr # Gastrointestinal support
+- bed02 #  CCU bed configuration 02
+- bed03 #  CCU bed configuration 03
+- CCL3D #  Level 3 (ICU) days
+- RDIS_V3 #  Discharge status (Reason for discharge from your unit)
+- DESTH_V3 #  Destination post discharge within your hospital
+- CPR_V3 #  Cardiopulmonary resuscitation within 24 hours prior to admission to unit
+- ITW_V3 #  Treatment withheld/withdrawn
+- OD_V3 #  Solid organ or tissue donor
+- hco3_abg_vbg #  HCO3 - ABG / VBG
