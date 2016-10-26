@@ -1,26 +1,28 @@
 directVars:
-    - pasno # PAS number
-    - ICNNO # Site code (ICNARC CMP number)
-    - ADNO # Critical care local identifier / ICNARC admission number
-    - NHSNO # NHS number
-    - TUADNO # Transferring unit admission number
+    - pasno   
+    - ICNNO   
+    - ADNO    
+    - NHSNO   
+    - TUADNO
     - DOB
-
 
 keyVars:
     - GPCODE 
     - SEX
-    - RAICU1 # Primary reason for admission to your unit
 
 
 sensVars:
-    - bed02 
+    - BPC # Biopsy proven cirrhosis
+    - AIDS_V3 # HIC/AIDS
+    - PH # Portal hypertension
+    - RAICU1
+    - RAICU2 
+    - URAICU 
 
 numVars:
-    HCM: # Height 
-        microaggregation: 
+    - HCM: # Height
+        - microaggregation:
             aggr: 2
-    
 
 datetimeVars:
     DOAH:  # Date of original admission to/attendance at acute hospital'
@@ -87,6 +89,12 @@ datetimeVars:
         addNoise: 
             noise: 20
     
+    DLCCA: 
+        microaggregation: 
+            aggr: 1
+        addNoise: 
+            noise: 20
+
     DDICU:  # Date & Time of discharge from your unit'
         microaggregation: 
             aggr: 1
@@ -104,7 +112,6 @@ nonidentifyVars:
 - TGA # Adult ICU/HDU within your critical care transfer group (in)
 - TGD # Adult ICU/HDU within your critical care transfer group (out)
 - AMUAI # Antimicrobial use after 48 hours in your unit
-- BPC # Biopsy proven cirrhosis
 - HCMEST # Height (Source)
 - WKG # Weight
 - WKGEST # Weight (Source)
@@ -143,7 +150,6 @@ nonidentifyVars:
 - META # Metastatic disease
 - NSD # Neurological support days
 - OCPMH # Other condition in past medical history
-- PH # Portal hypertension
 - PLOCA # Prior location (in)
 - RADIOX # Radiotherapy
 - RDIS_V1 # Discharge status (Reason for discharge from your unit)
