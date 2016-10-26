@@ -1,0 +1,89 @@
+---
+title: "A short demo of the anonymisation process"
+author: "Sinan Shi"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    include: 
+      in_header: vignettes/report.latex
+---
+
+## The identifiable data set
+```{r include=FALSE}
+library(ccdata)
+library(ccanonym)
+library(pander)
+
+panderOptions('table.split.table', 115)
+```
+
+The identifiable data set is usually stored in ccRecord format. 
+In the following code, we create  the ccRecord object from a XML file which
+contains only five episodes.  
+```{r load_packages, results="hide", warning=FALSE}
+library(ccdata)
+library(ccanonym)
+
+ccd <- xml2Data("../tests/data/test_data_anonym.xml")
+demg.table <- as.data.frame(sql.demographic.table(ccd))
+```
+
+## The YAML configuration file
+Create a YAML configuration file as such, where the identifiable variables
+(dirctVars), key categorical variables (keyVars), key numerical variables
+(numVars), key date-time variables (datetimeVars), sensitive variables
+(sensVars) and the corresponding operations and thresholds are specified. 
+```{yaml}
+directVars:
+    - pasno		# PAS number
+    - ICNNO		# Site code
+    - ADNO		# INCNARC admission number 
+    - NHSNO		# NHS number
+    - TUADNO	# Transferrring unit admission number
+    - DOB			# Date of birth 
+
+keyVars:
+    - GPCODE	# GP code
+    - SEX			# Sex
+    - PCODE 	# Postcode
+
+sensVars:
+    - BPC 		# Biopsy proven cirrhosis
+    - AIDS_V3 # HIC/AIDS
+    - PH 			# Portal hypertension
+    - RAICU1	# Primary reason for admission to your unit
+    - RAICU2 	# Secondary reasons for admission to your unit
+    - URAICU 	# Ultimate primary reason for admission to unit
+
+numVars:
+    HCM: # Height
+        microaggregation:
+            aggr: 2
+
+datetimeVars:
+    DOAH:  # Date of original admission to/attendance at acute hospital'
+        microaggregation: 
+            aggr: 1
+        addNoise: 
+            noise: 2
+    
+    DAH: # Date of admission to your hospital
+        addNoise: 
+            noise: 2
+
+    DOAICU:  # Date of original admission to ICU/HDU'
+        microaggregation: 
+            aggr: 1
+        addNoise: 
+            noise: 1
+... ...
+
+```
+```{r pander, font=2}
+conf <- yaml.load_file("../data/test_demo.yaml")
+av <- anony.var(conf)
+all.var <- c(av$dirv, av$all.vars) # all variables besides non-confidential data 
+pander(demg.table[, all.var],  style = 'rmarkdown')
+```
+
+

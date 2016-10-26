@@ -111,8 +111,14 @@ do.sdc.numvar <- function(sdc, conf, numv) {
     sdc
 }
 
-#' Parse the confiuration file and check the variable names. 
-variables.name <- function(conf) {
+#' Parse YAML configuration file
+#' 
+#' Parse the YAML configuration file and check the variable names. 
+#' @param conf either the path of YAML configuration of a list
+#' @return a list contrains all the variable names broken down in each
+#' category.
+#' @export 
+anony.var <- function(conf) {
     if (is.character(conf))
         conf <- yaml.load_file(conf)
 

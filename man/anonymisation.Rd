@@ -10,7 +10,7 @@ anonymisation(ccd, conf, remove.alive = T, verbose = F, ...)
 \item{ccd}{identifiable data set in ccRecord format (see. ccdata R package)}
 
 \item{conf}{yaml configuration which either characters of the path of yaml
-configuration file or the parsed list.}
+file or the parsed list.}
 
 \item{remove.alive}{logical value determines whether removing all alive
 episode.}
@@ -20,7 +20,5 @@ ccRecord
 }
 \description{
 This function is the sf
-sfsdf l
-sdfsdf
 }
 

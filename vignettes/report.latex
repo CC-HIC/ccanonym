@@ -1,0 +1,113 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+%\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{university college London} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge A Short Demo for the Anonymization Procedure\\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Sinan Shi} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+%\let\oldlongtable\longtable
+%\def\longtable{\tiny \oldlongtable}
+%\usepackage[svgnames]{xcolor}
+%\usepackage{libertine}
+%\usepackage{framed}
+%\let\oldquote\quote
+%\let\endoldquote\endquote
+%\definecolor{verypalegreen}{RGB}{252,255,250}
+%\colorlet{shadecolor}{verypalegreen}
+%
+%\makeatletter
+%\def\shadequote{\begin{snugshade}\begin{oldquote}}
+%\def\endshadequote{%
+%  \end{oldquote}\end{snugshade}}
+%\makeatother
+%\renewenvironment{quote}{\begin{shadequote}}{\end{shadequote}}
+%\usepackage{lettrine} % Package to accentuate the first letter of the text  
+%\usepackage{fix-cm}	 % Custom font sizes - used for the initial letter in the document
+%
+%\definecolor{uclmidgreen}{RGB}{130,141,55}
+%
+%\newcommand{\initial}[1]{ % Defines the command and style for the first letter
+%\lettrine[lines=3,lhang=0.3,nindent=0em]{
+%\color{DarkGreen}
+%{\textsf{#1}}}{}}
+%
+%\usepackage{sectsty} % Enables custom section titles
+%\sectionfont{\color{uclmidgreen} \usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
+%\subsectionfont{\color{DarkSeaGreen} \usefont{OT1}{phv}{b}{n}} % Change the font of all section commands
+%
+%\usepackage{titling} % Allows custom title configuration 
+%\newcommand{\HorRule}{\color{DarkSeaGreen} \rule{\linewidth}{1pt}} % Defines the gold horizontal rule around the title
+%
+%\pretitle{
+%\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{38}{38} \usefont{OT1}{phv}{b}{n} \color{uclmidgreen} \selectfont} % Horizontal rule before the title
+%
+%\posttitle{\par\end{flushleft}\begin{flushleft}\fontsize{25}{25} \usefont{OT1}{phv}{b}{n} \color{Black} \selectfont \end{flushleft}\vskip 0.5em } % Whitespace under the title and subtitle
+%
+%\preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{uclmidgreen} Sinan Shi}% Author font configuration
+%
+%\postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
+%
+%
+%University College London% Your institution
+%
+%\par\end{flushleft}\HorRule} % Horizontal rule after the title
+%
+%\hypersetup{linkcolor=black}

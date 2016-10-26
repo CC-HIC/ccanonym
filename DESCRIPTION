@@ -13,3 +13,6 @@ Depends:
     sdcMicro, 
     ccdata
 Imports: data.table
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
