@@ -8,7 +8,6 @@ output:
       in_header: vignettes/report.latex
 ---
 
-## The identifiable data set
 ```{r include=FALSE}
 library(ccdata)
 library(ccanonym)
@@ -16,22 +15,16 @@ library(pander)
 
 panderOptions('table.split.table', 115)
 ```
-
-The identifiable data set is usually stored in ccRecord format. 
-In the following code, we create  the ccRecord object from a XML file which
-contains only five episodes.  
-```{r load_packages, results="hide", warning=FALSE}
+```{r}
 library(ccdata)
 library(ccanonym)
-
-ccd <- xml2Data("../tests/data/test_data_anonym.xml")
-demg.table <- as.data.frame(sql.demographic.table(ccd))
 ```
 
-## The YAML configuration file
-Create a YAML configuration file as such, where the identifiable variables
-(dirctVars), key categorical variables (keyVars), key numerical variables
-(numVars), key date-time variables (datetimeVars), sensitive variables
+
+# The YAML configuration file
+Create a YAML configuration file as such, where the **identifiable variables**
+(dirctVars), **key categorical variables** (keyVars), **key numerical
+variables** (numVars), **key date-time variables** (datetimeVars), **sensitive variables**
 (sensVars) and the corresponding operations and thresholds are specified. 
 ```{yaml}
 directVars:
@@ -79,11 +72,32 @@ datetimeVars:
 ... ...
 
 ```
-```{r pander, font=2}
+```{r}
 conf <- yaml.load_file("../data/test_demo.yaml")
-av <- anony.var(conf)
-all.var <- c(av$dirv, av$all.vars) # all variables besides non-confidential data 
+vars <- anony.var(conf)
+```
+
+# Identifiable data set
+
+
+The identifiable data set is usually stored in ccRecord format. 
+In the following code, we create  the ccRecord object from a XML file which
+contains only five episodes.  
+```{r load_packages, results="hide", warning=FALSE}
+ccd <- xml2Data("../tests/data/test_data_anonym.xml")
+demg.table <- as.data.frame(sql.demographic.table(ccd))
+
+```
+```{r pander}
+all.var <- c(vars$dirv, vars$all.vars) # all variables besides non-confidential data 
 pander(demg.table[, all.var],  style = 'rmarkdown')
 ```
 
 
+
+# Anonymisation 
+
+```{r, warning=FALSE}
+anonccd <- anonymisation(ccd, conf="../data/test_demo.yaml")#, remove.alive=T, verbose=T)
+pander(sql.demographic.table(anonccd)[, all.var, with=F], style="rmarkdown")
+```
