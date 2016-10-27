@@ -58,5 +58,5 @@ test_that("anonymisation from ccdata", {
 test_that("appending age column", {
     age <- append.age(demg)$AGE
     expect_true(is.numeric(age))
-    expect_identical(age, c(25, 33, 44, 37, 59))
+    expect_identical(age, c(25, 33, 44, 37, 59, 25, 25))
 })
