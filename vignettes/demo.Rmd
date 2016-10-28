@@ -37,38 +37,36 @@ directVars:
     - ADNO		# INCNARC admission number 
     - NHSNO		# NHS number
     - TUADNO	# Transferrring unit admission number
-    - DOB			# Date of birth 
+    - DOB		# Date of birth 
 
 categoricalVars:
     - GPCODE	# GP code
-    - SEX			# Sex
+    - SEX		# Sex
     - PCODE 	# Postcode
 
 sensVars:
     - BPC 		# Biopsy proven cirrhosis
-    - AIDS_V3 # HIC/AIDS
-    - PH 			# Portal hypertension
+    - AIDS_V3   # HIV/AIDS
+    - PH 		# Portal hypertension
     - RAICU1	# Primary reason for admission to your unit
     - RAICU2 	# Secondary reasons for admission to your unit
     - URAICU 	# Ultimate primary reason for admission to unit
 
 numVars:
-    HCM: # Height
+    HCM:        # Height
         microaggregation:
             aggr: 2
 
 datetimeVars:
-    DOAH:  # Date of original admission to/attendance at acute hospital'
+    DOAH:       # Date of original admission to/attendance at acute hospital
         microaggregation: 
             aggr: 1
         addNoise: 
             noise: 2
-    
-    DAH: # Date of admission to your hospital
+    DAH:        # Date of admission to your hospital
         addNoise: 
             noise: 2
-
-    DOAICU:  # Date of original admission to ICU/HDU'
+    DOAICU      # Date of original admission to ICU/HDU'
         microaggregation: 
             aggr: 1
         addNoise: 
@@ -83,9 +81,7 @@ vars <- anony.var(conf)
 
 # Identifiable data set
 
-The identifiable data set is usually stored in ccRecord format. 
-In the following code, we create  the ccRecord object from a XML file which
-contains only five episodes.  
+The identifiable data set is usually stored in _ccRecord_ format, which is the default for CCHIC data. In the following code, we create the ccRecord object from an XML file which contains only five episodes.  
 ```{r load_packages, results="hide", warning=FALSE}
 ccd <- xml2Data("../tests/data/test_data_anonym.xml")
 demg.table <- as.data.frame(sql.demographic.table(ccd))
@@ -96,8 +92,6 @@ print(conf)
 all.var <- c(vars$dirv, vars$all.vars, "DIS") # all variables besides non-confidential data 
 pander(demg.table[, all.var],  style = 'rmarkdown')
 ```
-
-
 
 # Anonymisation
 ## Anonymisation procedure
