@@ -27,6 +27,10 @@ Create a YAML configuration file as such, where the **identifiable variables**
 variables** (numVars), **key date-time variables** (datetimeVars), **sensitive variables**
 (sensVars) and the corresponding operations and thresholds are specified. 
 ```{yaml}
+k-anonymity: 30
+l-diversity: 30
+
+
 directVars:
     - pasno		# PAS number
     - ICNNO		# Site code
@@ -35,7 +39,7 @@ directVars:
     - TUADNO	# Transferrring unit admission number
     - DOB			# Date of birth 
 
-keyVars:
+categoricalVars:
     - GPCODE	# GP code
     - SEX			# Sex
     - PCODE 	# Postcode
@@ -79,25 +83,34 @@ vars <- anony.var(conf)
 
 # Identifiable data set
 
-
 The identifiable data set is usually stored in ccRecord format. 
 In the following code, we create  the ccRecord object from a XML file which
 contains only five episodes.  
 ```{r load_packages, results="hide", warning=FALSE}
 ccd <- xml2Data("../tests/data/test_data_anonym.xml")
 demg.table <- as.data.frame(sql.demographic.table(ccd))
+print(conf)
 
 ```
 ```{r pander}
-all.var <- c(vars$dirv, vars$all.vars) # all variables besides non-confidential data 
+all.var <- c(vars$dirv, vars$all.vars, "DIS") # all variables besides non-confidential data 
 pander(demg.table[, all.var],  style = 'rmarkdown')
 ```
 
 
 
-# Anonymisation 
-
+# Anonymisation
+## Anonymisation procedure
 ```{r, warning=FALSE}
-anonccd <- anonymisation(ccd, conf="../data/test_demo.yaml")#, remove.alive=T, verbose=T)
-pander(sql.demographic.table(anonccd)[, all.var, with=F], style="rmarkdown")
+anonccd <- anonymisation(ccd, conf, remove.alive=T)
+demg <- data.frame(sql.demographic.table(anonccd))
+pander(demg[, all.var], style="rmarkdown")
+```
+
+
+## Categorical variables 
+
+```{r } 
+print(conf)
+
 ```
