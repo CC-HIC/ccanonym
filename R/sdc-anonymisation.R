@@ -55,10 +55,10 @@
 #'
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
-                          k.anonymity=20, l.diversity=10, ...) {
+                          k.anon=20, l.div=10, ...) {
     vn <- anony.var(conf)
     ccd <- deltaTime(ccd, ...)
-    sdc <- sdc.trail(ccd, conf, remove.alive, verbose)
+    sdc <- sdc.trail(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
     newccd <- create.anonym.ccd(ccd, sdc$data)
     security.check(newccd, vn$dirv)
     newccd
@@ -70,7 +70,7 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
 #' @param config yaml file location
 #' @import data.table
 #' @export
-sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k=20, l=10) {
+sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10) {
     
     if (is.character(conf))
         conf <- yaml.load_file(conf)
@@ -91,7 +91,7 @@ sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k=20, l=10) {
     demg <- microaggregation.numvar(demg, conf)
 
     sdc <- createSdcObj(demg, keyVars=c(vn$keyv, vn$numv, vn$datetimev))
-    sdc <- localSuppression(sdc, k=k)
+    sdc <- localSuppression(sdc, k=k.anon)
 
     if (verbose)
         print(sdc)
@@ -101,9 +101,9 @@ sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k=20, l=10) {
 
    for (i in vn$sensv) {
        ld <- ldiversity(sdc, i)@risk$ldiversity
-       if (min(ld) < l) 
-           warning(i,"=", min(ld), " does not comply with the l-diversity ", l)
-
+       if (min(ld) < l.div) 
+           warning(i,"=", min(ld), 
+                   " does not comply with the l-diversity ", l.div)
    }
    return(list(data=demg, sdc=sdc))
 }
@@ -126,6 +126,7 @@ addnoise.numvar <- function(demg, conf) {
     demg <- convert.back.datetime(demg, vn$datetimev)
     demg
 }
+
 microaggregation.numvar <- function(demg, conf) {
 
     vn <- anony.var(conf)
@@ -146,9 +147,6 @@ microaggregation.numvar <- function(demg, conf) {
     demg <- convert.back.datetime(demg, vn$datetimev)
     demg
 }
-
-
-
 
 remove.direct.vars <- function(data, dirvs) {
     for (i in dirvs) 

@@ -4,7 +4,8 @@
 \alias{sdc.trail}
 \title{sdc.trail}
 \usage{
-sdc.trail(ccd, conf, remove.alive = T, verbose = F)
+sdc.trail(ccd, conf, remove.alive = T, verbose = F, k.anon = 20,
+  l.div = 10)
 }
 \arguments{
 \item{ccd}{the identifiable ccRecord object}

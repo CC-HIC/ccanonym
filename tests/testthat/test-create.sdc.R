@@ -11,7 +11,7 @@ var <- c(keydt, keyvar, numvar)
 test_that("create sdc object", {
     demg <- data.frame(demg)
 
-    sdc <<- sdc.trail(ccd, '../../data/test.yaml')
+    sdc <<- suppressWarnings(sdc.trail(ccd, '../../data/test.yaml'))
 })
 
 
@@ -51,7 +51,7 @@ test_that("get all the 2d data from a selected episodes but not the demographic
 
 
 test_that("anonymisation from ccdata", {
-    (anonymisation(ccd, conf))
+    suppressWarnings(anonymisation(ccd, conf))
 })
 
 
