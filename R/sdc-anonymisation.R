@@ -14,11 +14,11 @@
 #'
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
-    nv <- anony.var(conf)
+    vn <- anony.var(conf)
     ccd <- deltaTime(ccd, ...)
     sdc <- do.sdc(ccd, conf, remove.alive, verbose)
     newccd <- create.anonym.ccd(ccd, sdc$data)
-    security.check(newccd, nv$dirv)
+    security.check(newccd, vn$dirv)
     newccd
 }
 
@@ -29,9 +29,11 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
 #' @export do.sdc
 #' @import data.table
 do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
-
+    
     if (is.character(conf))
         conf <- yaml.load_file(conf)
+
+    vn <- anony.var(conf)
 
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
     demg <- append.age(demg)
