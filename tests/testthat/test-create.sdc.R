@@ -60,3 +60,10 @@ test_that("appending age column", {
     expect_true(is.numeric(age))
     expect_identical(age, c(25, 33, 44, 37, 59, 25, 25))
 })
+
+
+
+test_that("Microaggregation on numeric variables", {
+    microaggregation.numvar(demg, conf)
+
+})

@@ -70,7 +70,7 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
 #' @param config yaml file location
 #' @import data.table
 #' @export
-sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F) {
+sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k=20, l=10) {
     
     if (is.character(conf))
         conf <- yaml.load_file(conf)
@@ -85,31 +85,69 @@ sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F) {
     if (remove.alive)
         demg <- demg[DIS=="D"]
 
-    vn$numv <- c(vn$numv, vn$datetimev)
-    demg <- data.frame(convert.numeric.datetime(demg, vn$datetimev))
-    vn$numv <- non.unique.columns(demg, vn$numv)
-
 
     # Remove direct identifiable variables 
     demg <- remove.direct.vars(demg, vn$dirv)
+    demg <- microaggregation.numvar(demg, conf)
 
-
-    sdc <- createSdcObj(demg, keyVars=vn$keyv, numVars=vn$numv,
-                        sensibleVar=vn$sensv)
-
-    # Do the SDC processes. 
-    sdc <- localSuppression(sdc)
-    sdc <- do.sdc.numvar(sdc, conf, vn$numv)
+    sdc <- createSdcObj(demg, keyVars=c(vn$keyv, vn$numv, vn$datetimev))
+    sdc <- localSuppression(sdc, k=k)
 
     if (verbose)
         print(sdc)
 
-    demg[, vn$numv] <- sdc@manipNumVars
-    demg[, vn$keyv] <- sdc@manipKeyVars
-    demg <- convert.back.datetime(demg, vn$datetimev)
+   demg[, sdc@keyVars] <- sdc@manipKeyVars
+   demg <- addnoise.numvar(demg, conf)
 
-    return(list(data=demg, sdc=sdc))
+   for (i in vn$sensv) {
+       ld <- ldiversity(sdc, i)@risk$ldiversity
+       if (min(ld) < l) 
+           warning(i,"=", min(ld), " does not comply with the l-diversity ", l)
+
+   }
+   return(list(data=demg, sdc=sdc))
 }
+
+
+addnoise.numvar <- function(demg, conf) {
+    vn <- anony.var(conf)
+    vn$numv <- c(vn$numv, vn$datetimev)
+    demg <- data.frame(convert.numeric.datetime(demg, vn$datetimev))
+    numconf <- append(conf$numVars, conf$datetimeVars)
+    numv <- non.unique.columns(demg, vn$numv)
+    for (item in numv) {
+        if (!is.null(numconf[[item]][['noise']])) {
+            noise.level <- numconf[[item]][['noise']]
+            demg[, item] <- 
+                addNoise(data.frame(demg[, item]), 
+                                 noise=noise.level)$mx
+        }
+    }
+    demg <- convert.back.datetime(demg, vn$datetimev)
+    demg
+}
+microaggregation.numvar <- function(demg, conf) {
+
+    vn <- anony.var(conf)
+    vn$numv <- c(vn$numv, vn$datetimev)
+    demg <- data.frame(convert.numeric.datetime(demg, vn$datetimev))
+
+    numconf <- append(conf$numVars, conf$datetimeVars)
+    numv <- non.unique.columns(demg, vn$numv)
+    
+    for (item in numv) {
+        if (!is.null(numconf[[item]][['aggr']])) {
+            agg.level <- numconf[[item]][['aggr']]
+            demg[, item] <- 
+                microaggregation(data.frame(demg[, item]), 
+                                 aggr=agg.level)$mx
+        }
+    }
+    demg <- convert.back.datetime(demg, vn$datetimev)
+    demg
+}
+
+
 
 
 remove.direct.vars <- function(data, dirvs) {
@@ -139,32 +177,7 @@ create.anonym.ccd <- function(ccd, sdc.data) {
     new.record
 }
 
-do.sdc.numvar <- function(sdc, conf, numv) {
-    numconf <- append(conf$numVars, conf$datetimeVars)
-#    print(numconf)
-    for (item in numv) {
-        print(item)
-        print(numconf[[item]]$aggr)
-        if (!is.null(numconf[[item]][['aggr']])) {
-            agg.level <- numconf[[item]][['aggr']]
-            print(agg.level)
-#            microaggreation(sdc, variables=item, aggr=agg.level)
-        }
-#        sdc <- microaggreation(sdc, variables=item, aggr=)
-    
-    
-    }
-#    for (item in numv) {
-#        operations  <- names(numconf[[item]])
-#        for (op in operations) {
-#            FUN <- eval(parse(text=op))
-#            args <- 
-#                append(numconf[[item]][[op]], list(obj=sdc, variables=item))
-#            sdc <- do.call(FUN, args)
-#        }
-#    }
-    sdc
-}
+
 
 #' Parse YAML configuration file
 #' 

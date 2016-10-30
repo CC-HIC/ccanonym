@@ -25,18 +25,19 @@ convert.back.datetime <- function(data, items=NULL) {
 
     for (i in items) {
         dtype <- ccdata:::ITEM_REF[[stname2code(i)]]$Datatype
+        numdate <- as.numeric(data[[i]])
         if (dtype == "date") {
-            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
+            data[[i]] <- as.POSIXct(numdate, origin="1970-01-01")
             data[[i]] <- as.character(data[[i]])
         }
 
         if (dtype == "time") {
-            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
+            data[[i]] <- as.POSIXct(numdate, origin="1970-01-01")
             data[[i]] <- strftime(data[[i]], format="%H:%M")
         }
 
         if (dtype == "date/time") {
-            data[[i]] <- as.POSIXct(data[[i]], origin="1970-01-01")
+            data[[i]] <- as.POSIXct(numdate, origin="1970-01-01")
             data[[i]] <- strftime(data[[i]], format="%Y-%m-%d %H:%M")
         }
     }
