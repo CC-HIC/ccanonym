@@ -1,6 +1,47 @@
 #' Anonymise the critical care dataset
 #'
-#' This function is the sf
+#'The following process will be followed for each data release.
+#'    1.  The data request will be reviewed and approved as per the Data Access
+#'request SOP. The request must include a list of fields, and a time period for
+#'the data.
+#'
+#'    2.  The fields will be compared to the master list of direct identifiers,
+#'key variables, and sensitive variables (see Appendix [b] List of fields and
+#'anonymisation approach [Page 14]).
+#'
+#'    3.  A k-anonymity threshold of at least twenty will be applied as an
+#'initial default (meaning that the smallest group that could be re-identified
+#'using the key variables to 'triangulate' would contain twenty individuals).*1*
+#'
+#'    4.  An anonymisation configuration file will be submitted that describes
+#'the desired data fidelity (e.g. that age is reported rounded to the nearest
+#'five years, that the day of hospital admission is known but the month and year
+#'suppressed etc.).
+#'
+#'    5.  The data requested will be processed as per Section [3] Anonymisation
+#'methodology - page [6].
+#'
+#'    6.  If the k-anonymity threshold is not met (either directly or because of
+#'inadequate l-diversity in sensitive fields) after processing then those seeking
+#'access to the data will be invited to discuss their configuration requests.
+#'Guidance will be offered as to which fields might be further aggregated or
+#'suppressed.
+#'
+#'    7.  Once the k-anonymity and l-diversity criteria have been met then the
+#'data can be made available for release. 
+#'
+#'    8.  An audit trail of the data release will be created containing the
+#'following information.  • Date and time of data processing • Unique reference
+#'to the source data • Code reference of anonymisation package (git commit ID) •
+#'Code reference of the configuration file for the anonymisation • Personal
+#'details of the data user • Personal details of the data controller (or
+#'designated nominee) who is approving the data release *1*This is the mininum
+#'size, but the typical group size would be larger. Now consider two
+#'re-identification scenarios: the prosecutor and the journalist. In the former,
+#'an intruder seeks to re-identifiy a specific individual. Here the average group
+#'size is more relevant. In the latter, an intruder (the journalist) simply wants
+#'to show that the anonymisation has failed and they have re-identified an
+#'arbitrary individual. Here the minimum group size is more important.  
 #' 
 #'
 #' 
@@ -13,22 +54,23 @@
 #' @return ccRecord 
 #'
 #' @export
-anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, ...) {
+anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
+                          k.anonymity=20, l.diversity=10, ...) {
     vn <- anony.var(conf)
     ccd <- deltaTime(ccd, ...)
-    sdc <- do.sdc(ccd, conf, remove.alive, verbose)
+    sdc <- sdc.trail(ccd, conf, remove.alive, verbose)
     newccd <- create.anonym.ccd(ccd, sdc$data)
     security.check(newccd, vn$dirv)
     newccd
 }
 
-#' do.sdc
+#' sdc.trail
 #' 
 #' @param ccd the identifiable ccRecord object
 #' @param config yaml file location
-#' @export do.sdc
 #' @import data.table
-do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
+#' @export
+sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F) {
     
     if (is.character(conf))
         conf <- yaml.load_file(conf)
@@ -99,15 +141,28 @@ create.anonym.ccd <- function(ccd, sdc.data) {
 
 do.sdc.numvar <- function(sdc, conf, numv) {
     numconf <- append(conf$numVars, conf$datetimeVars)
+#    print(numconf)
     for (item in numv) {
-        operations  <- names(numconf[[item]])
-        for (op in operations) {
-            FUN <- eval(parse(text=op))
-            args <- 
-                append(numconf[[item]][[op]], list(obj=sdc, variables=item))
-            sdc <- do.call(FUN, args)
+        print(item)
+        print(numconf[[item]]$aggr)
+        if (!is.null(numconf[[item]][['aggr']])) {
+            agg.level <- numconf[[item]][['aggr']]
+            print(agg.level)
+#            microaggreation(sdc, variables=item, aggr=agg.level)
         }
+#        sdc <- microaggreation(sdc, variables=item, aggr=)
+    
+    
     }
+#    for (item in numv) {
+#        operations  <- names(numconf[[item]])
+#        for (op in operations) {
+#            FUN <- eval(parse(text=op))
+#            args <- 
+#                append(numconf[[item]][[op]], list(obj=sdc, variables=item))
+#            sdc <- do.call(FUN, args)
+#        }
+#    }
     sdc
 }
 

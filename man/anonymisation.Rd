@@ -4,7 +4,8 @@
 \alias{anonymisation}
 \title{Anonymise the critical care dataset}
 \usage{
-anonymisation(ccd, conf, remove.alive = T, verbose = F, ...)
+anonymisation(ccd, conf, remove.alive = T, verbose = F, k.anonymity = 20,
+  l.diversity = 10, ...)
 }
 \arguments{
 \item{ccd}{identifiable data set in ccRecord format (see. ccdata R package)}
@@ -19,6 +20,48 @@ episode.}
 ccRecord
 }
 \description{
-This function is the sf
+The following process will be followed for each data release.
+   1.  The data request will be reviewed and approved as per the Data Access
+request SOP. The request must include a list of fields, and a time period for
+the data.
+}
+\details{
+2.  The fields will be compared to the master list of direct identifiers,
+key variables, and sensitive variables (see Appendix [b] List of fields and
+anonymisation approach [Page 14]).
+
+3.  A k-anonymity threshold of at least twenty will be applied as an
+initial default (meaning that the smallest group that could be re-identified
+using the key variables to 'triangulate' would contain twenty individuals).*1*
+
+4.  An anonymisation configuration file will be submitted that describes
+the desired data fidelity (e.g. that age is reported rounded to the nearest
+five years, that the day of hospital admission is known but the month and year
+suppressed etc.).
+
+5.  The data requested will be processed as per Section [3] Anonymisation
+methodology - page [6].
+
+6.  If the k-anonymity threshold is not met (either directly or because of
+inadequate l-diversity in sensitive fields) after processing then those seeking
+access to the data will be invited to discuss their configuration requests.
+Guidance will be offered as to which fields might be further aggregated or
+suppressed.
+
+7.  Once the k-anonymity and l-diversity criteria have been met then the
+data can be made available for release.
+
+8.  An audit trail of the data release will be created containing the
+following information.  • Date and time of data processing • Unique reference
+to the source data • Code reference of anonymisation package (git commit ID) •
+Code reference of the configuration file for the anonymisation • Personal
+details of the data user • Personal details of the data controller (or
+designated nominee) who is approving the data release *1*This is the mininum
+size, but the typical group size would be larger. Now consider two
+re-identification scenarios: the prosecutor and the journalist. In the former,
+an intruder seeks to re-identifiy a specific individual. Here the average group
+size is more relevant. In the latter, an intruder (the journalist) simply wants
+to show that the anonymisation has failed and they have re-identified an
+arbitrary individual. Here the minimum group size is more important.
 }
 

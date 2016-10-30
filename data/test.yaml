@@ -20,87 +20,58 @@ sensVars:
     - URAICU 
 
 numVars:
-    HCM: # Height
-        microaggregation:
-            aggr: 2
+    HCM:  # Height
+        aggr: 2
 
 datetimeVars:
     DOAH:  # Date of original admission to/attendance at acute hospital'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 2
-    
+        aggr: 2
+        noise: 2
+
     DAH: # Date of admission to your hospital
-        addNoise: 
-            noise: 2
+        aggr: 2
+        noise: 2
 
     DOAICU:  # Date of original admission to ICU/HDU'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-    
-    DUDICU:  # Date of ultimate discharge from ICU/HDU'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
+        aggr: 2
+        noise: 2
 
+    DUDICU:  # Date of ultimate discharge from ICU/HDU'
+        aggr: 2
+        noise: 2
     DOD:  # Date of death on your unit'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
+        aggr: 2
+        noise: 2
 
     DDBSD:  # Date of declaration of brain stem death'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
+        aggr: 2
+        noise: 2
 
     DWFRD:  # Date fully ready for discharge'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
+        aggr: 2
+        noise: 2
     TWFRD:  # Time fully ready for discharge'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
+        aggr: 2
+        noise: 2
     DDH:  # Date of discharge from your hospital'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
+        aggr: 2
+        noise: 2
 
     DUDH:  # Date of ultimate discharge from your hospital'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-    
+        aggr: 2
+        noise: 2
+
     DAICU:  # Date & Time of admission to your unit'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 20
-    
+        aggr: 2
+        noise: 2
+
     DLCCA: 
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 20
+        aggr: 2
+        noise: 2
 
     DDICU:  # Date & Time of discharge from your unit'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
+        aggr: 2
+        noise: 2
 
 nonidentifyVars:
 - SCODE # Treatment function code
