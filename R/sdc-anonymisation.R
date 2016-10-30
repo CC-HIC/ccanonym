@@ -41,8 +41,6 @@ do.sdc <- function(ccd, conf, remove.alive=T, verbose=F) {
     if (remove.alive)
         demg <- demg[DIS=="D"]
 
-    # Read configuration 
-    vn <- anony.var(conf)
     vn$numv <- c(vn$numv, vn$datetimev)
     demg <- data.frame(convert.numeric.datetime(demg, vn$datetimev))
     vn$numv <- non.unique.columns(demg, vn$numv)

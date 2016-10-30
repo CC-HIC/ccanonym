@@ -17,56 +17,53 @@ numVars:
         microaggregation:
             aggr: 2
 
+
 datetimeVars:
     DAH: # Date of admission to your hospital
         addNoise: 
-            noise: 2
-
-    DUDICU:  # Date of ultimate discharge from ICU/HDU'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
-    DDBSD:  # Date of declaration of brain stem death'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
-    DWFRD:  # Date fully ready for discharge'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
-    TWFRD:  # Time fully ready for discharge'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
-    DDH:  # Date of discharge from your hospital'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
-
-    DAICU:  # Date & Time of admission to your unit'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 20
-
-
-    DDICU:  # Date & Time of discharge from your unit'
-        microaggregation: 
-            aggr: 1
-        addNoise: 
-            noise: 1
+            noise: 100
+            
+            #    DUDICU:  # Date of ultimate discharge from ICU/HDU'
+            #        microaggregation: 
+            #            aggr: 1
+            #        addNoise: 
+            #            noise: 1
+            #
+            #    DWFRD:  # Date fully ready for discharge'
+            #        microaggregation: 
+            #            aggr: 1
+            #        addNoise: 
+            #            noise: 1
+            #
+            #    TWFRD:  # Time fully ready for discharge'
+            #        microaggregation: 
+            #            aggr: 1
+            #        addNoise: 
+            #            noise: 1
+            #
+            #    DDH:  # Date of discharge from your hospital'
+            #        microaggregation: 
+            #            aggr: 1
+            #        addNoise: 
+            #            noise: 1
+            #
+            #    DAICU:  # Date & Time of admission to your unit'
+            #        microaggregation: 
+            #            aggr: 1
+            #        addNoise: 
+            #            noise: 20
+            #
 
 
 nonidentifyVars:
+- DUDICU
+- DWFRD
+- TWFRD
+- DDH
+- DAICU
+
+- DDICU
+- DDBSD
 - DOAICU
 - ADNO #  Critical care local identifier / ICNARC admission number
 - DUDH #  Date of ultimate discharge from your hospital
