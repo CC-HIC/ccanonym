@@ -6,7 +6,7 @@ directVars:
     - TUADNO
     - DOB
 
-keyVars:
+categoryVars:
     - GPCODE 
     - SEX
     - PCODE #  Postcode

@@ -77,7 +77,11 @@ sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
 
     vn <- anony.var(conf)
 
+    if (verbose)  cat("parsing the ccdata object ...\n")
+
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
+    
+
     demg <- append.age(demg)
     demg$index <- seq(nrow(demg))
 
@@ -90,21 +94,25 @@ sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
     demg <- remove.direct.vars(demg, vn$dirv)
     demg <- microaggregation.numvar(demg, conf)
 
-    sdc <- createSdcObj(demg, keyVars=c(vn$keyv, vn$numv, vn$datetimev))
+    sdc <- createSdcObj(demg, keyVars=c(vn$ctgrv, vn$numv, vn$datetimev))
     sdc <- localSuppression(sdc, k=k.anon)
 
-    if (verbose)
-        print(sdc)
-
    demg[, sdc@keyVars] <- sdc@manipKeyVars
+
+   if (verbose) cat("adding noise ...\n")
    demg <- addnoise.numvar(demg, conf)
 
+   if (verbose) cat("measuring l-diversity...\n")
    for (i in vn$sensv) {
        ld <- ldiversity(sdc, i)@risk$ldiversity
        if (min(ld) < l.div) 
            warning(i,"=", min(ld), 
                    " does not comply with the l-diversity ", l.div)
    }
+   
+   if (verbose)
+       print(sdc)
+   
    return(list(data=demg, sdc=sdc))
 }
 
@@ -189,12 +197,12 @@ anony.var <- function(conf) {
         conf <- yaml.load_file(conf)
 
     dirv <- conf$directVars 
-    keyv <- conf$keyVars
+    ctgrv <- conf$categoryVars
     numv <- names(conf$numVars)
     datetimev <- names(conf$datetimeVars)
     sensv <- conf$sensVar
     nonidv <- conf$nonidentifyVars
-    all.vars <- c(keyv, numv, datetimev, sensv)
+    all.vars <- c(ctgrv, numv, datetimev, sensv)
 
     all.ccd.stname <- code2stname(names(ccdata:::ITEM_REF))
 
@@ -218,7 +226,7 @@ anony.var <- function(conf) {
     
     }
     
-    return(list(dirv=dirv, keyv=keyv, numv=numv, 
+    return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, 
                 datetimev=datetimev, sensv=sensv, 
                 all.vars=all.vars))
 }
