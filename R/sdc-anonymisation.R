@@ -71,7 +71,7 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
 #' @import data.table
 #' @export
 sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10) {
-    
+
     if (is.character(conf))
         conf <- yaml.load_file(conf)
 
@@ -80,7 +80,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
     if (verbose)  cat("parsing the ccdata object ...\n")
 
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
-    
+
 
     demg <- append.age(demg)
     demg$index <- seq(nrow(demg))
@@ -97,25 +97,25 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
     sdc <- createSdcObj(demg, keyVars=c(vn$ctgrv, vn$numv, vn$datetimev))
     sdc <- localSuppression(sdc, k=k.anon)
 
-   demg[, sdc@keyVars] <- sdc@manipKeyVars
+    demg[, sdc@keyVars] <- sdc@manipKeyVars
 
-   if (verbose) cat("adding noise ...\n")
-   demg <- addnoise.numvar(demg, conf)
+    if (verbose) cat("adding noise ...\n")
+    demg <- addnoise.numvar(demg, conf)
 
-   if (verbose)   cat("measuring l-diversity...\n")
-   if (verbose)   cat("=====================\n")
-   for (i in vn$sensv) {
-       ld <- ldiversity(sdc, i)@risk$ldiversity
-       if (max(ld) < l.div) { 
-           cat("[x] ", i,"=", max(ld), 
-                   " does not comply with the l-diversity ", l.div, "\n")
-       }
-   }
-   
-   if (verbose)   cat("=====================\n")
-   if (verbose) print(sdc)
-   
-   return(list(data=demg, sdc=sdc))
+    if (verbose)   cat("measuring l-diversity...\n")
+    if (verbose)   cat("=====================\n")
+    for (i in vn$sensv) {
+        ld <- ldiversity(sdc, i)@risk$ldiversity
+        if (max(ld) < l.div) { 
+            cat("[x] ", i,"=", max(ld), 
+                " does not comply with the l-diversity ", l.div, "\n")
+        }
+    }
+
+    if (verbose)   cat("=====================\n")
+    if (verbose) print(sdc)
+
+    return(list(data=demg, sdc=sdc))
 }
 
 
@@ -142,7 +142,7 @@ addnoise.numvar <- function(demg, conf) {
             noise.level <- numconf[[item]][['noise']]
             demg[, item] <- 
                 addNoise(data.frame(demg[, item]), 
-                                 noise=noise.level)$mx
+                         noise=noise.level)$mx
         }
     }
     demg <- convert.back.datetime(demg, vn$datetimev)
@@ -157,7 +157,7 @@ microaggregation.numvar <- function(demg, conf) {
 
     numconf <- append(conf$numVars, conf$datetimeVars)
     numv <- non.unique.columns(demg, vn$numv)
-    
+
     for (item in numv) {
         if (!is.null(numconf[[item]][['aggr']])) {
             agg.level <- numconf[[item]][['aggr']]
@@ -180,8 +180,8 @@ append.age <- function(demg) {
     format.dob <- "%Y-%m-%d"
     format.dah <- "%Y-%m-%d"
     demg$AGE <- difftime(as.POSIXct(demg$DAH, format=format.dah),
-                                  as.POSIXct(demg$DOB, format=format.dob), 
-                                  units="days")/365
+                         as.POSIXct(demg$DOB, format=format.dob), 
+                         units="days")/365
     demg$AGE <- as.numeric(floor(as.numeric(demg$AGE)))
     return(demg)
 }
@@ -239,7 +239,7 @@ anony.var <- function(conf) {
         cat(paste("-", ss, "# ", short2longname(ss), "\n"))
         stop("Missing items in the configuration.")
     }
-    
+
     return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, 
                 datetimev=datetimev, sensv=sensv, 
                 all.vars=all.vars))
@@ -259,19 +259,19 @@ sdc.row2list <- function(sdcrow) {
     names(lst) <- stname2code(names(lst))
     for (i in names(lst)) {
         if (lst[[i]] == "NULL")
-        lst[[i]] <- NULL
+            lst[[i]] <- NULL
     }
     lst
 }
 
 clinic.data.list <- function(ccd, index) {
     cdl  <- lapply(ccd@episodes[[index]]@data, 
-                           function(x) {
-                               if (length(x) > 1)
-                                   return(x)
-                               else 
-                                   return(NULL)
-                           })
+                   function(x) {
+                       if (length(x) > 1)
+                           return(x)
+                       else 
+                           return(NULL)
+                   })
     for (i in names(cdl)) {
         if (is.null(cdl[[i]]))
             cdl[[i]] <- NULL
@@ -302,9 +302,8 @@ non.unique.columns <- function(data, numv) {
 
 security.check <- function(ccd, dirv) {
     ccdata:::for_each_episode(ccd, 
-        function(x) {
-            if (any(dirv %in% names(x@data)))
-                stop("direct identifiable items appeared in the final data!!!")
-        })
-
+                              function(x) {
+                                  if (any(dirv %in% names(x@data)))
+                                      stop("direct identifiable items appeared in the final data!!!")
+                              })
 }

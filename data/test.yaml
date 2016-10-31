@@ -22,6 +22,7 @@ sensVars:
 numVars:
     AGE:  # Height
         aggr: 2
+        noise: 2
     HCM:  # Height
         aggr: 2
 

@@ -21,11 +21,37 @@ library(ccanonym)
 ```
 
 
-# The YAML configuration file
-Create a YAML configuration file as such, where the **identifiable variables**
-(dirctVars), **key categorical variables** (keyVars), **key numerical
-variables** (numVars), **key date-time variables** (datetimeVars), **sensitive variables**
-(sensVars) and the corresponding operations and thresholds are specified. 
+
+```{r, echo=FALSE}
+conf <- yaml.load_file("../data/test_demo.yaml")
+vars <- anony.var(conf)
+all.var <- c(vars$dirv, vars$all.vars, "DIS") # all variables besides non-confidential data
+all.var.origin <- all.var[-which(all.var=="AGE")]
+```
+
+# Identifiable data set
+
+The identifiable data set is usually stored in _ccRecord_ format, which is the
+default for CCHIC data. _ccRecord_ object is usually converted from the XML
+file. In the toy data set, it contains only 7 episodes. 
+
+```{r pander,  warning=FALSE}
+ccd <- xml2Data("../tests/data/test_data_anonym.xml")
+demg.table <- as.data.frame(sql.demographic.table(ccd))[, all.var.origin]
+pander(demg.table,  style = 'rmarkdown')
+```
+
+# Simple anonymisation procedure
+## Step 1: Prepare YAML configuration file
+Create a YAML configuration file as such, where the following variables are set
+up. The name of the items are the standard short name of _ccdata_ R package.
+Please see the 'ITEM\_REF.YAML'.
+
+* **Identifiable variables** (dirctVars), 
+* **Key categorical variables** (categoryVars), 
+* **Key numerical variables** (numVars), 
+* **Key date-time variables** (datetimeVars), 
+* **Sensitive variables** (sensVars) 
 
 ```{yaml}
 directVars:
@@ -52,47 +78,67 @@ sensVars:
 
 ```
 
+## Step 2: Micro-aggregation
+In this step, we try to reduce the granularity of numerical data by
+aggregating data using "rmd" method calculates the proximity using multivariate
+distances. 
 
-```{r, echo=FALSE}
-conf <- yaml.load_file("../data/test_demo.yaml")
-vars <- anony.var(conf)
-all.var <- c(vars$dirv, vars$all.vars, "DIS") # all variables besides non-confidential data 
-all.var.origin <- all.var[-which(all.var=="AGE")]
-```
 
-# Identifiable data set
-
-The identifiable data set is usually stored in _ccRecord_ format, which is the
-default for CCHIC data. In the following code, we create the ccRecord object
-from an XML file which contains only five episodes. 
-
-```{r pander,  warning=FALSE}
-ccd <- xml2Data("../tests/data/test_data_anonym.xml")
-demg.table <- as.data.frame(sql.demographic.table(ccd))
-pander(demg.table[, all.var.origin],  style = 'rmarkdown')
-```
-
-# Anonymisation procedure
 ```{yaml}
 numVars:
     HCM:  # Height
-        aggr: 2
-```
-```{r, results="hide", warning=FALSE}
-sdc <- sdc.trial(ccd, conf, remove.alive=T, verbose=T, k=1)
+        aggr: 2 
 ```
 ```{r, echo=FALSE}
-pander(data.frame(HCM_ORIG=demg.table$HCM[1:5], HCM_ANON=sdc$data$HCM), style="rmarkdown")
-```
-```{yaml}
-numVars:
-    HCM:  # Height
-        aggr: 3
+conf$numVars$HCM$aggr <- 2 # modify the parameter implicitly. 
 ```
 ```{r, results="hide", warning=FALSE}
-sdc <- sdc.trial(ccd, conf, remove.alive=T, verbose=T, k=1)
+sdc <- sdc.trial(ccd, conf, remove.alive=T, k=1)
 ```
 ```{r, echo=FALSE}
 pander(data.frame(HCM_ORIG=demg.table$HCM[1:5], HCM_ANON=sdc$data$HCM), style="rmarkdown")
 ```
 
+## Custom suppression 
+```{yaml}
+Operations:
+    PCODE: 'function(x){sapply(strsplit(as.character(x), split=" "), function(y) y[1])}'
+```
+```{r, echo=FALSE}
+conf[["Operations"]] <- list()
+conf$Operations[['PCODE']] <- 'function(x){sapply(strsplit(as.character(x), split=" "), function(y) y[1])}'
+```
+```{r, warning=FALSE}
+sdc <- sdc.trial(ccd, conf, k=1, l=1)
+pander(data.frame(PCODE_ORIG=demg.table$PCODE[1:5], 
+                  PCODE_ANON=sdc$data$PCODE), 
+       style="rmarkdown")
+
+
+```
+
+
+## Adjust $k$ and $l$
+### $l-diversity$
+```{r,  warning=FALSE}
+sdc <- sdc.trial(ccd, conf, k=1, l=3)
+```
+### $k-anonymity$
+```{r, warning=FALSE}
+sdc <- sdc.trial(ccd, conf, k=2, l=1)
+vars <- c('GPCODE', 'SEX', 'PCODE', 'AIDS_V3', 'HCM', 'AGE', 'DAH')
+pander(sdc$data[, vars], style="rmarkdown")
+```
+
+## Create the anonymisation data set
+* Non-dead episode removed.
+* New age column created.
+* Values of direct identifiers are removed.
+* Numeric values are aggregated.
+* The new `anonccd` _ccRecord_object complies with $k-anonymity$
+
+```{r, warning=FALSE}
+anonccd <- anonymisation(ccd, conf, remove.alive=T, k=2, l=1)
+demg.new <- data.frame(sql.demographic.table(anonccd))
+pander(demg.new[, all.var], style="rmarkdown")
+```
