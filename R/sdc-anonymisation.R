@@ -30,7 +30,7 @@
 #'    7.  Once the k-anonymity and l-diversity criteria have been met then the
 #'data can be made available for release. 
 #'
-#'    8.  An audit trail of the data release will be created containing the
+#'    8.  An audit trial of the data release will be created containing the
 #'following information.  • Date and time of data processing • Unique reference
 #'to the source data • Code reference of anonymisation package (git commit ID) •
 #'Code reference of the configuration file for the anonymisation • Personal
@@ -58,19 +58,19 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
                           k.anon=20, l.div=10, ...) {
     vn <- anony.var(conf)
     ccd <- deltaTime(ccd, ...)
-    sdc <- sdc.trail(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
+    sdc <- sdc.trial(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
     newccd <- create.anonym.ccd(ccd, sdc$data)
     security.check(newccd, vn$dirv)
     newccd
 }
 
-#' sdc.trail
+#' sdc.trial
 #' 
 #' @param ccd the identifiable ccRecord object
 #' @param config yaml file location
 #' @import data.table
 #' @export
-sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10) {
+sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10) {
     
     if (is.character(conf))
         conf <- yaml.load_file(conf)
@@ -226,6 +226,7 @@ anony.var <- function(conf) {
     if (!all(index)){
         ss <- as.character(all.ccd.stname[!index])
         cat(paste("-", ss, "# ", short2longname(ss), "\n"))
+        stop("Missing items in the configuration.")
     }
     
     return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, 

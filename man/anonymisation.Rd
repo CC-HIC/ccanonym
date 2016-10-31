@@ -51,7 +51,7 @@ suppressed.
 7.  Once the k-anonymity and l-diversity criteria have been met then the
 data can be made available for release.
 
-8.  An audit trail of the data release will be created containing the
+8.  An audit trial of the data release will be created containing the
 following information.  • Date and time of data processing • Unique reference
 to the source data • Code reference of anonymisation package (git commit ID) •
 Code reference of the configuration file for the anonymisation • Personal

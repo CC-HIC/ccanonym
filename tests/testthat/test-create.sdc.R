@@ -11,7 +11,7 @@ var <- c(keydt, keyvar, numvar)
 test_that("create sdc object", {
     demg <- data.frame(demg)
 
-    sdc <<- suppressWarnings(sdc.trail(ccd, '../../data/test.yaml'))
+    sdc <<- suppressWarnings(sdc.trial(ccd, '../../data/test.yaml'))
 })
 
 

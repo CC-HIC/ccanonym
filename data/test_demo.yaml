@@ -4,7 +4,7 @@ directVars:
     - NHSNO   
     - DOB
 
-keyVars:
+categoryVars:
     - GPCODE 
     - SEX
     - PCODE #  Postcode
@@ -30,7 +30,6 @@ nonidentifyVars:
 - TWFRD
 - DDH
 - DAICU
-
 - DDICU
 - DDBSD
 - DOAICU
