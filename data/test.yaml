@@ -20,6 +20,8 @@ sensVars:
     - URAICU 
 
 numVars:
+    AGE:  # Height
+        aggr: 2
     HCM:  # Height
         aggr: 2
 

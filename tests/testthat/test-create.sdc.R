@@ -64,6 +64,6 @@ test_that("appending age column", {
 
 
 test_that("Microaggregation on numeric variables", {
+    demg$AGE <- runif(nrow(demg))
     microaggregation.numvar(demg, conf)
-
 })

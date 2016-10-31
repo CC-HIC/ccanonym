@@ -13,47 +13,16 @@ sensVars:
     - AIDS_V3 # HIC/AIDS
 
 numVars:
-    HCM: # Height
-        microaggregation:
-            aggr: 2
-
+    HCM:  # Height
+        aggr: 2
+        # noise: 2
+    AGE:
+        aggr: 2
 
 datetimeVars:
     DAH: # Date of admission to your hospital
-        addNoise: 
-            noise: 100
-            
-            #    DUDICU:  # Date of ultimate discharge from ICU/HDU'
-            #        microaggregation: 
-            #            aggr: 1
-            #        addNoise: 
-            #            noise: 1
-            #
-            #    DWFRD:  # Date fully ready for discharge'
-            #        microaggregation: 
-            #            aggr: 1
-            #        addNoise: 
-            #            noise: 1
-            #
-            #    TWFRD:  # Time fully ready for discharge'
-            #        microaggregation: 
-            #            aggr: 1
-            #        addNoise: 
-            #            noise: 1
-            #
-            #    DDH:  # Date of discharge from your hospital'
-            #        microaggregation: 
-            #            aggr: 1
-            #        addNoise: 
-            #            noise: 1
-            #
-            #    DAICU:  # Date & Time of admission to your unit'
-            #        microaggregation: 
-            #            aggr: 1
-            #        addNoise: 
-            #            noise: 20
-            #
-
+        aggr: 2
+        #        noise: 2
 
 nonidentifyVars:
 - DUDICU

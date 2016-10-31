@@ -102,13 +102,16 @@ sdc.trail <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
    if (verbose) cat("adding noise ...\n")
    demg <- addnoise.numvar(demg, conf)
 
-   if (verbose) cat("measuring l-diversity...\n")
+   cat("measuring l-diversity...\n")
+   cat("=====================\n")
    for (i in vn$sensv) {
        ld <- ldiversity(sdc, i)@risk$ldiversity
-       if (min(ld) < l.div) 
-           warning(i,"=", min(ld), 
-                   " does not comply with the l-diversity ", l.div)
+       if (max(ld) < l.div) { 
+           cat("[x] ", i,"=", max(ld), 
+                   " does not comply with the l-diversity ", l.div, "\n")
+       }
    }
+   cat("=====================\n")
    
    if (verbose)
        print(sdc)
@@ -165,10 +168,10 @@ remove.direct.vars <- function(data, dirvs) {
 append.age <- function(demg) {
     format.dob <- "%Y-%m-%d"
     format.dah <- "%Y-%m-%d"
-    demg$AGE <- 
-        floor(as.numeric(difftime(as.POSIXct(demg$DAH, format=format.dah),
+    demg$AGE <- difftime(as.POSIXct(demg$DAH, format=format.dah),
                                   as.POSIXct(demg$DOB, format=format.dob), 
-                                  units="days"))/365)
+                                  units="days")/365
+    demg$AGE <- as.numeric(floor(as.numeric(demg$AGE)))
     return(demg)
 }
 
@@ -204,7 +207,7 @@ anony.var <- function(conf) {
     nonidv <- conf$nonidentifyVars
     all.vars <- c(ctgrv, numv, datetimev, sensv)
 
-    all.ccd.stname <- code2stname(names(ccdata:::ITEM_REF))
+    all.ccd.stname <- c(code2stname(names(ccdata:::ITEM_REF)), "AGE")
 
     # check the correctness of the configuration file. 
     index <- c(all.vars, nonidv) %in% all.ccd.stname
@@ -223,7 +226,6 @@ anony.var <- function(conf) {
     if (!all(index)){
         ss <- as.character(all.ccd.stname[!index])
         cat(paste("-", ss, "# ", short2longname(ss), "\n"))
-    
     }
     
     return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, 
