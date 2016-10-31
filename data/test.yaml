@@ -7,7 +7,7 @@ directVars:
     - DOB
 
 categoryVars:
-    - GPCODE 
+    - GPCODE
     - SEX
     - PCODE #  Postcode
 
@@ -75,6 +75,10 @@ datetimeVars:
         aggr: 2
         noise: 2
 
+
+Operations:
+    PCODE: 'function(x){sapply(strsplit(as.character(x), split=" "), function(y) y[1])}'
+    
 nonidentifyVars:
 - SCODE # Treatment function code
 - CCL2D # Level 2 (HDU) days

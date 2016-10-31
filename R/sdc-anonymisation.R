@@ -89,7 +89,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
     if (remove.alive)
         demg <- demg[DIS=="D"]
 
-
+    demg <- custom.operation(demg, conf)
     # Remove direct identifiable variables 
     demg <- remove.direct.vars(demg, vn$dirv)
     demg <- microaggregation.numvar(demg, conf)
@@ -102,8 +102,8 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
    if (verbose) cat("adding noise ...\n")
    demg <- addnoise.numvar(demg, conf)
 
-   cat("measuring l-diversity...\n")
-   cat("=====================\n")
+   if (verbose)   cat("measuring l-diversity...\n")
+   if (verbose)   cat("=====================\n")
    for (i in vn$sensv) {
        ld <- ldiversity(sdc, i)@risk$ldiversity
        if (max(ld) < l.div) { 
@@ -111,13 +111,24 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
                    " does not comply with the l-diversity ", l.div, "\n")
        }
    }
-   cat("=====================\n")
    
-   if (verbose)
-       print(sdc)
+   if (verbose)   cat("=====================\n")
+   if (verbose) print(sdc)
    
    return(list(data=demg, sdc=sdc))
 }
+
+
+custom.operation <- function(demg, conf) {
+    ops <- conf$Operations
+    for (item in names(ops)) {
+        func <- eval(parse(text=ops[item]))
+        demg[[item]] <- func(demg[[item]])
+    }
+    return(demg)
+}
+
+
 
 
 addnoise.numvar <- function(demg, conf) {
