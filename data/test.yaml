@@ -44,6 +44,9 @@ deltaTime:
     - DLCCA 
     - DDICU  # Date & Time of discharge from your unit'
 
+maxStay: 50 # 30 days
+
+
 Operations:
     PCODE: 'function(x){sapply(strsplit(as.character(x), split=" "), function(y) y[1])}'
     

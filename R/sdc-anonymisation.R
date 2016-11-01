@@ -87,7 +87,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
     if (remove.alive)
         demg <- demg[DIS=="D"]
 
-    demg <- deltaTime1d(demg, conf$deltaTime)
+    demg <- deltaTime1d(demg, conf$deltaTime, conf$maxStay)
     demg <- custom.operation(demg, conf)
     # Remove direct identifiable variables 
     demg <- remove.direct.vars(demg, vn$dirv)
@@ -152,7 +152,6 @@ addnoise.numvar <- function(demg, conf) {
 
 
 microaggregation.numvar <- function(demg, conf) {
-
     vn <- parse.conf(conf)
     # It is acceptable to have wrong formatted date time which generate warnings.
     demg <- suppressWarnings(data.frame(convert.numeric.datetime(demg)))
@@ -205,16 +204,23 @@ clinic.data.list <- function(ccd, index) {
 }
 
 
-deltaTime1d <- function(demg, items) {
+deltaTime1d <- function(demg, items, maxstay) {
     if (!"DAICU" %in% items)
         stop("DAICU must in deltaTime. ")
 
     demg <- data.frame(demg)
     demg <- convert.numeric.datetime(demg, items)
     demg[, items] <- demg[, items] - demg$DAICU
+
+    mxind <- apply(demg[, items], 1, function(x) max(x, na.rm=T)) > maxstay * 3600 * 24
+    
+    if (any(mxind))
+        demg <- demg[-which(mxind), ]
+
     demg <- convert.back.datetime(demg, items)
     demg
 }
+
 
 create.anonym.ccd <- function(ccd, sdc.data) {
     sdc.row2list <- function(sdcrow) {
