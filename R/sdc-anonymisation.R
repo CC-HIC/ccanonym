@@ -56,7 +56,7 @@
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
                           k.anon=20, l.div=NULL, ...) {
-    vn <- anony.var(conf)
+    vn <- parse.conf(conf)
     ccd <- deltaTime(ccd, ...)
     sdc <- sdc.trial(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
     newccd <- create.anonym.ccd(ccd, sdc$data)
@@ -76,25 +76,24 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
     if (is.character(conf))
         conf <- yaml.load_file(conf)
 
-    vn <- anony.var(conf)
+    vn <- parse.conf(conf)
 
     if (verbose)  cat("parsing the ccdata object ...\n")
 
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
-
-
     demg <- append.age(demg)
 
     # Remove dead episodes 
     if (remove.alive)
         demg <- demg[DIS=="D"]
 
+    demg <- deltaTime1d(demg, conf$deltaTime)
     demg <- custom.operation(demg, conf)
     # Remove direct identifiable variables 
     demg <- remove.direct.vars(demg, vn$dirv)
     demg <- microaggregation.numvar(demg, conf)
 
-    sdc <- createSdcObj(demg, keyVars=c(vn$ctgrv, vn$numv, vn$datetimev))
+    sdc <- createSdcObj(demg, keyVars=c(vn$ctgrv, vn$numv))
     sdc <- localSuppression(sdc, k=k.anon)
 
     if (!is.null(l.div)) {
@@ -122,10 +121,7 @@ custom.operation <- function(demg, conf) {
 }
 
 
-
-
 suppress.ldiversity <- function(sdc, sensv, verbose, l.div) {
-
     manipSensVars <- list()
     for (i in sensv) {
         ld <- ldiversity(sdc, i)@risk$ldiversity
@@ -137,13 +133,10 @@ suppress.ldiversity <- function(sdc, sensv, verbose, l.div) {
 }
 
 
-
-
 addnoise.numvar <- function(demg, conf) {
-    vn <- anony.var(conf)
-    vn$numv <- c(vn$numv, vn$datetimev)
-    demg <- data.frame(convert.numeric.datetime(demg, vn$datetimev))
-    numconf <- append(conf$numVars, conf$datetimeVars)
+    vn <- parse.conf(conf)
+    demg <- data.frame(convert.numeric.datetime(demg))
+    numconf <- conf$numVars
     numv <- non.unique.columns(demg, vn$numv)
     for (item in numv) {
         if (!is.null(numconf[[item]][['noise']])) {
@@ -153,18 +146,18 @@ addnoise.numvar <- function(demg, conf) {
                          noise=noise.level)$mx
         }
     }
-    demg <- convert.back.datetime(demg, vn$datetimev)
+    demg <- convert.back.datetime(demg)
     demg
 }
 
+
 microaggregation.numvar <- function(demg, conf) {
 
-    vn <- anony.var(conf)
-    vn$numv <- c(vn$numv, vn$datetimev)
+    vn <- parse.conf(conf)
     # It is acceptable to have wrong formatted date time which generate warnings.
     demg <- suppressWarnings(data.frame(convert.numeric.datetime(demg)))
 
-    numconf <- append(conf$numVars, conf$datetimeVars)
+    numconf <- conf$numVars
     numv <- non.unique.columns(demg, vn$numv)
 
     for (item in numv) {
@@ -196,7 +189,54 @@ append.age <- function(demg) {
     return(demg)
 }
 
+clinic.data.list <- function(ccd, index) {
+    cdl  <- lapply(ccd@episodes[[index]]@data, 
+                   function(x) {
+                       if (length(x) > 1)
+                           return(x)
+                       else 
+                           return(NULL)
+                   })
+    for (i in names(cdl)) {
+        if (is.null(cdl[[i]]))
+            cdl[[i]] <- NULL
+    }
+    cdl
+}
+
+
+deltaTime1d <- function(demg, items) {
+    if (!"DAICU" %in% items)
+        stop("DAICU must in deltaTime. ")
+
+    demg <- data.frame(demg)
+    demg <- convert.numeric.datetime(demg, items)
+    demg[, items] <- demg[, items] - demg$DAICU
+    demg <- convert.back.datetime(demg, items)
+    demg
+}
+
 create.anonym.ccd <- function(ccd, sdc.data) {
+    sdc.row2list <- function(sdcrow) {
+        lst <- as.list(sdcrow)
+        lst <- lapply(lst, as.character) 
+        lst <- lapply(lst, 
+                      function(x) {
+                          if (is.na(x)) 
+                              return("NULL")
+                          else
+                              return(x)
+                      })
+        lst[['index']] <- NULL
+        names(lst) <- stname2code(names(lst))
+        for (i in names(lst)) {
+            if (lst[[i]] == "NULL")
+                lst[[i]] <- NULL
+        }
+        lst
+    }
+
+
     new.record <- ccRecord()
 
     for (i in seq(nrow(sdc.data))) {
@@ -211,22 +251,21 @@ create.anonym.ccd <- function(ccd, sdc.data) {
 
 #' Parse YAML configuration file
 #' 
-#' Parse the YAML configuration file and check the anony.var. 
+#' Parse the YAML configuration file and check the parse.conf. 
 #' @param conf either the path of YAML configuration of a list
-#' @return a list contrains all the anony.var broken down in each
+#' @return a list contrains all the parse.conf broken down in each
 #' category.
 #' @export 
-anony.var <- function(conf) {
+parse.conf <- function(conf) {
     if (is.character(conf))
         conf <- yaml.load_file(conf)
 
     dirv <- conf$directVars 
     ctgrv <- conf$categoryVars
     numv <- names(conf$numVars)
-    datetimev <- names(conf$datetimeVars)
     sensv <- conf$sensVar
     nonidv <- conf$nonidentifyVars
-    all.vars <- c(ctgrv, numv, datetimev, sensv)
+    all.vars <- c(ctgrv, numv, sensv)
 
     all.ccd.stname <- c(code2stname(names(ccdata:::ITEM_REF)), "AGE")
 
@@ -250,44 +289,11 @@ anony.var <- function(conf) {
         stop("Missing items in the configuration.")
     }
 
-    return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, 
-                datetimev=datetimev, sensv=sensv, 
+    return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, sensv=sensv, 
                 all.vars=all.vars))
 }
 
-sdc.row2list <- function(sdcrow) {
-    lst <- as.list(sdcrow)
-    lst <- lapply(lst, as.character) 
-    lst <- lapply(lst, 
-                  function(x) {
-                      if (is.na(x)) 
-                          return("NULL")
-                      else
-                          return(x)
-                  })
-    lst[['index']] <- NULL
-    names(lst) <- stname2code(names(lst))
-    for (i in names(lst)) {
-        if (lst[[i]] == "NULL")
-            lst[[i]] <- NULL
-    }
-    lst
-}
 
-clinic.data.list <- function(ccd, index) {
-    cdl  <- lapply(ccd@episodes[[index]]@data, 
-                   function(x) {
-                       if (length(x) > 1)
-                           return(x)
-                       else 
-                           return(NULL)
-                   })
-    for (i in names(cdl)) {
-        if (is.null(cdl[[i]]))
-            cdl[[i]] <- NULL
-    }
-    cdl
-}
 
 non.unique.columns <- function(data, numv) {
     # check the data type and avoid processing on the 

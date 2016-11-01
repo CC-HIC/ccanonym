@@ -71,6 +71,5 @@ test_that("Microaggregation on numeric variables", {
 
 test_that("check l-diversity suppression", {
     sdc.l <- suppressWarnings(sdc.trial(ccd, conf, l.div=2))
-    print(sdc.l$data)
 })
 
