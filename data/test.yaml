@@ -21,66 +21,84 @@ sensVars:
 
 numVars:
     AGE:  # Height
-        aggr: 2
+        aggr: 5
         noise: 2
     HCM:  # Height
         aggr: 2
+        
+    DAH: # Date of admission to your hospital
+        aggr: 2
+        noise: 2
+
 
 datetimeVars:
     DOAH:  # Date of original admission to/attendance at acute hospital'
         aggr: 2
         noise: 2
 
-    DAH: # Date of admission to your hospital
-        aggr: 2
-        noise: 2
-
-    DOAICU:  # Date of original admission to ICU/HDU'
-        aggr: 2
-        noise: 2
-
-    DUDICU:  # Date of ultimate discharge from ICU/HDU'
-        aggr: 2
-        noise: 2
-    DOD:  # Date of death on your unit'
-        aggr: 2
-        noise: 2
-
-    DDBSD:  # Date of declaration of brain stem death'
-        aggr: 2
-        noise: 2
-
-    DWFRD:  # Date fully ready for discharge'
-        aggr: 2
-        noise: 2
-    TWFRD:  # Time fully ready for discharge'
-        aggr: 2
-        noise: 2
-    DDH:  # Date of discharge from your hospital'
-        aggr: 2
-        noise: 2
-
-    DUDH:  # Date of ultimate discharge from your hospital'
-        aggr: 2
-        noise: 2
-
-    DAICU:  # Date & Time of admission to your unit'
-        aggr: 2
-        noise: 2
-
-    DLCCA: 
-        aggr: 2
-        noise: 2
-
-    DDICU:  # Date & Time of discharge from your unit'
-        aggr: 2
-        noise: 2
+        #    DAH: # Date of admission to your hospital
+        #        aggr: 2
+        #        noise: 2
+        #
+        #    DOAICU:  # Date of original admission to ICU/HDU'
+        #        aggr: 2
+        #        noise: 2
+        #
+        #    DUDICU:  # Date of ultimate discharge from ICU/HDU'
+        #        aggr: 2
+        #        noise: 2
+        #    DOD:  # Date of death on your unit'
+        #        aggr: 2
+        #        noise: 2
+        #
+        #    DDBSD:  # Date of declaration of brain stem death'
+        #        aggr: 2
+        #        noise: 2
+        #
+        #    DWFRD:  # Date fully ready for discharge'
+        #        aggr: 2
+        #        noise: 2
+        #    TWFRD:  # Time fully ready for discharge'
+        #        aggr: 2
+        #        noise: 2
+        #    DDH:  # Date of discharge from your hospital'
+        #        aggr: 2
+        #        noise: 2
+        #
+        #    DUDH:  # Date of ultimate discharge from your hospital'
+        #        aggr: 2
+        #        noise: 2
+        #
+        #    DAICU:  # Date & Time of admission to your unit'
+        #        aggr: 2
+        #        noise: 2
+        #
+        #    DLCCA: 
+        #        aggr: 2
+        #        noise: 2
+        #
+        #    DDICU:  # Date & Time of discharge from your unit'
+        #        aggr: 2
+        #        noise: 2
 
 
 Operations:
     PCODE: 'function(x){sapply(strsplit(as.character(x), split=" "), function(y) y[1])}'
     
 nonidentifyVars:
+    #- DOAH  # Date of original admission to/attendance at acute hospital'
+- DOAICU  # Date of original admission to ICU/HDU'
+- DUDICU  # Date of ultimate discharge from ICU/HDU'
+- DOD  # Date of death on your unit'
+- DDBSD  # Date of declaration of brain stem death'
+- DWFRD  # Date fully ready for discharge'
+- TWFRD  # Time fully ready for discharge'
+- DDH  # Date of discharge from your hospital'
+- DUDH  # Date of ultimate discharge from your hospital'
+- DAICU  # Date & Time of admission to your unit'
+- DLCCA 
+- DDICU  # Date & Time of discharge from your unit'
+
 - SCODE # Treatment function code
 - CCL2D # Level 2 (HDU) days
 - ORGAN_SUPPORT # Organ support maximum

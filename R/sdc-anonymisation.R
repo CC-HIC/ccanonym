@@ -55,7 +55,7 @@
 #'
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
-                          k.anon=20, l.div=10, ...) {
+                          k.anon=20, l.div=NULL, ...) {
     vn <- anony.var(conf)
     ccd <- deltaTime(ccd, ...)
     sdc <- sdc.trial(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
@@ -70,7 +70,8 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
 #' @param config yaml file location
 #' @import data.table
 #' @export
-sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10) {
+sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
+                      l.div=NULL) {
 
     if (is.character(conf))
         conf <- yaml.load_file(conf)
@@ -83,7 +84,6 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
 
 
     demg <- append.age(demg)
-    demg$index <- seq(nrow(demg))
 
     # Remove dead episodes 
     if (remove.alive)
@@ -97,23 +97,16 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20, l.div=10)
     sdc <- createSdcObj(demg, keyVars=c(vn$ctgrv, vn$numv, vn$datetimev))
     sdc <- localSuppression(sdc, k=k.anon)
 
+    if (!is.null(l.div)) {
+        manipSensVars <- suppress.ldiversity(sdc, vn$sensv, verbose, l.div)
+        demg[, vn$sensv] <- manipSensVars[, vn$sensv]
+    }
+
     demg[, sdc@keyVars] <- sdc@manipKeyVars
 
     if (verbose) cat("adding noise ...\n")
-    demg <- addnoise.numvar(demg, conf)
+#    demg <- addnoise.numvar(demg, conf)
 
-    if (verbose)   cat("measuring l-diversity...\n")
-    if (verbose)   cat("=====================\n")
-    for (i in vn$sensv) {
-        ld <- ldiversity(sdc, i)@risk$ldiversity
-        if (max(ld) < l.div) { 
-            cat("[x] ", i,"=", max(ld), 
-                " does not comply with the l-diversity ", l.div, "\n")
-        }
-    }
-
-    if (verbose)   cat("=====================\n")
-    if (verbose) print(sdc)
 
     return(list(data=demg, sdc=sdc))
 }
@@ -126,6 +119,21 @@ custom.operation <- function(demg, conf) {
         demg[[item]] <- func(demg[[item]])
     }
     return(demg)
+}
+
+
+
+
+suppress.ldiversity <- function(sdc, sensv, verbose, l.div) {
+
+    manipSensVars <- list()
+    for (i in sensv) {
+        ld <- ldiversity(sdc, i)@risk$ldiversity
+        manipVar <- sdc@origData[[i]]
+        manipVar[ld[1:nrow(ld), 2] < l.div] <- NA
+        manipSensVars[[i]] <- manipVar    
+    }
+    as.data.frame(manipSensVars)
 }
 
 
@@ -153,7 +161,8 @@ microaggregation.numvar <- function(demg, conf) {
 
     vn <- anony.var(conf)
     vn$numv <- c(vn$numv, vn$datetimev)
-    demg <- data.frame(convert.numeric.datetime(demg, vn$datetimev))
+    # It is acceptable to have wrong formatted date time which generate warnings.
+    demg <- suppressWarnings(data.frame(convert.numeric.datetime(demg)))
 
     numconf <- append(conf$numVars, conf$datetimeVars)
     numv <- non.unique.columns(demg, vn$numv)
@@ -166,7 +175,7 @@ microaggregation.numvar <- function(demg, conf) {
                                  aggr=agg.level)$mx
         }
     }
-    demg <- convert.back.datetime(demg, vn$datetimev)
+    demg <- suppressWarnings(convert.back.datetime(demg))
     demg
 }
 
@@ -183,6 +192,7 @@ append.age <- function(demg) {
                          as.POSIXct(demg$DOB, format=format.dob), 
                          units="days")/365
     demg$AGE <- as.numeric(floor(as.numeric(demg$AGE)))
+    demg$index <- seq(nrow(demg))
     return(demg)
 }
 
@@ -284,9 +294,9 @@ non.unique.columns <- function(data, numv) {
     # all NA columns.
     new.numv <- vector()
     for (i in seq(numv)) {
-        if (!is.numeric(data[[numv[i]]])) {
-            stop(paste(numv[i], class(data[[numv[i]]]), "has to be a numeric vector."))
-        }
+#        if (!is.numeric(data[[numv[i]]])) {
+#            stop(paste(numv[i], class(data[[numv[i]]]), "has to be a numeric vector."))
+#        }
         unidata <- unique(data[[numv[i]]])
         if (NA %in% unidata)
             unidata <- unidata[-which(is.na(unidata))]

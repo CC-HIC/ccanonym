@@ -5,7 +5,7 @@
 \title{Anonymise the critical care dataset}
 \usage{
 anonymisation(ccd, conf, remove.alive = T, verbose = F, k.anon = 20,
-  l.div = 10, ...)
+  l.div = NULL, ...)
 }
 \arguments{
 \item{ccd}{identifiable data set in ccRecord format (see. ccdata R package)}

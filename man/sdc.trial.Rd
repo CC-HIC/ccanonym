@@ -5,7 +5,7 @@
 \title{sdc.trial}
 \usage{
 sdc.trial(ccd, conf, remove.alive = T, verbose = F, k.anon = 20,
-  l.div = 10)
+  l.div = NULL)
 }
 \arguments{
 \item{ccd}{the identifiable ccRecord object}
