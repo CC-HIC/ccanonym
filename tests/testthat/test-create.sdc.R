@@ -2,7 +2,7 @@ context("create sdc object from the yaml configuration file")
 
 ccd <<- xml2Data("../data/test_data_anonym.xml")
 demg <- suppressWarnings(sql.demographic.table(ccd))
-conf <- yaml.load_file('../../data/test.yaml')
+conf <- yaml.load_file('../data/test.yaml')
 keyvar <- conf$keyVars
 keydt <- names(conf$datetimeVars)
 numvar <- names(conf$numVars)
@@ -11,7 +11,7 @@ var <- c(keydt, keyvar, numvar)
 test_that("create sdc object", {
     demg <- data.frame(demg)
 
-    sdc <<- suppressWarnings(sdc.trial(ccd, '../../data/test.yaml'))
+    sdc <<- suppressWarnings(sdc.trial(ccd, '../data/test.yaml'))
 })
 
 
