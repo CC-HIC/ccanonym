@@ -2,7 +2,7 @@
 % Please edit documentation in R/sdc-anonymisation.R
 \name{sdc.trial}
 \alias{sdc.trial}
-\title{sdc.trial}
+\title{Performe statstical disclosure control process on demgraphic data.}
 \usage{
 sdc.trial(ccd, conf, remove.alive = T, verbose = F, k.anon = 20,
   l.div = NULL)
@@ -10,9 +10,72 @@ sdc.trial(ccd, conf, remove.alive = T, verbose = F, k.anon = 20,
 \arguments{
 \item{ccd}{the identifiable ccRecord object}
 
-\item{config}{yaml file location}
+\item{conf}{the YAML file location or a list equivalent to the YAML file.}
+
+\item{remove.alive}{logical whether remove all non-dead episodes.}
+
+\item{verbose}{logical showing more or less information.}
+
+\item{k.anon}{minimum K-anonymity threshold.}
+
+\item{l.div}{minimum l-diversity threshold.}
+}
+\value{
+sdc a list contains the parsed data and the sdcMicro object where
+        the detailed individual risks can be checked.
 }
 \description{
-sdc.trial
+The sdc.trial is a function called by \code{anonymisation()}. However it is
+also a very useful function for tuning the variables, such as k and l, when the
+data is new. This function will return the anonymised demographic data and a
+SDC object which tells more about the entire anonymisation process, such as
+individual risks, information lost and so on. The user should balance the
+security and usefulness based on data anonymisation SOP.
+}
+\details{
+1. Remove the alive episode if \code{remove.alive} variable is TRUE.
+
+2. Calculate the age based on the date of birth (DOB) and date of ICU admission
+(DAICU) and date of admission will be removed subsequentyly. The Removal of
+DAICU should be specified in the configuration file. 
+
+3. All demographic time stamps will be converted based on their difference
+between the date of admission and date of admission will be converted to an
+arbitrary time 1970-01-01. i.e. admission date: 2014-01-01 -> 1970-01-01;
+discharge date: 2014-01-03 -> 1970-01-03. With this process, all the time
+information will be hiden from the users. However the cadence of such of length
+of stay will still be preserved. 
+
+4. Remove episodes which stays longer than a certain period of time. One can
+specify it in the configuration file, e.g. maxStay: 30. 
+
+5. Microaggregate the numerical/date variables specified in the configuration
+file. 
+
+6. Special aggregation, such as we suppress the post code in such a way that
+NW1 1AA -> NW1. The function can be written in the configuration file. 
+
+7. Suppress the key variables where the k-anonymity is violated. 
+
+8. Suppress the sensitive variables where the l-diversity is violated. 
+
+9. Adding noise to the selected data.
+}
+\examples{
+\dontrun{
+# We assume the original dataset is called `ccd`
+
+# Create a template configuration file, modify it if necessary. 
+template.conf("test.yaml")
+
+# Trial: adjust K-anonymity and L-diversity. 
+sdc <- sdc-trial(ccd, "test.yaml", k.anon=10, l.div=2)
+
+# To access SDC object
+sdc$sdc
+
+# Create the data extract after the k.anon and l.div is decided. 
+ccd.anon <- anonymisation(ccd, "test.yaml", k.anon=10)
+}
 }
 

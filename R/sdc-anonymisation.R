@@ -1,58 +1,64 @@
 #' Anonymise the critical care dataset
 #'
-#'The following process will be followed for each data release.
-#'    1.  The data request will be reviewed and approved as per the Data Access
-#'request SOP. The request must include a list of fields, and a time period for
-#'the data.
+#' This is the main function of the ccanonym package. It creates the anonymised
+#' data abstract from the identifiable dataset through the anonymisation
+#' process. 
 #'
-#'    2.  The fields will be compared to the master list of direct identifiers,
-#'key variables, and sensitive variables (see Appendix [b] List of fields and
-#'anonymisation approach [Page 14]).
+#' @details
+#'1. Remove the alive episode if \code{remove.alive} variable is TRUE.
 #'
-#'    3.  A k-anonymity threshold of at least twenty will be applied as an
-#'initial default (meaning that the smallest group that could be re-identified
-#'using the key variables to 'triangulate' would contain twenty individuals).*1*
+#'2. Calculate the age based on the date of birth (DOB) and date of ICU admission
+#'(DAICU) and date of admission will be removed subsequentyly. The Removal of
+#'DAICU should be specified in the configuration file. 
 #'
-#'    4.  An anonymisation configuration file will be submitted that describes
-#'the desired data fidelity (e.g. that age is reported rounded to the nearest
-#'five years, that the day of hospital admission is known but the month and year
-#'suppressed etc.).
+#'3. All demographic time stamps will be converted based on their difference
+#'between the date of admission and date of admission will be converted to an
+#'arbitrary time 1970-01-01. i.e. admission date: 2014-01-01 -> 1970-01-01;
+#'discharge date: 2014-01-03 -> 1970-01-03. With this process, all the time
+#'information will be hiden from the users. However the cadence of such of length
+#'of stay will still be preserved. 
 #'
-#'    5.  The data requested will be processed as per Section [3] Anonymisation
-#'methodology - page [6].
+#'4. Remove episodes which stays longer than a certain period of time. One can
+#'specify it in the configuration file, e.g. maxStay: 30. 
 #'
-#'    6.  If the k-anonymity threshold is not met (either directly or because of
-#'inadequate l-diversity in sensitive fields) after processing then those seeking
-#'access to the data will be invited to discuss their configuration requests.
-#'Guidance will be offered as to which fields might be further aggregated or
-#'suppressed.
+#'5. Microaggregate the numerical/date variables specified in the configuration
+#'file. 
 #'
-#'    7.  Once the k-anonymity and l-diversity criteria have been met then the
-#'data can be made available for release. 
+#'6. Special aggregation, such as we suppress the post code in such a way that
+#'NW1 1AA -> NW1. The function can be written in the configuration file. 
 #'
-#'    8.  An audit trial of the data release will be created containing the
-#'following information.  • Date and time of data processing • Unique reference
-#'to the source data • Code reference of anonymisation package (git commit ID) •
-#'Code reference of the configuration file for the anonymisation • Personal
-#'details of the data user • Personal details of the data controller (or
-#'designated nominee) who is approving the data release *1*This is the mininum
-#'size, but the typical group size would be larger. Now consider two
-#'re-identification scenarios: the prosecutor and the journalist. In the former,
-#'an intruder seeks to re-identifiy a specific individual. Here the average group
-#'size is more relevant. In the latter, an intruder (the journalist) simply wants
-#'to show that the anonymisation has failed and they have re-identified an
-#'arbitrary individual. Here the minimum group size is more important.  
+#'7. Suppress the key variables where the k-anonymity is violated. 
+#'
+#'8. Suppress the sensitive variables where the l-diversity is violated. 
+#'
+#'9. Adding noise to the selected data. 
 #' 
-#'
+#'10. Combine and create the new ccRecord object and convert all the 2d date
+#'time stamps to the hour difference to the admission time. 
 #' 
 #' @param ccd identifiable data set in ccRecord format (see. ccdata R package)
-#' @param conf yaml configuration which either characters of the path of yaml
-#'        file or the parsed list.
-#' @param remove.alive logical value determines whether removing all alive
-#'        episode.
-#' @param verbose
+#' @param conf YAML configuration which can be either path of the YAML
+#'        file or a configuration list equivalent to the YAML configuration. 
+#' @param remove.alive logical value determines whether to remove all alive
+#'        episodes.
+#' @param verbose logical 
+#' @param k.anon integer the K-anonymity
+#' @param l.div integer the minimum L-diversity of the data extract. For
+#'        entries where the L-diversity is above this threshold will be suppressed. 
 #' @return ccRecord 
 #'
+#' @examples
+#' \dontrun{
+#' # We assume the original dataset is called `ccd`
+#' # Create a template configuration file, modify it if necessary. 
+#' template.conf("test.yaml")
+#' 
+#' # Trial: adjust K-anonymity and L-diversity. 
+#' sdc-trial(ccd, "test.yaml", k.anon=10, l.div=2)
+#' 
+#' # Create the data extract after the k.anon and l.div is decided. 
+#' ccd.anon <- anonymisation(ccd, "test.yaml", k.anon=10)
+#' }
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
                           k.anon=20, l.div=NULL, ...) {
@@ -64,10 +70,68 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
     newccd
 }
 
-#' sdc.trial
+#' Performe statstical disclosure control process on demgraphic data.
+#'
+#' The sdc.trial is a function called by \code{anonymisation()}. However it is
+#' also a very useful function for tuning the variables, such as k and l, when the
+#' data is new. This function will return the anonymised demographic data and a
+#' SDC object which tells more about the entire anonymisation process, such as
+#' individual risks, information lost and so on. The user should balance the
+#' security and usefulness based on data anonymisation SOP. 
+#'
+#' @details 
 #' 
+#'1. Remove the alive episode if \code{remove.alive} variable is TRUE.
+#'
+#'2. Calculate the age based on the date of birth (DOB) and date of ICU admission
+#'(DAICU) and date of admission will be removed subsequentyly. The Removal of
+#'DAICU should be specified in the configuration file. 
+#'
+#'3. All demographic time stamps will be converted based on their difference
+#'between the date of admission and date of admission will be converted to an
+#'arbitrary time 1970-01-01. i.e. admission date: 2014-01-01 -> 1970-01-01;
+#'discharge date: 2014-01-03 -> 1970-01-03. With this process, all the time
+#'information will be hiden from the users. However the cadence of such of length
+#'of stay will still be preserved. 
+#'
+#'4. Remove episodes which stays longer than a certain period of time. One can
+#'specify it in the configuration file, e.g. maxStay: 30. 
+#'
+#'5. Microaggregate the numerical/date variables specified in the configuration
+#'file. 
+#'
+#'6. Special aggregation, such as we suppress the post code in such a way that
+#'NW1 1AA -> NW1. The function can be written in the configuration file. 
+#'
+#'7. Suppress the key variables where the k-anonymity is violated. 
+#'
+#'8. Suppress the sensitive variables where the l-diversity is violated. 
+#'
+#'9. Adding noise to the selected data. 
 #' @param ccd the identifiable ccRecord object
-#' @param config yaml file location
+#' @param conf the YAML file location or a list equivalent to the YAML file. 
+#' @param remove.alive logical whether remove all non-dead episodes. 
+#' @param verbose logical showing more or less information. 
+#' @param k.anon minimum K-anonymity threshold.
+#' @param l.div minimum l-diversity threshold.
+#' @return sdc a list contains the parsed data and the sdcMicro object where
+#'         the detailed individual risks can be checked.
+#' @examples
+#' \dontrun{
+#' # We assume the original dataset is called `ccd`
+#'
+#' # Create a template configuration file, modify it if necessary. 
+#' template.conf("test.yaml")
+#' 
+#' # Trial: adjust K-anonymity and L-diversity. 
+#' sdc <- sdc-trial(ccd, "test.yaml", k.anon=10, l.div=2)
+#'
+#' # To access SDC object
+#' sdc$sdc
+#' 
+#' # Create the data extract after the k.anon and l.div is decided. 
+#' ccd.anon <- anonymisation(ccd, "test.yaml", k.anon=10)
+#' }
 #' @import data.table
 #' @export
 sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
@@ -103,8 +167,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
 
     demg[, sdc@keyVars] <- sdc@manipKeyVars
 
-    if (verbose) cat("adding noise ...\n")
-#    demg <- addnoise.numvar(demg, conf)
+    demg <- addnoise.numvar(demg, conf)
 
 
     return(list(data=demg, sdc=sdc))
@@ -132,7 +195,11 @@ suppress.ldiversity <- function(sdc, sensv, verbose, l.div) {
     as.data.frame(manipSensVars)
 }
 
-
+#' adding noise to all numerical variables. 
+#' 
+#' The numerical variables includes datetime which will be
+#' treated as numeric by converting them to numeric. It will be converted back
+#' to datetime format at them end. 
 addnoise.numvar <- function(demg, conf) {
     vn <- parse.conf(conf)
     demg <- data.frame(convert.numeric.datetime(demg))
@@ -150,7 +217,11 @@ addnoise.numvar <- function(demg, conf) {
     demg
 }
 
-
+#' microaggregation on numeric variables
+#' 
+#' @param demg data.table/data.frame 
+#' @param conf configuration list
+#' @return demg data.frame
 microaggregation.numvar <- function(demg, conf) {
     vn <- parse.conf(conf)
     # It is acceptable to have wrong formatted date time which generate warnings.
@@ -171,12 +242,19 @@ microaggregation.numvar <- function(demg, conf) {
     demg
 }
 
+#' Remove direct identifiers specified
+#' 
+#' @param data data.frame/data.table
+#' @param dirvs direct variables name 
+#' @return data data.frame/data/table 
 remove.direct.vars <- function(data, dirvs) {
     for (i in dirvs) 
         data[[i]] <- NULL
     data 
 }
 
+
+#' Append AGE column to the demographic table 
 append.age <- function(demg) {
     format.dob <- "%Y-%m-%d"
     format.dah <- "%Y-%m-%d"
@@ -187,6 +265,7 @@ append.age <- function(demg) {
     demg$index <- seq(nrow(demg))
     return(demg)
 }
+
 
 clinic.data.list <- function(ccd, index) {
     cdl  <- lapply(ccd@episodes[[index]]@data, 
@@ -203,7 +282,8 @@ clinic.data.list <- function(ccd, index) {
     cdl
 }
 
-
+#' Convert all the date-time columns to delta time, but still convert them back
+#' with an origin of 1970-01-01. 
 deltaTime1d <- function(demg, items, maxstay) {
     if (!"DAICU" %in% items)
         stop("DAICU must in deltaTime. ")
