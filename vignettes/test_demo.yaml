@@ -1,49 +1,68 @@
 directVars:
     - pasno   
     - ICNNO   
+    - ADNO    
     - NHSNO   
+    - TUADNO
     - DOB
 
 categoryVars:
-    - GPCODE 
+    - GPCODE
     - SEX
     - PCODE #  Postcode
 
-sensVars:
-    - AIDS_V3 # HIC/AIDS
-
 numVars:
+    AGE:  # Height
+        aggr: 2
+        noise: 2
     HCM:  # Height
         aggr: 2
-        # noise: 2
-    AGE:
-        aggr: 2
-
-datetimeVars:
+        
     DAH: # Date of admission to your hospital
         aggr: 2
-        #        noise: 2
+        noise: 2
 
+sensVars:
+    - BPC # Biopsy proven cirrhosis
+    - AIDS_V3 # HIC/AIDS
+    - PH # Portal hypertension
+    - RAICU1
+    - RAICU2 
+    - URAICU 
+
+deltaTime:
+    - DAH
+    - DOAH  # Date of original admission to/attendance at acute hospital'
+    - DOAICU  # Date of original admission to ICU/HDU'
+    - DUDICU  # Date of ultimate discharge from ICU/HDU'
+    - DOD  # Date of death on your unit'
+    - DDBSD  # Date of declaration of brain stem death'
+    - DWFRD  # Date fully ready for discharge'
+    - DDH  # Date of discharge from your hospital'
+    - DUDH  # Date of ultimate discharge from your hospital'
+    - DAICU  # Date & Time of admission to your unit'
+    - DLCCA 
+    - DDICU  # Date & Time of discharge from your unit'
+
+maxStay: 50 # 30 days
+
+
+Operations:
+    PCODE: 'function(x){sapply(strsplit(as.character(x), split=" "), function(y) y[1])}'
+    
 nonidentifyVars:
-- DUDICU
-- DWFRD
-- TWFRD
-- DDH
-- DAICU
-- DDICU
-- DDBSD
-- DOAICU
-- ADNO #  Critical care local identifier / ICNARC admission number
-- DUDH #  Date of ultimate discharge from your hospital
-- DOAH #  Date of original admission to/attendance at acute hospital
-- TUADNO #  Transferring unit admission number
-- DLCCA #  Date of last critical care visit prior to this admission to
-- RAICU1 #  Primary reason for admission to your unit
-- RAICU2 #  Secondary reasons for admission to your unit
-- URAICU #  Ultimate primary reason for admission to unit
-- BPC #  Biopsy proven cirrhosis
-- PH #  Portal hypertension
-- DOD #  Date of death on yout unit
+- DOAH  # Date of original admission to/attendance at acute hospital'
+- DOAICU  # Date of original admission to ICU/HDU'
+- DUDICU  # Date of ultimate discharge from ICU/HDU'
+- DOD  # Date of death on your unit'
+- DDBSD  # Date of declaration of brain stem death'
+- DWFRD  # Date fully ready for discharge'
+- TWFRD  # Time fully ready for discharge'
+- DDH  # Date of discharge from your hospital'
+- DUDH  # Date of ultimate discharge from your hospital'
+- DAICU  # Date & Time of admission to your unit'
+- DLCCA 
+- DDICU  # Date & Time of discharge from your unit'
 - SCODE # Treatment function code
 - CCL2D # Level 2 (HDU) days
 - ORGAN_SUPPORT # Organ support maximum
