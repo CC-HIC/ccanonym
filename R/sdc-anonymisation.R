@@ -160,6 +160,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
     sdc <- createSdcObj(demg, keyVars=c(vn$ctgrv, vn$numv))
     sdc <- localSuppression(sdc, k=k.anon)
 
+
     if (!is.null(l.div)) {
         manipSensVars <- suppress.ldiversity(sdc, vn$sensv, verbose, l.div)
         demg[, vn$sensv] <- manipSensVars[, vn$sensv]
@@ -168,6 +169,9 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
     demg[, sdc@keyVars] <- sdc@manipKeyVars
 
     demg <- addnoise.numvar(demg, conf)
+
+    if (verbose)
+        print(sdc)
 
 
     return(list(data=demg, sdc=sdc))
@@ -205,12 +209,11 @@ addnoise.numvar <- function(demg, conf) {
     demg <- data.frame(convert.numeric.datetime(demg))
     numconf <- conf$numVars
     numv <- non.unique.columns(demg, vn$numv)
+
     for (item in numv) {
         if (!is.null(numconf[[item]][['noise']])) {
             noise.level <- numconf[[item]][['noise']]
-            demg[, item] <- 
-                addNoise(data.frame(demg[, item]), 
-                         noise=noise.level)$mx
+            demg[, item] <- addNoise(data.frame(demg[, item]), noise=noise.level)$xm
         }
     }
     demg <- convert.back.datetime(demg)
@@ -386,9 +389,6 @@ non.unique.columns <- function(data, numv) {
     # all NA columns.
     new.numv <- vector()
     for (i in seq(numv)) {
-#        if (!is.numeric(data[[numv[i]]])) {
-#            stop(paste(numv[i], class(data[[numv[i]]]), "has to be a numeric vector."))
-#        }
         unidata <- unique(data[[numv[i]]])
         if (NA %in% unidata)
             unidata <- unidata[-which(is.na(unidata))]
