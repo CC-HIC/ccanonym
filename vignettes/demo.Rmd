@@ -189,28 +189,51 @@ pander(data.frame(PCODE_ORIG=demg.table$PCODE[1:5],
                   PCODE_ANON=sdc$data$PCODE), 
        style="rmarkdown")
 
-
 ```
 
 
-## Adjust $k$ and $l$
-### $l-diversity$
-```{r,  warning=FALSE}
-sdc <- sdc.trial(ccd, conf, k=1, l=3)
-```
-### $k-anonymity$
+# Adjust $k-anonymity$
+## k-anonymity = 1
 ```{r, warning=FALSE}
-sdc <- sdc.trial(ccd, conf, k=2, l=1)
-vars <- c('GPCODE', 'SEX', 'PCODE', 'AIDS_V3', 'HCM', 'AGE', 'DAH')
+vars <- c('GPCODE', 'SEX', 'PCODE', 'AIDS_V3', 'HCM', 'DAH', 'AGE')
+sdc <- sdc.trial(ccd, conf, k.anon=1, l.div=1, verbose=F)
 pander(sdc$data[, vars], style="rmarkdown")
 ```
 
-## Create the anonymisation data set
-* Non-dead episode removed.
-* New age column created.
-* Values of direct identifiers are removed.
-* Numeric values are aggregated.
-* The new `anonccd` _ccRecord_object complies with $k-anonymity$
+
+
+## k-anonymity = 2
+```{r, warning=FALSE}
+sdc <- sdc.trial(ccd, conf, k.anon=2, l.div=1, verbose=T)
+pander(sdc$data[, vars], style="rmarkdown")
+```
+
+
+
+## k-anonymity = 3
+```{r, warning=FALSE}
+sdc <- sdc.trial(ccd, conf, k.anon=3, l.div=1, verbose=T)
+pander(sdc$data[, vars], style="rmarkdown")
+```
+
+
+# Adjust $k-anonymity$
+## l-diversity = 1
+```{r,  warning=FALSE}
+sens.vars <- c("BPC", "AIDS_V3", "PH", "RAICU1", "RAICU2", "URAICU")
+sdc <- sdc.trial(ccd, conf, k.anon=1, l.div=1)
+pander(sdc$data[, sens.vars], style="rmarkdown")
+```
+
+
+## l-diversity = 2
+```{r,  warning=FALSE}
+sdc <- sdc.trial(ccd, conf, k.anon=1, l.div=2)
+pander(sdc$data[, sens.vars], style="rmarkdown")
+```
+
+
+# Create the anonymisation dataset
 
 ```{r, warning=FALSE}
 anonccd <- anonymisation(ccd, conf, remove.alive=T, k=2, l=1)
