@@ -16,7 +16,7 @@
                 <d:NIHR_HIC_ICU_0033>1988-06-07</d:NIHR_HIC_ICU_0033>
                 <d:NIHR_HIC_ICU_0032>2014-02-01</d:NIHR_HIC_ICU_0032>
                 <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
-                <d:NIHR_HIC_ICU_0399>1.0</d:NIHR_HIC_ICU_0399>
+                <d:NIHR_HIC_ICU_0399>1.2.3.4.5</d:NIHR_HIC_ICU_0399>
                 <d:NIHR_HIC_ICU_0017>192</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
@@ -86,7 +86,7 @@
                 <d:NIHR_HIC_ICU_0032>2014-02-01</d:NIHR_HIC_ICU_0032>
                   <d:NIHR_HIC_ICU_0003>GPCODE1</d:NIHR_HIC_ICU_0003>
                   <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
-                <d:NIHR_HIC_ICU_0399>2.0</d:NIHR_HIC_ICU_0399>
+                <d:NIHR_HIC_ICU_0399>2.1.1.1.1</d:NIHR_HIC_ICU_0399>
 
                 <d:NIHR_HIC_ICU_0017>174</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
@@ -122,7 +122,7 @@
 
                 <d:NIHR_HIC_ICU_0003>GPCODE2</d:NIHR_HIC_ICU_0003>
                 <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
-                <d:NIHR_HIC_ICU_0399>1.0</d:NIHR_HIC_ICU_0399>
+                <d:NIHR_HIC_ICU_0399>1.1.1.1.1</d:NIHR_HIC_ICU_0399>
 
                 <d:NIHR_HIC_ICU_0017>170</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
@@ -261,7 +261,7 @@
                 <d:NIHR_HIC_ICU_0076>NW3 2BB</d:NIHR_HIC_ICU_0076>
                 <d:NIHR_HIC_ICU_0003>GPCODE4</d:NIHR_HIC_ICU_0003>
                 <d:NIHR_HIC_ICU_0093>M</d:NIHR_HIC_ICU_0093>
-                <d:NIHR_HIC_ICU_0399>4.0</d:NIHR_HIC_ICU_0399>
+                <d:NIHR_HIC_ICU_0399>1.1.1.2.1</d:NIHR_HIC_ICU_0399>
 
                 <d:NIHR_HIC_ICU_0017>165</d:NIHR_HIC_ICU_0017>
                 <d:NIHR_HIC_ICU_0097>D</d:NIHR_HIC_ICU_0097>
@@ -405,7 +405,7 @@
                 <d:NIHR_HIC_ICU_0033>1988-06-07</d:NIHR_HIC_ICU_0033>
                 <d:NIHR_HIC_ICU_0032>2014-02-01</d:NIHR_HIC_ICU_0032>
                 <d:NIHR_HIC_ICU_0093>F</d:NIHR_HIC_ICU_0093>
-                <d:NIHR_HIC_ICU_0399>1.0</d:NIHR_HIC_ICU_0399>
+                <d:NIHR_HIC_ICU_0399>1.2.1.1.1</d:NIHR_HIC_ICU_0399>
                 <d:NIHR_HIC_ICU_0017>170</d:NIHR_HIC_ICU_0017>
                 <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
                 <d:Numerical_local><d:NIHR_HIC_ICU_0001 m="2015-02-26">pas_1</d:NIHR_HIC_ICU_0001></d:Numerical_local>

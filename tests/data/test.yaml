@@ -11,6 +11,24 @@ categoryVars:
     - SEX
     - PCODE #  Postcode
 
+    - RAICU1.I
+    - RAICU1.II
+    - RAICU1.III
+    - RAICU1.IV
+    - RAICU1.V
+
+    - RAICU2.I
+    - RAICU2.II
+    - RAICU2.III
+    - RAICU2.IV
+    - RAICU2.V
+
+    - URAICU.I
+    - URAICU.II
+    - URAICU.III
+    - URAICU.IV
+    - URAICU.V
+
 numVars:
     AGE:  # Height
         aggr: 2
@@ -26,9 +44,6 @@ sensVars:
     - BPC # Biopsy proven cirrhosis
     - AIDS_V3 # HIC/AIDS
     - PH # Portal hypertension
-    - RAICU1
-    - RAICU2 
-    - URAICU 
 
 deltaTime:
     - DAH

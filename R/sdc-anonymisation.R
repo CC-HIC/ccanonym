@@ -152,6 +152,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
         demg <- demg[DIS=="D"]
 
     demg <- deltaTime1d(demg, conf$deltaTime, conf$maxStay)
+    demg <- raicu.to.category(demg, vn$ctgrv)
     demg <- custom.operation(demg, conf)
     # Remove direct identifiable variables 
     demg <- remove.direct.vars(demg, vn$dirv)
@@ -358,10 +359,12 @@ parse.conf <- function(conf) {
 
     all.ccd.stname <- c(code2stname(names(ccdata:::ITEM_REF)), "AGE")
 
-    # check the correctness of the configuration file. 
-    index <- c(all.vars, nonidv) %in% all.ccd.stname
+    # check the correctness of the configuration file.
+    # reduce derived items such as RAICU1.IV to its origin RAICU1
+    ccdvars <- sapply(strsplit(c(all.vars, nonidv), "[.]"), function(x) x[1])
+    index <- ccdvars %in% all.ccd.stname
     if (!all(index)) {
-        print(c(all.vars, nonidv)[!index])
+        print(ccdvars[!index])
         stop("Items in configuration file do not appear in ccdata item list.")
     }
 
@@ -371,6 +374,8 @@ parse.conf <- function(conf) {
     }
 
     confvars <- c(dirv, all.vars, nonidv)
+    # reduce derived items such as RAICU1.IV to its origin RAICU1
+    confvars <- sapply(strsplit(confvars, "[.]"), function(x) x[1])
     index <- all.ccd.stname %in% confvars
     if (!all(index)){
         ss <- as.character(all.ccd.stname[!index])
