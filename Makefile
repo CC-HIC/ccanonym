@@ -1,3 +1,5 @@
+rpkg_name:=ccanonym
+
 all:
 	Rscript -e 'library(methods); library(roxygen2); roxygenize(".")'
 	R CMD INSTALL .
@@ -20,3 +22,8 @@ clean:
 	rm -rf src/*.o src/*.so
 	rm -rf man
 	rm ..pdf
+
+idhs:
+	rsync -av . /tmp/${rpkg_name} --exclude '.*' --exclude '*.so' --exclude '*.o'
+	zip -r ../${rpkg_name}.zip /tmp/${rpkg_name}
+	rm -r /tmp/${rpkg_name}
