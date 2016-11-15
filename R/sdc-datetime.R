@@ -13,7 +13,8 @@ convert.numeric.datetime<- function(data, items=NULL) {
             if (dtype == "time") 
                 data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%H:%M"))
             if (dtype == "date/time") 
-                data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%Y-%m-%d %H:%M")) 
+                data[[i]] <- as.numeric(as.POSIXct(data[[i]],
+                                                   format="%Y-%m-%dT%H:%M:%S")) 
         }
     }
     data
@@ -42,7 +43,7 @@ convert.back.datetime <- function(data, items=NULL) {
 
             if (dtype == "date/time") {
                 data[[i]] <- as.POSIXct(numdate, origin="1970-01-01")
-                data[[i]] <- strftime(data[[i]], format="%Y-%m-%d %H:%M")
+                data[[i]] <- strftime(data[[i]], format="%Y-%m-%dT%H:%M:%S")
             }
         }
     }

@@ -36,7 +36,7 @@
                   <d:Dates>
                     <d:ICU_admission>
                       <d:Date_Time>
-                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01 10:00</d:NIHR_HIC_ICU_0411>
+                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01T10:00:00</d:NIHR_HIC_ICU_0411>
                       </d:Date_Time>
                     </d:ICU_admission>
                     <d:ICU_discharge>
@@ -95,7 +95,7 @@
                 <d:Hospital_discharge><d:Date><d:NIHR_HIC_ICU_0406 m="2015-02-26">2014-02-01</d:NIHR_HIC_ICU_0406></d:Date></d:Hospital_discharge>
                 <d:NIHR_HIC_ICU_0002 m="2015-02-26">site_1</d:NIHR_HIC_ICU_0002>
                 <d:NIHR_HIC_ICU_0005 m="2015-02-26">episode_id2</d:NIHR_HIC_ICU_0005>
-                <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01 10:00</d:NIHR_HIC_ICU_0411>
+                <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01T10:00:00</d:NIHR_HIC_ICU_0411>
                 <d:NIHR_HIC_ICU_0050 m="2015-02-26">2014-02-01</d:NIHR_HIC_ICU_0050>
                 <d:NIHR_HIC_ICU_0051 m="2015-02-26">10:00:00</d:NIHR_HIC_ICU_0051>
 
@@ -143,7 +143,7 @@
                   <d:Dates>
                     <d:ICU_admission>
                       <d:Date_Time>
-                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01 10:00</d:NIHR_HIC_ICU_0411>
+                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01T10:00:00</d:NIHR_HIC_ICU_0411>
                       </d:Date_Time>
                     </d:ICU_admission>
                     <d:ICU_discharge>
@@ -212,7 +212,7 @@
                   <d:Dates>
                     <d:ICU_admission>
                       <d:Date_Time>
-                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01 10:00</d:NIHR_HIC_ICU_0411>
+                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01T10:00:00</d:NIHR_HIC_ICU_0411>
                       </d:Date_Time>
                     </d:ICU_admission>
                     <d:ICU_discharge>
@@ -282,7 +282,7 @@
                   <d:Dates>
                     <d:ICU_admission>
                       <d:Date_Time>
-                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01 10:00</d:NIHR_HIC_ICU_0411>
+                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01T10:00:00</d:NIHR_HIC_ICU_0411>
                       </d:Date_Time>
                     </d:ICU_admission>
                     <d:ICU_discharge>
@@ -354,7 +354,7 @@
                   <d:Dates>
                     <d:ICU_admission>
                       <d:Date_Time>
-                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01 10:00</d:NIHR_HIC_ICU_0411>
+                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01T10:00:00</d:NIHR_HIC_ICU_0411>
                       </d:Date_Time>
                     </d:ICU_admission>
                     <d:ICU_discharge>
@@ -424,7 +424,7 @@
                   <d:Dates>
                     <d:ICU_admission>
                       <d:Date_Time>
-                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01 10:00</d:NIHR_HIC_ICU_0411>
+                        <d:NIHR_HIC_ICU_0411 m="2015-02-26">2014-02-01T10:00:00</d:NIHR_HIC_ICU_0411>
                       </d:Date_Time>
                     </d:ICU_admission>
                     <d:ICU_discharge>
