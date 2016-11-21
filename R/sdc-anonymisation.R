@@ -18,22 +18,26 @@
 #'information will be hidden from the users. However the cadence of such of length
 #'of stay will still be preserved. 
 #'
-#'4. Remove episodes which stays longer than a certain period of time. One can
+#'4. Remove VIPs from a list file which has the identifiers of VIPs. The
+#' identifiers can be NHS number or PAS number or site episode id combination
+#' (Q70:000001). 
+#'
+#'5. Remove episodes which stays longer than a certain period of time. One can
 #'specify it in the configuration file, e.g. maxStay: 30. 
 #'
-#'5. Micro-aggregate the numerical/date variables specified in the configuration
+#'6. Micro-aggregate the numerical/date variables specified in the configuration
 #'file. 
 #'
-#'6. Special aggregation, such as we suppress the post code in such a way that
+#'7. Special aggregation, such as we suppress the post code in such a way that
 #'NW1 1AA -> NW1. The function can be written in the configuration file. 
 #'
-#'7. Suppress the key variables where the k-anonymity is violated. 
+#'8. Suppress the key variables where the k-anonymity is violated. 
 #'
-#'8. Suppress the sensitive variables where the l-diversity is violated. 
+#'9. Suppress the sensitive variables where the l-diversity is violated. 
 #'
-#'9. Adding noise to the selected data. 
+#'10. Adding noise to the selected data. 
 #' 
-#'10. Combine and create the new ccRecord object and convert all the 2d date
+#'11. Combine and create the new ccRecord object and convert all the 2d date
 #'time stamps to the hour difference to the admission time. 
 #' 
 #' @param ccd identifiable data set in ccRecord format (see. ccdata R package)
@@ -145,6 +149,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
     if (verbose)  cat("parsing the ccdata object ...\n")
 
     demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
+    demg <- remove.patients(demg, conf$removelist)
     demg <- append.age(demg)
 
     # Remove dead episodes 
@@ -413,4 +418,15 @@ security.check <- function(ccd, dirv) {
                                   if (any(dirv %in% names(x@data)))
                                       stop("direct identifiable items appeared in the final data!!!")
                               })
+}
+
+remove.patients <- function(demg, rmfile) {
+    if (is.null(rmfile))
+        return(demg)
+    rmpatients <- as.character(read.csv(rmfile, header=F)[[1]])
+    demg <- demg[!NHSNO %in% rmpatients]
+    demg <- demg[!pasno %in% rmpatients]
+    demg <- demg[!paste(ICNNO, ADNO, sep=":") %in% rmpatients]
+   
+    demg
 }

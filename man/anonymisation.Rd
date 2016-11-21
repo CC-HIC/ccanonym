@@ -45,22 +45,26 @@ discharge date: 2014-01-03 -> 1970-01-03. With this process, all the time
 information will be hidden from the users. However the cadence of such of length
 of stay will still be preserved. 
 
-4. Remove episodes which stays longer than a certain period of time. One can
+4. Remove VIPs from a list file which has the identifiers of VIPs. The
+identifiers can be NHS number or PAS number or site episode id combination
+(Q70:000001). 
+
+5. Remove episodes which stays longer than a certain period of time. One can
 specify it in the configuration file, e.g. maxStay: 30. 
 
-5. Micro-aggregate the numerical/date variables specified in the configuration
+6. Micro-aggregate the numerical/date variables specified in the configuration
 file. 
 
-6. Special aggregation, such as we suppress the post code in such a way that
+7. Special aggregation, such as we suppress the post code in such a way that
 NW1 1AA -> NW1. The function can be written in the configuration file. 
 
-7. Suppress the key variables where the k-anonymity is violated. 
+8. Suppress the key variables where the k-anonymity is violated. 
 
-8. Suppress the sensitive variables where the l-diversity is violated. 
+9. Suppress the sensitive variables where the l-diversity is violated. 
 
-9. Adding noise to the selected data. 
+10. Adding noise to the selected data. 
 
-10. Combine and create the new ccRecord object and convert all the 2d date
+11. Combine and create the new ccRecord object and convert all the 2d date
 time stamps to the hour difference to the admission time.
 }
 \examples{

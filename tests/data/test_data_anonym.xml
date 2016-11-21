@@ -468,10 +468,24 @@
               </d:subject>
 
 
+               <d:subject>
+                  <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_rm2</d:NIHR_HIC_ICU_0073></d:Numerical_national>
+              </d:subject>
 
-
-
-
+             <d:subject>
+                  <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_rm1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
+              </d:subject>
+ 
+              <d:subject>
+                  <d:Numerical_national><d:NIHR_HIC_ICU_0073 m="2015-02-26">nhs_rm1</d:NIHR_HIC_ICU_0073></d:Numerical_national>
+              </d:subject>
+              <d:subject>
+                <d:Numerical_local><d:NIHR_HIC_ICU_0001 m="2015-02-26">pas_rm1</d:NIHR_HIC_ICU_0001></d:Numerical_local>
+              </d:subject>
+              <d:subject>
+                  <d:NIHR_HIC_ICU_0002 m="2015-02-26">site1</d:NIHR_HIC_ICU_0002>
+                  <d:NIHR_HIC_ICU_0005 m="2015-02-26">0000</d:NIHR_HIC_ICU_0005>
+              </d:subject>
         </d:data>
     </d:context>
 </d:document>

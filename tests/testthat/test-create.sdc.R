@@ -10,7 +10,6 @@ var <- c(keydt, keyvar, numvar)
 
 test_that("create sdc object", {
     demg <- data.frame(demg)
-
     sdc <<- suppressWarnings(sdc.trial(ccd, '../data/test.yaml'))
 })
 
@@ -58,7 +57,7 @@ test_that("anonymisation from ccdata", {
 test_that("appending age column", {
     age <- append.age(demg)$AGE
     expect_true(is.numeric(age))
-    expect_identical(age, c(25, 33, 44, 37, 59, 25, 25))
+    expect_identical(age, c(25, 33, 44, 37, 59, 25, 25, NA, NA, NA, NA, NA))
 })
 
 
@@ -72,4 +71,3 @@ test_that("Microaggregation on numeric variables", {
 test_that("check l-diversity suppression", {
     sdc.l <- suppressWarnings(sdc.trial(ccd, conf, l.div=2, verbose=T))
 })
-

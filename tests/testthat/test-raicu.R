@@ -13,6 +13,6 @@ test_that("", {
 
 
     demg <- suppressWarnings(sql.demographic.table(ccd))
-    expect_equivalent(raicu.to.category(a, "RAICU1")$RAICU1, NULL)
+    expect_equivalent(raicu.to.category(demg, "RAICU1")$RAICU1, NULL)
 
 })

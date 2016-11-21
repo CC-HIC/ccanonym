@@ -1,3 +1,4 @@
+removelist: ../data/removelist.csv
 directVars:
     - pasno   
     - ICNNO   
