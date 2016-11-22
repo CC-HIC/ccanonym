@@ -30,6 +30,12 @@ categoryVars:
     - URAICU.IV
     - URAICU.V
 
+    - OCPMH.I
+    - OCPMH.II
+    - OCPMH.III
+    - OCPMH.IV
+    - OCPMH.V
+
 numVars:
     AGE:  # Height
         aggr: 2
@@ -37,10 +43,6 @@ numVars:
     HCM:  # Height
         aggr: 2
         
-    DAH: # Date of admission to your hospital
-        aggr: 2
-        noise: 2
-
 sensVars:
     - BPC # Biopsy proven cirrhosis
     - AIDS_V3 # HIC/AIDS
@@ -67,6 +69,7 @@ Operations:
     PCODE: 'function(x){sapply(strsplit(as.character(x), split=" "), function(y) y[1])}'
     
 nonidentifyVars:
+- DAH
 - DOAH  # Date of original admission to/attendance at acute hospital'
 - DOAICU  # Date of original admission to ICU/HDU'
 - DUDICU  # Date of ultimate discharge from ICU/HDU'

@@ -30,7 +30,7 @@ raicu.breakdown <- function(r) {
 #' @export raicu.to.category
 raicu.to.category <- function(demg, keyvars) {
     demg <- data.frame(demg)
-    raicu_vars <- c("RAICU1", "RAICU2", "URAICU")
+    raicu_vars <- c("RAICU1", "RAICU2", "URAICU", "OCPMH")
     keyvars <- sapply(strsplit(keyvars, "[.]"), function(x) x[1])
     vars <- raicu_vars[raicu_vars %in% keyvars]
 
