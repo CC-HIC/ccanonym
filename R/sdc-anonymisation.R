@@ -63,6 +63,9 @@
 #' # Create the data extract after the k.anon and l.div is decided. 
 #' ccd.anon <- anonymisation(ccd, "test.yaml", k.anon=10)
 #' }
+#' @import sdcMicro
+#' @import yaml
+#' @import ccdata
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
                           k.anon=20, l.div=NULL, ...) {

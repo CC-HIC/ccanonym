@@ -9,9 +9,7 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 RoxygenNote: 5.0.1
 Depends:
-    R (>= 2.1.0),
-    sdcMicro, 
-    ccdata
+    R (>= 2.1.0)
 Imports: data.table
 Suggests: knitr,
     rmarkdown
