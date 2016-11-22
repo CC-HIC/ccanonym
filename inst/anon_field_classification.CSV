@@ -1,0 +1,265 @@
+Anonymisation,NHICcode,dataItem
+Direct identifier,NIHR_HIC_ICU_0001,PAS number
+Direct identifier,NIHR_HIC_ICU_0002,Site code (ICNARC CMP number)
+Direct identifier,NIHR_HIC_ICU_0005,Critical care local identifier / ICNARC admission number
+Direct identifier,NIHR_HIC_ICU_0073,NHS number
+Direct identifier,NIHR_HIC_ICU_0100,Transferring unit admission number
+Direct identifier,NIHR_HIC_ICU_0101,Transferring unit identifier (in)
+Direct identifier, NIHR_HIC_ICU_0033,Date of birth
+Key variable (categorical),NIHR_HIC_ICU_0003,Code of GP
+Key variable (categorical),NIHR_HIC_ICU_0076,Postcode
+Key variable (categorical),NIHR_HIC_ICU_0093,Sex
+Key variable (categorical),NIHR_HIC_ICU_0058,Ethnicity
+Key variable (continuous),,Age
+Date-time variable, NIHR_HIC_ICU_0032,Date of admission to your hospital
+Date-time variable, NIHR_HIC_ICU_0034,Date of last critical care visit prior to this admission to your unit
+Date-time variable, NIHR_HIC_ICU_0035,Date of original admission to/attendance at acute hospital
+Date-time variable, NIHR_HIC_ICU_0036,Date of original admission to ICU/HDU
+Date-time variable, NIHR_HIC_ICU_0037,Date of ultimate discharge from ICU/HDU
+Date-time variable, NIHR_HIC_ICU_0042,Date of death on your unit
+Date-time variable, NIHR_HIC_ICU_0044,Date of declaration of brain stem death
+Date-time variable, NIHR_HIC_ICU_0050,Date fully ready for discharge
+Date-time variable, NIHR_HIC_ICU_0051,Time fully ready for discharge
+Date-time variable, NIHR_HIC_ICU_0406,Date of discharge from your hospital
+Date-time variable, NIHR_HIC_ICU_0408,Date of ultimate discharge from your hospital
+Date-time variable, NIHR_HIC_ICU_0411,Date & Time of admission to your unit
+Date-time variable, NIHR_HIC_ICU_0412,Date & Time of discharge from your unit
+Key variable (continuous),NIHR_HIC_ICU_0017,Height
+Non-identifying,NIHR_HIC_ICU_0018,Height (Source)
+Key variable (continuous),NIHR_HIC_ICU_0019,Weight
+Non-identifying,NIHR_HIC_ICU_0020,Weight (Source)
+Sensitive,NIHR_HIC_ICU_0016,Biopsy proven cirrhosis
+Sensitive,NIHR_HIC_ICU_0062,HIV/AIDS
+Sensitive,NIHR_HIC_ICU_0075,Portal hypertension
+Key variable (categorical),NIHR_HIC_ICU_0399,Primary reason for admission to your unit
+Key variable (categorical),NIHR_HIC_ICU_0088,Secondary reasons for admission to your unit
+Key variable (categorical),NIHR_HIC_ICU_0912,Ultimate primary reason for admission to unit
+Key variable (categorical),NIHR_HIC_ICU_0074,Other condition in past medical history
+Non-identifying,NIHR_HIC_ICU_0004,Treatment function code
+Non-identifying,NIHR_HIC_ICU_0006,CCU bed configuration 02
+Non-identifying,NIHR_HIC_ICU_0007,Level 2 (HDU) days
+Non-identifying,NIHR_HIC_ICU_0008,Level 3 (ICU) days
+Non-identifying,NIHR_HIC_ICU_0009,Organ support maximum
+Non-identifying,NIHR_HIC_ICU_0010,Acute myeloid/lymphocytic leukaemia or myeloma
+Non-identifying,NIHR_HIC_ICU_0011,Admission for pre-surgical preparation
+Non-identifying,NIHR_HIC_ICU_0013,Adult ICU/HDU within your critical care transfer group (in)
+Non-identifying,NIHR_HIC_ICU_0014,Adult ICU/HDU within your critical care transfer group (out)
+Non-identifying,NIHR_HIC_ICU_0015,Antimicrobial use after 48 hours in your unit
+Non-identifying,NIHR_HIC_ICU_0021,Cardiopulmonary resuscitation within 24 hours prior to admission to unit
+Non-identifying,NIHR_HIC_ICU_0022,Basic Cardiovascular support days
+Non-identifying,NIHR_HIC_ICU_0023,Advanced Cardiovascular support days
+Non-identifying,NIHR_HIC_ICU_0024,Chemotherapy (within the last 6months) steroids alone excluded
+Non-identifying,NIHR_HIC_ICU_0025,Chronic myelogenous /lymphocytic leukaemia
+Non-identifying,NIHR_HIC_ICU_0026,Chronic renal replacement therapy
+Non-identifying,NIHR_HIC_ICU_0027,classification of surgery
+Non-identifying,NIHR_HIC_ICU_0029,Congenital immunohumoral or cellular immune deficiency state
+Non-identifying,NIHR_HIC_ICU_0030,Critical care visit post-discharge from your unit
+Non-identifying,NIHR_HIC_ICU_0031,Critical care visit prior to this admission to your unit
+Non-identifying,NIHR_HIC_ICU_0038,Date body removed from your unit
+Non-identifying,NIHR_HIC_ICU_0039,Time body removed from your unit
+Non-identifying,NIHR_HIC_ICU_0043,Time of death on your unit
+Non-identifying,NIHR_HIC_ICU_0045,Time of declaration of brain stem death
+Non-identifying,NIHR_HIC_ICU_0048,Date treatment first withdrawn
+Non-identifying,NIHR_HIC_ICU_0049,Time treatment first withdrawn
+Non-identifying,NIHR_HIC_ICU_0053,Delayed admission
+Non-identifying,NIHR_HIC_ICU_0054,Delay
+Non-identifying,NIHR_HIC_ICU_0055,Dependency prior to admission
+Non-identifying,NIHR_HIC_ICU_0056,Dermatological support days
+Non-identifying,NIHR_HIC_ICU_0057,Hospital housing location (out)
+Non-identifying,NIHR_HIC_ICU_0059,Gastrointestinal support days
+Non-identifying,NIHR_HIC_ICU_0060,Heaptic encephalopathy
+Non-identifying,NIHR_HIC_ICU_0063,Home ventilation
+Non-identifying,NIHR_HIC_ICU_0065,Hospital housing location (in)
+Non-identifying,NIHR_HIC_ICU_0066,Level of care at discharge from your unit
+Non-identifying,NIHR_HIC_ICU_0067,Liver support days
+Non-identifying,NIHR_HIC_ICU_0068,Location (in)
+Non-identifying,NIHR_HIC_ICU_0069,Discharge location (location out)
+Non-identifying,NIHR_HIC_ICU_0070,Lymphoma
+Non-identifying,NIHR_HIC_ICU_0071,Metastatic disease
+Non-identifying,NIHR_HIC_ICU_0072,Neurological support days
+Non-identifying,NIHR_HIC_ICU_0077,Prior location (in)
+Non-identifying,NIHR_HIC_ICU_0080,Radiotherapy
+Non-identifying,NIHR_HIC_ICU_0081,Discharge status (Reason for discharge from your unit)
+Non-identifying,NIHR_HIC_ICU_0082,Referred for solid organ or tissue donation
+Non-identifying,NIHR_HIC_ICU_0083,Renal support days
+Non-identifying,NIHR_HIC_ICU_0084,Residence post discharge from acute hospital
+Non-identifying,NIHR_HIC_ICU_0085,Residence prior to admission to acute hospital
+Non-identifying,NIHR_HIC_ICU_0086,Basic respiratory support days
+Non-identifying,NIHR_HIC_ICU_0087,Advanced respiratory support days
+Non-identifying,NIHR_HIC_ICU_0089,Sector of other hospital (in)
+Non-identifying,NIHR_HIC_ICU_0090,Sector of other hospital (out)
+Non-identifying,NIHR_HIC_ICU_0092,Severe respiratory disease
+Non-identifying,NIHR_HIC_ICU_0094,Solid organ or tissue donor
+Non-identifying,NIHR_HIC_ICU_0095,Status at discharge from your hospital
+Non-identifying,NIHR_HIC_ICU_0097,Dead or alive on discharge
+Non-identifying,NIHR_HIC_ICU_0098,Status at ultimate discharge from hospital
+Non-identifying,NIHR_HIC_ICU_0099,Steroid treatment
+Non-identifying,NIHR_HIC_ICU_0103,Treatment withheld/withdrawn
+Non-identifying,NIHR_HIC_ICU_0104,Type of adult ICU/HDU (in)
+Non-identifying,NIHR_HIC_ICU_0107,Very severe cardiovascular disease
+Non-identifying,NIHR_HIC_ICU_0108,Heart rate
+Non-identifying,NIHR_HIC_ICU_0109,Heart rhythm
+Non-identifying,NIHR_HIC_ICU_0110,Mean arterial blood pressure - Art BPMean arterial blood pressure
+Non-identifying,NIHR_HIC_ICU_0111,Mean arterial blood pressure - NBPMean arterial blood pressure
+Non-identifying,NIHR_HIC_ICU_0112,Systolic Arterial blood pressure - Art BPSystolic Arterial blood pressure
+Non-identifying,NIHR_HIC_ICU_0113,Systolic Arterial blood pressure - NBPSystolic Arterial blood pressure
+Non-identifying,NIHR_HIC_ICU_0114,Diastolic arterial blood pressure - Art BPDiastolic arterial blood pressure
+Non-identifying,NIHR_HIC_ICU_0115,Diastolic arterial blood pressure - NBPDiastolic arterial blood pressure
+Non-identifying,NIHR_HIC_ICU_0116,Central venous pressure
+Non-identifying,NIHR_HIC_ICU_0117,Cardiac output - LiDCO Plus
+Non-identifying,NIHR_HIC_ICU_0118,Cardiac output - LiDCO Rapid
+Non-identifying,NIHR_HIC_ICU_0119,Cardiac output - PICCO
+Non-identifying,NIHR_HIC_ICU_0120,Cardiac output - PA Catheter
+Non-identifying,NIHR_HIC_ICU_0121,Cardiac output - Doppler
+Non-identifying,NIHR_HIC_ICU_0122,Lactate - ABG
+Non-identifying,NIHR_HIC_ICU_0123,Lactate - Lab
+Non-identifying,NIHR_HIC_ICU_0125,Central venous saturation
+Non-identifying,NIHR_HIC_ICU_0126,Airway
+Non-identifying,NIHR_HIC_ICU_0129,SpO2
+Non-identifying,NIHR_HIC_ICU_0130,SaO2 - ABG
+Non-identifying,NIHR_HIC_ICU_0132,PaO2 - ABG
+Non-identifying,NIHR_HIC_ICU_0134,PaCO2 - ABG
+Non-identifying,NIHR_HIC_ICU_0136,pH - ABG / VBG
+Non-identifying,NIHR_HIC_ICU_0138,HCO3 - ABG / VBG
+Non-identifying,NIHR_HIC_ICU_0141,Temperature - Central
+Non-identifying,NIHR_HIC_ICU_0142,Temperature - Non-central
+Non-identifying,NIHR_HIC_ICU_0143,Position
+Non-identifying,NIHR_HIC_ICU_0144,Invasive or non-invasive (ventilation)
+Non-identifying,NIHR_HIC_ICU_0145,Total respiratory rate (monitor)
+Non-identifying,NIHR_HIC_ICU_0146,Total respiratory rate (ventilator)
+Non-identifying,NIHR_HIC_ICU_0147,Mandatory Respiratory Rate
+Non-identifying,NIHR_HIC_ICU_0148,Minute volume
+Non-identifying,NIHR_HIC_ICU_0149,Peak airway pressure
+Non-identifying,NIHR_HIC_ICU_0150,Inspired fraction of oxygen
+Non-identifying,NIHR_HIC_ICU_0151,Positive End Expiratory Pressure
+Non-identifying,NIHR_HIC_ICU_0152,Airway pressure
+Non-identifying,NIHR_HIC_ICU_0153,Frequency (Hz)
+Non-identifying,NIHR_HIC_ICU_0154,Cycle Volume
+Non-identifying,NIHR_HIC_ICU_0155,Base flow
+Non-identifying,NIHR_HIC_ICU_0156,GCS - total
+Non-identifying,NIHR_HIC_ICU_0157,GCS - motor component
+Non-identifying,NIHR_HIC_ICU_0158,GCS - eye component
+Non-identifying,NIHR_HIC_ICU_0159,GCS - verbal component
+Non-identifying,NIHR_HIC_ICU_0160,Sedation score (hourly)
+Non-identifying,NIHR_HIC_ICU_0161,Renal replacement mode
+Non-identifying,NIHR_HIC_ICU_0162,Urine output
+Non-identifying,NIHR_HIC_ICU_0164,Urea
+Non-identifying,NIHR_HIC_ICU_0166,Creatinine
+Non-identifying,NIHR_HIC_ICU_0168,Sodium
+Non-identifying,NIHR_HIC_ICU_0169,Sodium ABG/VBG
+Non-identifying,NIHR_HIC_ICU_0171,Potassium
+Non-identifying,NIHR_HIC_ICU_0172,Potassium ABG/VBG
+Non-identifying,NIHR_HIC_ICU_0174,Bilirubin
+Non-identifying,NIHR_HIC_ICU_0175,Glucose ABG/VBG
+Non-identifying,NIHR_HIC_ICU_0176,Glucose bedside test
+Non-identifying,NIHR_HIC_ICU_0178,Haemoglobin ABG/VBG
+Non-identifying,NIHR_HIC_ICU_0179,Haemoglobin
+Non-identifying,NIHR_HIC_ICU_0182,White cell count
+Non-identifying,NIHR_HIC_ICU_0183,Neutrophil count
+Non-identifying,NIHR_HIC_ICU_0184,Platelets
+Non-identifying,NIHR_HIC_ICU_0186,Site
+Non-identifying,NIHR_HIC_ICU_0187,Organism
+Non-identifying,NIHR_HIC_ICU_0188,Sensitivity
+Non-identifying,NIHR_HIC_ICU_0242,Fentanyl
+Non-identifying,NIHR_HIC_ICU_0252,Milrinone
+Non-identifying,NIHR_HIC_ICU_0395,CCU bed configuration 03
+Non-identifying,NIHR_HIC_ICU_0396,CCU bed configuration 05
+Non-identifying,NIHR_HIC_ICU_0397,CCU bed configuration 90
+Non-identifying,NIHR_HIC_ICU_0398,Admission type
+Non-identifying,NIHR_HIC_ICU_0400,Brain stem death declared
+Non-identifying,NIHR_HIC_ICU_0405,Timeliness of discharge from your unit
+Non-identifying,NIHR_HIC_ICU_0407,Date of first critical care post-discharge from your unit
+Non-identifying,NIHR_HIC_ICU_0409,APACHE II Score
+Non-identifying,NIHR_HIC_ICU_0410,APACHE II Probability
+Non-identifying,NIHR_HIC_ICU_0413,Fluid Balance (hourly)
+Non-identifying,NIHR_HIC_ICU_0414,Amikacin
+Non-identifying,NIHR_HIC_ICU_0415,Amoxicillin
+Non-identifying,NIHR_HIC_ICU_0416,Azithromycin
+Non-identifying,NIHR_HIC_ICU_0417,Benzylpenicillin
+Non-identifying,NIHR_HIC_ICU_0418,Cefotaxime
+Non-identifying,NIHR_HIC_ICU_0419,Ceftazidime
+Non-identifying,NIHR_HIC_ICU_0420,Ceftriaxone
+Non-identifying,NIHR_HIC_ICU_0421,Cefuroxime
+Non-identifying,NIHR_HIC_ICU_0422,Chloramphenicol
+Non-identifying,NIHR_HIC_ICU_0423,Ciprofloxacin
+Non-identifying,NIHR_HIC_ICU_0424,Clarithromycin
+Non-identifying,NIHR_HIC_ICU_0425,Clindamycin
+Non-identifying,NIHR_HIC_ICU_0426,Co-Amoxiclav
+Non-identifying,NIHR_HIC_ICU_0427,Colistin
+Non-identifying,NIHR_HIC_ICU_0428,Co-Trimoxazole
+Non-identifying,NIHR_HIC_ICU_0429,Demeclocycline HCL
+Non-identifying,NIHR_HIC_ICU_0430,Doxycycline
+Non-identifying,NIHR_HIC_ICU_0432,Ertapenem
+Non-identifying,NIHR_HIC_ICU_0433,Erythromycin
+Non-identifying,NIHR_HIC_ICU_0434,Ethambutal HCL
+Non-identifying,NIHR_HIC_ICU_0435,Flucloxacillin
+Non-identifying,NIHR_HIC_ICU_0436,Fuscidic acid
+Non-identifying,NIHR_HIC_ICU_0437,Gentamicin
+Non-identifying,NIHR_HIC_ICU_0438,Isoniazid
+Non-identifying,NIHR_HIC_ICU_0439,Levofloxacin
+Non-identifying,NIHR_HIC_ICU_0440,Linezolid
+Non-identifying,NIHR_HIC_ICU_0441,Meropenem
+Non-identifying,NIHR_HIC_ICU_0442,Metronidazole
+Non-identifying,NIHR_HIC_ICU_0443,Moxifloxacin
+Non-identifying,NIHR_HIC_ICU_0444,Neomycin
+Non-identifying,NIHR_HIC_ICU_0445,Nitrofurantion
+Non-identifying,NIHR_HIC_ICU_0446,Ofloxacin
+Non-identifying,NIHR_HIC_ICU_0447,Pentamidine
+Non-identifying,NIHR_HIC_ICU_0448,Phenoxymethylpenicillin
+Non-identifying,NIHR_HIC_ICU_0449,Piperacillin/Tazobactam
+Non-identifying,NIHR_HIC_ICU_0450,Pyrazinamide
+Non-identifying,NIHR_HIC_ICU_0452,Rifampacin
+Non-identifying,NIHR_HIC_ICU_0453,Rifater
+Non-identifying,NIHR_HIC_ICU_0454,Rifinah
+Non-identifying,NIHR_HIC_ICU_0456,Sodium Fusidate
+Non-identifying,NIHR_HIC_ICU_0457,Teicoplanin
+Non-identifying,NIHR_HIC_ICU_0458,Tigecycline
+Non-identifying,NIHR_HIC_ICU_0459,Tobramycin
+Non-identifying,NIHR_HIC_ICU_0460,Trimethoprim
+Non-identifying,NIHR_HIC_ICU_0461,Vancomycin
+Non-identifying,NIHR_HIC_ICU_0462,Propofol
+Non-identifying,NIHR_HIC_ICU_0463,Midazolam
+Non-identifying,NIHR_HIC_ICU_0464,Remifentanil
+Non-identifying,NIHR_HIC_ICU_0465,Adrenaline
+Non-identifying,NIHR_HIC_ICU_0466,Dobutamine
+Non-identifying,NIHR_HIC_ICU_0467,Dopamine
+Non-identifying,NIHR_HIC_ICU_0468,Enoximone
+Non-identifying,NIHR_HIC_ICU_0469,Levosimendan
+Non-identifying,NIHR_HIC_ICU_0470,Noradrenaline
+Non-identifying,NIHR_HIC_ICU_0471,Vasopressin
+Non-identifying,NIHR_HIC_ICU_0549,Spontaneous Respiratory Rate
+Non-identifying,NIHR_HIC_ICU_0550,Tidal volume
+Non-identifying,NIHR_HIC_ICU_0552,Duration of therapy (hours per day)
+Non-identifying,NIHR_HIC_ICU_0553,Total effluent per day
+Non-identifying,NIHR_HIC_ICU_0554,Dialysate
+Non-identifying,NIHR_HIC_ICU_0555,Replacement fluid during RRT
+Non-identifying,NIHR_HIC_ICU_0556,Type of anticoagulation
+Non-identifying,NIHR_HIC_ICU_0557,C reactive protein
+Non-identifying,NIHR_HIC_ICU_0558,Thiopentone / Thiopental
+Non-identifying,NIHR_HIC_ICU_0559,Clonidine
+Non-identifying,NIHR_HIC_ICU_0560,Dexmedetomidine
+Non-identifying,NIHR_HIC_ICU_0561,Ketamine
+Non-identifying,NIHR_HIC_ICU_0563,Morphine
+Non-identifying,NIHR_HIC_ICU_0564,Dopexamine
+Non-identifying,NIHR_HIC_ICU_0565,Terlipressin
+Non-identifying,NIHR_HIC_ICU_0568,Type of adult ICU/HDU (out)
+Non-identifying,NIHR_HIC_ICU_0573,Destination post discharge within your hospital
+Non-identifying,NIHR_HIC_ICU_0906,Esmolol
+Non-identifying,NIHR_HIC_ICU_0907,Metoprolol
+Non-identifying,NIHR_HIC_ICU_0908,Dexamethasone
+Non-identifying,NIHR_HIC_ICU_0909,Hydrocortisone
+Non-identifying,NIHR_HIC_ICU_0910,Methylprednisolone
+Non-identifying,NIHR_HIC_ICU_0911,Sedation yes/no
+Non-identifying,NIHR_HIC_ICU_0913,PaO2/FiO2 ratio
+Non-identifying,NIHR_HIC_ICU_0915,Fluid Balance (daily)
+Non-identifying,NIHR_HIC_ICU_0918,Glucose (laboratory)
+Non-identifying,NIHR_HIC_ICU_0930,Status at ultimate discharge from ICUHDU
+Non-identifying,NIHR_HIC_ICU_0931,Advanced respiratory support
+Non-identifying,NIHR_HIC_ICU_0932,Basic respiratory support
+Non-identifying,NIHR_HIC_ICU_0933,Advanced Cardiovascular support
+Non-identifying,NIHR_HIC_ICU_0934,Basic Cardiovascular support
+Non-identifying,NIHR_HIC_ICU_0935,Renal support
+Non-identifying,NIHR_HIC_ICU_0936,Neurological support
+Non-identifying,NIHR_HIC_ICU_0937,Liver support
+Non-identifying,NIHR_HIC_ICU_0938,Dermatological support
+Non-identifying,NIHR_HIC_ICU_0939,Gastrointestinal support
