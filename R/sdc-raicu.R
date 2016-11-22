@@ -1,9 +1,6 @@
-raicu.breakdown <- function(r) {
-    if (ncol(r) != 1)
-        stop("r has to be 1-column data.frame.")
+#' @export raicu.breakdown
+raicu.breakdown <- function(r, digits=3) {
 
-    rname <- names(r)
-    r <- as.character(r[[rname]])
     cols <- strsplit(r, '[.]')
     cols <- lapply(cols, 
            function(x) {
@@ -20,24 +17,14 @@ raicu.breakdown <- function(r) {
     
     cols <- t(data.frame(cols))
     rownames(cols) <- seq(nrow(cols))
-    colnames(cols) <- paste(rname, as.roman(seq(5)), sep=".")
-    
-    cols
+    cols <- cols[, 1:digits]
 
-}
-
-
-#' @export raicu.to.category
-raicu.to.category <- function(demg, keyvars) {
-    demg <- data.frame(demg)
-    raicu_vars <- c("RAICU1", "RAICU2", "URAICU", "OCPMH")
-    keyvars <- sapply(strsplit(keyvars, "[.]"), function(x) x[1])
-    vars <- raicu_vars[raicu_vars %in% keyvars]
-
-    for (i in vars) {
-        demg <- cbind(demg, raicu.breakdown(demg[i]))
-        demg[i] <- NULL
+    combine <- function(x) {
+        x <- x[!is.na(x)]
+        paste(x, collapse=".")
     }
-    
-    return(demg)
+    if (class(cols) == "numeric") 
+        return(combine(cols))
+    else
+        return(apply(cols, 1, combine))
 }

@@ -11,35 +11,14 @@ categoryVars:
     - GPCODE
     - SEX
     - PCODE #  Postcode
-
-    - RAICU1.I
-    - RAICU1.II
-    - RAICU1.III
-    - RAICU1.IV
-    - RAICU1.V
-
-    - RAICU2.I
-    - RAICU2.II
-    - RAICU2.III
-    - RAICU2.IV
-    - RAICU2.V
-
-    - URAICU.I
-    - URAICU.II
-    - URAICU.III
-    - URAICU.IV
-    - URAICU.V
-
-    - OCPMH.I
-    - OCPMH.II
-    - OCPMH.III
-    - OCPMH.IV
-    - OCPMH.V
+    - RAICU1
+    - RAICU2
+    - URAICU
+    - OCPMH
 
 numVars:
     AGE:  # Height
         aggr: 2
-        noise: 2
     HCM:  # Height
         aggr: 2
         
@@ -67,6 +46,11 @@ maxStay: 50 # 30 days
 
 Operations:
     PCODE: 'function(x){sapply(strsplit(as.character(x), split=" "), function(y) y[1])}'
+    RAICU1: 'function(x) {raicu.breakdown(x, 3)}' 
+    RAICU2: 'raicu.breakdown' # default 3 digits
+    URAICU: 'raicu.breakdown'
+    OCPMH: 'raicu.breakdown'
+
     
 nonidentifyVars:
 - DAH
@@ -125,7 +109,6 @@ nonidentifyVars:
 - LYM # Lymphoma
 - META # Metastatic disease
 - NSD # Neurological support days
-- OCPMH # Other condition in past medical history
 - PLOCA # Prior location (in)
 - RADIOX # Radiotherapy
 - REFOD # Referred for solid organ or tissue donation

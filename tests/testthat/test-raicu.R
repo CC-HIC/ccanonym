@@ -2,17 +2,15 @@ context("Process RAICU (type) data")
 
 
 test_that("", {
-    expect_equivalent(as.numeric(raicu.breakdown(data.frame(x="1.2.3.4.5"))), 
-                      seq(5))
-    expect_equivalent(as.numeric(raicu.breakdown(data.frame(x="1.2.3.4.5.6"))), 
-                      seq(5))
-    expect_equivalent(as.numeric(raicu.breakdown(data.frame(x="1.2.3.4"))), 
-                      c(seq(4), NA))
-    expect_equivalent(as.numeric(raicu.breakdown(data.frame(x="crazy.stuff.with.points"))),
-                      as.numeric(rep(NA, 5)))
+    expect_equivalent(raicu.breakdown("1.2.3.4.5"), "1.2.3")
+    expect_equivalent(raicu.breakdown("1.2.3.4.5", 4), "1.2.3.4")
 
-
-    demg <- suppressWarnings(sql.demographic.table(ccd))
-    expect_equivalent(raicu.to.category(demg, "RAICU1")$RAICU1, NULL)
-
+    expect_equivalent(raicu.breakdown("10.2.3.4.5"), "10.2.3")
+    expect_equivalent(raicu.breakdown("01.2.3.4.5"), "1.2.3")
+    
+    expect_equivalent(raicu.breakdown("1.2.3"), "1.2.3")
+    expect_equivalent(raicu.breakdown("1.2"), "1.2")
+    expect_equivalent(raicu.breakdown("1"), "1")
+    
+    expect_equivalent(raicu.breakdown(c("1", "1.2.3.4")), c("1", "1.2.3"))
 })

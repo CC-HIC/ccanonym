@@ -157,7 +157,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
         demg <- demg[DIS=="D"]
 
     demg <- deltaTime1d(demg, conf$deltaTime, conf$maxStay)
-    demg <- raicu.to.category(demg, vn$ctgrv)
+#    demg <- raicu.to.category(demg, vn$ctgrv)
     demg <- custom.operation(demg, conf)
     # Remove direct identifiable variables 
     demg <- remove.direct.vars(demg, vn$dirv)
