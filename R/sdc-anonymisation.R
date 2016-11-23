@@ -68,7 +68,7 @@
 #' @import ccdata
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
-                          k.anon=20, l.div=NULL, ...) {
+                          k.anon=5, l.div=NULL, ...) {
     vn <- parse.conf(conf)
     ccd <- deltaTime(ccd, ...)
     sdc <- sdc.trial(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
@@ -141,7 +141,7 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
 #' }
 #' @import data.table
 #' @export
-sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
+sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=5,
                       l.div=NULL) {
 
     if (is.character(conf))
@@ -151,7 +151,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
 
     if (verbose)  cat("parsing the ccdata object ...\n")
 
-    demg <- data.table(suppressWarnings(sql.demographic.table(ccd)))
+    demg <- data.table(suppressWarnings(demographic.patient.spell(ccd)))
     demg <- remove.patients(demg, conf$removelist)
     demg <- append.age(demg)
 
@@ -160,7 +160,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=20,
         demg <- demg[DIS=="D"]
 
     demg <- deltaTime1d(demg, conf$deltaTime, conf$maxStay)
-#    demg <- raicu.to.category(demg, vn$ctgrv)
+    
     demg <- custom.operation(demg, conf)
     # Remove direct identifiable variables 
     demg <- remove.direct.vars(demg, vn$dirv)
@@ -315,6 +315,9 @@ deltaTime1d <- function(demg, items, maxstay) {
 
 
 create.anonym.ccd <- function(ccd, sdc.data) {
+    sdc.data$ADNO <- seq(nrow(sdc.data))
+    sdc.data$ICNNO <- "pseudo_site"
+
     sdc.row2list <- function(sdcrow) {
         lst <- as.list(sdcrow)
         lst <- lapply(lst, as.character) 
@@ -342,6 +345,8 @@ create.anonym.ccd <- function(ccd, sdc.data) {
         sdcl <- sdc.row2list(sdc.data[i, ])
         new.record <- new.record + new.episode(append(cdl, sdcl))
     }
+    new.record@infotb[, pid:=sdc.data$pid]
+    new.record@infotb[, spell:=sdc.data$spell]
     new.record
 }
 
