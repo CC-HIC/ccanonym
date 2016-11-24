@@ -10,7 +10,7 @@ License: What license is it under?
 RoxygenNote: 5.0.1
 Depends:
     R (>= 2.1.0)
-Imports: data.table
+Imports: data.table, ccdata, sdcMicro, yaml
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

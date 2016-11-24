@@ -5,7 +5,7 @@
 #' @param outfile the file name of YAML configuration template.
 #' @export 
 template.conf <- function(outfile="template.yaml") {
-    conffile <- paste(path.package('ccanonym'), "/inst/test.yaml", sep="")
+    conffile <- paste(path.package('ccanonym'), "/test.yaml", sep="")
     conffile <- yaml.load_file(conffile)
     write(file=outfile, as.yaml(conffile))
 }
