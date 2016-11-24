@@ -2,7 +2,7 @@
 % Please edit documentation in R/sdc-anonymisation.R
 \name{sdc.trial}
 \alias{sdc.trial}
-\title{Performe statstical disclosure control process on demgraphic data.}
+\title{Perform statistical disclosure control process on demographic data.}
 \usage{
 sdc.trial(ccd, conf, remove.alive = T, verbose = F, k.anon = 20,
   l.div = NULL)
