@@ -69,7 +69,7 @@ NW1 1AA -> NW1. The function can be written in the configuration file.
 template.conf("test.yaml")
 
 # Trial: adjust K-anonymity and L-diversity. 
-sdc <- sdc-trial(ccd, "test.yaml", k.anon=10, l.div=2)
+sdc <- sdc.trial(ccd, "test.yaml", k.anon=10, l.div=2)
 
 # To access SDC object
 sdc$sdc
