@@ -99,7 +99,7 @@ nonidentifyVars:
 - HLOCD # Hospital housing location (out)
 - ETHNIC # Ethnicity
 - GSD # Gastrointestinal support days
-- HE # Heaptic encephalopathy
+- HE # Hepatic encephalopathy
 - HV # Home ventilation
 - HLOCA # Hospital housing location (in)
 - LEVD # Level of care at discharge from your unit
