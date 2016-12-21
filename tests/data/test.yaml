@@ -1,4 +1,4 @@
-removelist: ../data/removelist.csv
+#removelist: ../data/removelist.csv
 directVars:
     - pasno   
     - ICNNO   
@@ -158,7 +158,7 @@ nonidentifyVars:
 - total_resp_rate # Total respiratory rate (ventilator)
 - mand_resp_rate # Mandatory Respiratory Rate
 - minute_volume # Minute volume
-- airway_pressure # Peak airway pressure
+- airway_pressure_peak # Peak airway pressure
 - fraction_oxygen # Inspired fraction of oxygen
 - pe_expiratory_pressure # Positive End Expiratory Pressure
 - airway_pressure # Airway pressure
@@ -199,7 +199,7 @@ nonidentifyVars:
 - DFCCD # Date of first critical care post-discharge from your unit
 - apache_score # APACHE II Score
 - apache_prob # APACHE II Probability
-- fluid_balance # Fluid Balance (hourly)
+- fluid_balance_h # Fluid Balance (hourly)
 - amikacin # Amikacin
 - amoxicillin # Amoxicillin
 - azithromycin # Azithromycin
@@ -278,12 +278,12 @@ nonidentifyVars:
 - methylprednisolone # Methylprednisolone
 - sedataion # Sedation yes/no
 - pao2_fio2 # PaO2/FiO2 ratio
-- fluid_balance # Fluid Balance (daily)
+- fluid_balance_d # Fluid Balance (daily)
 - glucose_lab # Glucose (laboratory)
 - UDIS # Status at ultimate discharge from ICUHDU
 - advsupt_resp # Advanced respiratory support
 - basicsupt_resp # Basic respiratory support
-- advsupt_resp # Advanced Cardiovascular support
+- advsupt_cardv # Advanced Cardiovascular support
 - basicsupt_cardv # Basic Cardiovascular support
 - supt_renal # Renal support
 - supt_neuro # Neurological support

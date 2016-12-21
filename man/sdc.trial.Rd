@@ -4,7 +4,7 @@
 \alias{sdc.trial}
 \title{Performe statstical disclosure control process on demgraphic data.}
 \usage{
-sdc.trial(ccd, conf, remove.alive = T, verbose = F, k.anon = 20,
+sdc.trial(ccd, conf, remove.alive = T, verbose = F, k.anon = 5,
   l.div = NULL)
 }
 \arguments{

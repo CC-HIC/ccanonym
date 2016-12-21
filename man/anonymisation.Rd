@@ -4,7 +4,7 @@
 \alias{anonymisation}
 \title{Anonymise the critical care dataset}
 \usage{
-anonymisation(ccd, conf, remove.alive = T, verbose = F, k.anon = 20,
+anonymisation(ccd, conf, remove.alive = T, verbose = F, k.anon = 5,
   l.div = NULL, ...)
 }
 \arguments{
