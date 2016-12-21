@@ -2,7 +2,7 @@
 % Please edit documentation in R/sdc-anonymisation.R
 \name{sdc.trial}
 \alias{sdc.trial}
-\title{Performe statstical disclosure control process on demgraphic data.}
+\title{Perform statistical disclosure control process on demographic data.}
 \usage{
 sdc.trial(ccd, conf, remove.alive = T, verbose = F, k.anon = 5,
   l.div = NULL)
@@ -69,7 +69,7 @@ NW1 1AA -> NW1. The function can be written in the configuration file.
 template.conf("test.yaml")
 
 # Trial: adjust K-anonymity and L-diversity. 
-sdc <- sdc-trial(ccd, "test.yaml", k.anon=10, l.div=2)
+sdc <- sdc.trial(ccd, "test.yaml", k.anon=10, l.div=2)
 
 # To access SDC object
 sdc$sdc

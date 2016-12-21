@@ -74,7 +74,7 @@ time stamps to the hour difference to the admission time.
 template.conf("test.yaml")
 
 # Trial: adjust K-anonymity and L-diversity. 
-sdc-trial(ccd, "test.yaml", k.anon=10, l.div=2)
+sdc.trial(ccd, "test.yaml", k.anon=10, l.div=2)
 
 # Create the data extract after the k.anon and l.div is decided. 
 ccd.anon <- anonymisation(ccd, "test.yaml", k.anon=10)

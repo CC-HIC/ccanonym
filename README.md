@@ -16,7 +16,7 @@ template.conf("template.yaml")
 ```
 
 2. Using `sdc.trial` to find the most suitable parameters such as K-anonymity
-or L diversity. If it is specified in the SOP, then this step can be skiped.
+or L-diversity. If it is specified in the SOP, then this step can be skipped.
 
 3. Create the new ccdata using `anonymisation` function. 
 
