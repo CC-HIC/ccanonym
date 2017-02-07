@@ -43,6 +43,8 @@ deltaTime:
     - DAICU  # Date & Time of admission to your unit'
     - DLCCA 
     - DDICU  # Date & Time of discharge from your unit'
+    - DTW  # 
+    - DBRICU # body removed from ICU 
 
 maxStay: 50 # 30 days
 
