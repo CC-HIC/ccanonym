@@ -73,7 +73,7 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
     ccd <- deltaTime(ccd, ...)
     sdc <- sdc.trial(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
     newccd <- create.anonym.ccd(ccd, sdc$data)
-    security.check(newccd, vn$dirv)
+    #security.check(newccd, vn$dirv)
     newccd
 }
 
@@ -390,11 +390,11 @@ parse.conf <- function(conf) {
     # reduce derived items such as RAICU1.IV to its origin RAICU1
     confvars <- sapply(strsplit(confvars, "[.]"), function(x) x[1])
     index <- all.ccd.stname %in% confvars
-    if (!all(index)){
-        ss <- as.character(all.ccd.stname[!index])
-        cat(paste("-", ss, "# ", short2longname(ss), "\n"))
-        stop("Missing items in the configuration.")
-    }
+#    if (!all(index)){
+#        ss <- as.character(all.ccd.stname[!index])
+#        cat(paste("-", ss, "# ", short2longname(ss), "\n"))
+#        stop("Missing items in the configuration.")
+#    }
 
     return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, sensv=sensv, 
                 all.vars=all.vars))
