@@ -1,7 +1,7 @@
 context("Date/time to numeric conversion")
 
 test_that("convert to numeric", {
-    dtype <- sapply(ccdata:::ITEM_REF, function(x) x$Datatype)
+    dtype <- sapply(cleanEHR:::ITEM_REF, function(x) x$Datatype)
     tdate <- dtype[dtype == "date"]
     ttime <- dtype[dtype == "time"]
     tdatetime <- dtype[dtype == "date/time"]

@@ -6,7 +6,7 @@ convert.numeric.datetime<- function(data, items=NULL) {
     hic.code <- stname2code(items)
 
     for (i in items) {
-        dtype <- ccdata:::ITEM_REF[[stname2code(i)]]$Datatype
+        dtype <- cleanEHR:::ITEM_REF[[stname2code(i)]]$Datatype
         if (!is.null(dtype)) {
             if (dtype == "date") 
                 data[[i]] <- as.numeric(as.POSIXct(data[[i]], format="%Y-%m-%d"))
@@ -27,7 +27,7 @@ convert.back.datetime <- function(data, items=NULL) {
     hic.code <- stname2code(items)
 
     for (i in items) {
-        dtype <- ccdata:::ITEM_REF[[stname2code(i)]]$Datatype
+        dtype <- cleanEHR:::ITEM_REF[[stname2code(i)]]$Datatype
         numdate <- as.numeric(data[[i]])
 
         if (!is.null(dtype)) {

@@ -40,7 +40,7 @@
 #'11. Combine and create the new ccRecord object and convert all the 2d date
 #'time stamps to the hour difference to the admission time. 
 #' 
-#' @param ccd identifiable data set in ccRecord format (see. ccdata R package)
+#' @param ccd identifiable data set in ccRecord format (see. cleanEHR R package)
 #' @param conf YAML configuration which can be either path of the YAML
 #'        file or a configuration list equivalent to the YAML configuration. 
 #' @param remove.alive logical value determines whether to remove all alive
@@ -65,7 +65,7 @@
 #' }
 #' @import sdcMicro
 #' @import yaml
-#' @import ccdata
+#' @import cleanEHR
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
                           k.anon=5, l.div=NULL, ...) {
@@ -149,7 +149,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=5,
 
     vn <- parse.conf(conf)
 
-    if (verbose)  cat("parsing the ccdata object ...\n")
+    if (verbose)  cat("parsing the cleanEHR object ...\n")
 
     demg <- data.table(suppressWarnings(demographic.patient.spell(ccd)))
     demg <- remove.patients(demg, conf$removelist)
@@ -370,7 +370,7 @@ parse.conf <- function(conf) {
     nonidv <- conf$nonidentifyVars
     all.vars <- c(ctgrv, numv, sensv)
 
-    all.ccd.stname <- c(code2stname(names(ccdata:::ITEM_REF)), "AGE")
+    all.ccd.stname <- c(code2stname(names(cleanEHR:::ITEM_REF)), "AGE")
 
     # check the correctness of the configuration file.
     # reduce derived items such as RAICU1.IV to its origin RAICU1
@@ -378,7 +378,7 @@ parse.conf <- function(conf) {
     index <- ccdvars %in% all.ccd.stname
     if (!all(index)) {
         print(ccdvars[!index])
-        stop("Items in configuration file do not appear in ccdata item list.")
+        stop("Items in configuration file do not appear in cleanEHR item list.")
     }
 
     if (any(all.vars %in% nonidv)) {
@@ -421,7 +421,7 @@ non.unique.columns <- function(data, numv) {
 }
 
 security.check <- function(ccd, dirv) {
-    ccdata:::for_each_episode(ccd, 
+    cleanEHR:::for_each_episode(ccd, 
                               function(x) {
                                   if (any(dirv %in% names(x@data)))
                                       stop("direct identifiable items appeared in the final data!!!")

@@ -49,7 +49,7 @@ test_that("get all the 2d data from a selected episodes but not the demographic
 
 
 
-test_that("anonymisation from ccdata", {
+test_that("anonymisation from cleanEHR", {
     suppressWarnings(anonymisation(ccd, conf))
 })
 
