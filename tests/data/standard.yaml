@@ -1,0 +1,71 @@
+# YAML configuration for anonymisation below
+removelist: ../data/removelist.csv
+directVars:
+    - pasno
+    - ICNNO
+    - ADNO
+    - NHSNO
+    - TUADNO
+    - DOB
+    - GPCODE
+    - PCODE #  Postcode
+    # Variables below are not identifying but also not needed; safer to remove
+    - TGA # Adult ICU/HDU within your critical care transfer group (in)
+    - TGD # Adult ICU/HDU within your critical care transfer group (out)
+
+    - TUIDI # Transferring unit identifier (in)
+    - TYPEIHA # Type of adult ICU/HDU (in)
+    - TYPEIHD # Type of adult ICU/HDU (out)
+    - HLOCD # Hospital housing location (out)
+
+    - SOHA # Sector of other hospital (in)
+    - SOHD # Sector of other hospital (out)
+
+categoryVars:
+    - SEX
+    - ETHNIC # Ethnicity
+
+    - RAICU1.I
+    - RAICU1.II
+    - RAICU1.III
+    - RAICU1.IV
+    - RAICU1.V
+
+numVars:
+    AGE:  # Height
+        aggr: 10
+        noise: 2
+    HCM:  # Height
+        aggr: 2
+
+sensVars:
+    - BPC # Biopsy proven cirrhosis
+    - AIDS_V3 # HIC/AIDS
+    - PH # Portal hypertension
+
+deltaTime:
+    - DAH # Date of admission to your hospital
+    - DOAH  # Date of original admission to/attendance at acute hospital'
+    - DOAICU  # Date of original admission to ICU/HDU'
+    - DUDICU  # Date of ultimate discharge from ICU/HDU'
+    - DOD  # Date of death on your unit'
+    - DDBSD  # Date of declaration of brain stem death'
+    - DWFRD  # Date fully ready for discharge'
+    - DDH  # Date of discharge from your hospital'
+    - DUDH  # Date of ultimate discharge from your hospital'
+    - DAICU  # Date & Time of admission to your unit'
+    - DLCCA
+    - DDICU  # Date & Time of discharge from your unit'
+    - DBRICU # Date body removed from your unit
+    - TBRICU # Time body removed from your unit
+    - TOD # Time of death on your unit
+    - TDBSD # Time of declaration of brain stem death
+    - DTW # Date treatment first withdrawn
+    - TTW # Time treatment first withdrawn
+
+maxStay: 90 # 90 days
+
+nonidentifyVars:
+  - h_rate # Heart rate
+  - lactate_abg # Lactate (arterial blood gas)
+  - dead_alive_discharge # Mortality (in-ICU)

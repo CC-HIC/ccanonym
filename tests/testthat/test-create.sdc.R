@@ -17,10 +17,9 @@ test_that("create sdc object", {
 test_that("remove unique columns", {
     tdata <- data.frame(a=rep(1, 10))
     expect_true(is.null(non.unique.columns(tdata, "a")))
-    
+
     tdata <- data.frame(a=seq(1, 10))
     expect_equal(non.unique.columns(tdata, "a"), "a")
-
 
     tdata <- data.frame(a=c(1, 2, 3 ,NA, NA))
     expect_equal(non.unique.columns(tdata, "a"), "a")
@@ -59,7 +58,6 @@ test_that("appending age column", {
     expect_true(is.numeric(age))
     expect_identical(age, c(25, 33, 44, 37, 59, 25, 25, NA, NA, NA, NA, NA))
 })
-
 
 
 test_that("Microaggregation on numeric variables", {
