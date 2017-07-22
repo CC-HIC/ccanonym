@@ -17,7 +17,7 @@ parse.conf <- function(conf) {
     confvars_origin <-c(dirv, ctgrv, numv, sensv)
     confvars <- sapply(strsplit(confvars_origin, "[.]"), function(x) x[1])
 
-    #nonidv <- conf$nonidentifyVars
+    nidentify <- conf$nonidentifyVars
     all.vars <- c(ctgrv, numv, sensv)
 
     # all variables in CCHIC data + AGE, the derived variable. 
@@ -58,7 +58,7 @@ parse.conf <- function(conf) {
 #    }
 
     return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, sensv=sensv, 
-                all.vars=all.vars))
+                all.vars=all.vars, nidentify=nidentify))
 }
 
 

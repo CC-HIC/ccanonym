@@ -39,10 +39,10 @@ test_that("remove unique columns", {
 test_that("get all the 2d data from a selected episodes but not the demographic
           data", 
 {
-    cl <- clinic.data.list(ccd, 2)
+    cl <- clinic.data.list(ccd, 2, sdc$conf$nidentify)
     expect_false(all(stname2code(var) %in% names(cl)))
 
-    cl <- clinic.data.list(ccd, 1)
+    cl <- clinic.data.list(ccd, 1, sdc$conf$nidentify)
     expect_false(all(stname2code(var) %in% names(cl)))
 })
 

@@ -72,7 +72,7 @@ anonymisation <- function(ccd, conf, remove.alive=T, verbose=F,
     vn <- parse.conf(conf)
     ccd <- deltaTime(ccd, ...)
     sdc <- sdc.trial(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
-    newccd <- create.anonym.ccd(ccd, sdc$data)
+    newccd <- create.anonym.ccd(ccd, sdc)
     security.check(newccd, vn$dirv)
     newccd
 }
@@ -182,8 +182,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=5,
     if (verbose)
         print(sdc)
 
-
-    return(list(data=demg, sdc=sdc))
+    return(list(data=demg, sdc=sdc, conf=vn))
 }
 
 
@@ -279,21 +278,6 @@ append.age <- function(demg) {
 }
 
 
-clinic.data.list <- function(ccd, index) {
-    cdl  <- lapply(ccd@episodes[[index]]@data, 
-                   function(x) {
-                       if (length(x) > 1)
-                           return(x)
-                       else 
-                           return(NULL)
-                   })
-    for (i in names(cdl)) {
-        if (is.null(cdl[[i]]))
-            cdl[[i]] <- NULL
-    }
-    cdl
-}
-
 #' Convert all the date-time columns to delta time, but still convert them back
 #' with an origin of 1970-01-01. 
 deltaTime1d <- function(demg, items, maxstay) {
@@ -314,9 +298,33 @@ deltaTime1d <- function(demg, items, maxstay) {
 }
 
 
-create.anonym.ccd <- function(ccd, sdc.data) {
-    sdc.data$ADNO <- seq(nrow(sdc.data))
-    sdc.data$ICNNO <- "pseudo_site"
+clinic.data.list <- function(ccd, index, nidentify) {
+    cdl <- list()
+    for (i in stname2code(nidentify)) {
+        cdl[[i]] <- ccd@episodes[[index]]@data[[i]]
+    }
+
+#
+#
+#    cdl  <- lapply(ccd@episodes[[index]]@data, 
+#                   function(x) {
+#                       for (i in stname2code(nidentify))
+#
+#                       if (length(x) > 1)
+#                           return(x)
+#                       else 
+#                           return(NULL)
+#                   })
+#    for (i in names(cdl)) {
+#        if (is.null(cdl[[i]]))
+#            cdl[[i]] <- NULL
+#    }
+    cdl
+}
+
+create.anonym.ccd <- function(ccd, sdc) {
+    sdc$data$ADNO <- seq(nrow(sdc$data))
+    sdc$data$ICNNO <- "pseudo_site"
 
     sdc.row2list <- function(sdcrow) {
         lst <- as.list(sdcrow)
@@ -338,15 +346,17 @@ create.anonym.ccd <- function(ccd, sdc.data) {
     }
 
 
+
+
     new.record <- ccRecord()
 
-    for (i in seq(nrow(sdc.data))) {
-        cdl <- clinic.data.list(ccd, sdc.data$index[i])
-        sdcl <- sdc.row2list(sdc.data[i, ])
+    for (i in seq(nrow(sdc$data))) {
+        cdl <- clinic.data.list(ccd, sdc$data$index[i], sdc$conf$nidentify)
+        sdcl <- sdc.row2list(sdc$data[i, ])
         new.record <- new.record + new.episode(append(cdl, sdcl))
     }
-    new.record@infotb[, pid:=sdc.data$pid]
-    new.record@infotb[, spell:=sdc.data$spell]
+    new.record@infotb[, pid:=sdc$data$pid]
+    new.record@infotb[, spell:=sdc$data$spell]
     new.record
 }
 
