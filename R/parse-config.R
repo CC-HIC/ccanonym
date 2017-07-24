@@ -60,7 +60,3 @@ parse.conf <- function(conf) {
     return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, sensv=sensv, 
                 all.vars=all.vars, nidentify=nidentify))
 }
-
-
-
-

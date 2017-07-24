@@ -346,8 +346,6 @@ create.anonym.ccd <- function(ccd, sdc) {
     }
 
 
-
-
     new.record <- ccRecord()
 
     for (i in seq(nrow(sdc$data))) {
