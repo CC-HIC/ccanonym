@@ -25,8 +25,8 @@ or L-diversity. If it is specified in the SOP, then this step can be skipped.
 
 ```
 # Load libraries
-library(cleanEHR)
-library(ccanonym)
+library(cleanEHR, lib.loc = "/data/RLibraries/") # libraries are in a non-standard location in the IDHS
+library(ccanonym, lib.loc = "/data/RLibraries/")
 library(yaml)
 
 # Load data
