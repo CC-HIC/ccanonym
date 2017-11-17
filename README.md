@@ -25,8 +25,9 @@ or L-diversity. If it is specified in the SOP, then this step can be skipped.
 
 ```
 # Load libraries
-library(cleanEHR, lib.loc = "/data/RLibraries/") # libraries are in a non-standard location in the IDHS
-library(ccanonym, lib.loc = "/data/RLibraries/")
+# Note, either modify your .Rprofile to contain the location on non-standard libraries, or remember to add the lib.loc = "/data/RLibraries/" argument
+library(cleanEHR)
+library(ccanonym)
 library(yaml)
 
 # Load data
