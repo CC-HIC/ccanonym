@@ -151,7 +151,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=5,
 
     if (verbose)  cat("parsing the cleanEHR object ...\n")
 
-    demg <- data.table(suppressWarnings(demographic.patient.spell(ccd)))
+    demg <- data.table(suppressWarnings(ccd_demographic_spell(ccd)))
     demg <- remove.patients(demg, conf$removelist)
     demg <- append.age(demg)
 

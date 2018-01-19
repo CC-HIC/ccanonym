@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r include=FALSE}
-library(ccdata)
+library(cleanEHR)
 library(ccanonym)
 library(pander)
 
@@ -56,7 +56,7 @@ time stamps to the hour difference to the admission time.
 
 
 ```{r}
-library(ccdata)
+library(cleanEHR)
 library(ccanonym)
 ```
 
@@ -83,7 +83,7 @@ pander(demg.table,  style = 'rmarkdown')
 # Simple anonymisation procedure
 ## Step 1: Prepare YAML configuration file
 Create a YAML configuration file as such, where the following variables are set
-up. The name of the items are the standard short name of _ccdata_ R package.
+up. The name of the items are the standard short name of _cleanEHR_ R package.
 Please see the 'ITEM\_REF.YAML'.
 
 * **Identifiable variables** (dirctVars), 
