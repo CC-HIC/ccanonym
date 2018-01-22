@@ -17,10 +17,9 @@ test_that("create sdc object", {
 test_that("remove unique columns", {
     tdata <- data.frame(a=rep(1, 10))
     expect_true(is.null(non.unique.columns(tdata, "a")))
-    
+
     tdata <- data.frame(a=seq(1, 10))
     expect_equal(non.unique.columns(tdata, "a"), "a")
-
 
     tdata <- data.frame(a=c(1, 2, 3 ,NA, NA))
     expect_equal(non.unique.columns(tdata, "a"), "a")
@@ -40,16 +39,16 @@ test_that("remove unique columns", {
 test_that("get all the 2d data from a selected episodes but not the demographic
           data", 
 {
-    cl <- clinic.data.list(ccd, 2)
+    cl <- clinic.data.list(ccd, 2, sdc$conf$nidentify)
     expect_false(all(stname2code(var) %in% names(cl)))
 
-    cl <- clinic.data.list(ccd, 1)
+    cl <- clinic.data.list(ccd, 1, sdc$conf$nidentify)
     expect_false(all(stname2code(var) %in% names(cl)))
 })
 
 
 
-test_that("anonymisation from ccdata", {
+test_that("anonymisation from cleanEHR", {
     suppressWarnings(anonymisation(ccd, conf))
 })
 
@@ -59,7 +58,6 @@ test_that("appending age column", {
     expect_true(is.numeric(age))
     expect_identical(age, c(25, 33, 44, 37, 59, 25, 25, NA, NA, NA, NA, NA))
 })
-
 
 
 test_that("Microaggregation on numeric variables", {

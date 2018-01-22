@@ -40,7 +40,7 @@
 #'11. Combine and create the new ccRecord object and convert all the 2d date
 #'time stamps to the hour difference to the admission time. 
 #' 
-#' @param ccd identifiable data set in ccRecord format (see. ccdata R package)
+#' @param ccd identifiable data set in ccRecord format (see. cleanEHR R package)
 #' @param conf YAML configuration which can be either path of the YAML
 #'        file or a configuration list equivalent to the YAML configuration. 
 #' @param remove.alive logical value determines whether to remove all alive
@@ -65,14 +65,14 @@
 #' }
 #' @import sdcMicro
 #' @import yaml
-#' @import ccdata
+#' @import cleanEHR
 #' @export
 anonymisation <- function(ccd, conf, remove.alive=T, verbose=F, 
                           k.anon=5, l.div=NULL, ...) {
     vn <- parse.conf(conf)
     ccd <- deltaTime(ccd, ...)
     sdc <- sdc.trial(ccd, conf, remove.alive, verbose, k=k.anon, l=l.div)
-    newccd <- create.anonym.ccd(ccd, sdc$data)
+    newccd <- create.anonym.ccd(ccd, sdc)
     security.check(newccd, vn$dirv)
     newccd
 }
@@ -149,7 +149,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=5,
 
     vn <- parse.conf(conf)
 
-    if (verbose)  cat("parsing the ccdata object ...\n")
+    if (verbose)  cat("parsing the cleanEHR object ...\n")
 
     demg <- data.table(suppressWarnings(demographic.patient.spell(ccd)))
     demg <- remove.patients(demg, conf$removelist)
@@ -182,8 +182,7 @@ sdc.trial <- function(ccd, conf, remove.alive=T, verbose=F, k.anon=5,
     if (verbose)
         print(sdc)
 
-
-    return(list(data=demg, sdc=sdc))
+    return(list(data=demg, sdc=sdc, conf=vn))
 }
 
 
@@ -279,21 +278,6 @@ append.age <- function(demg) {
 }
 
 
-clinic.data.list <- function(ccd, index) {
-    cdl  <- lapply(ccd@episodes[[index]]@data, 
-                   function(x) {
-                       if (length(x) > 1)
-                           return(x)
-                       else 
-                           return(NULL)
-                   })
-    for (i in names(cdl)) {
-        if (is.null(cdl[[i]]))
-            cdl[[i]] <- NULL
-    }
-    cdl
-}
-
 #' Convert all the date-time columns to delta time, but still convert them back
 #' with an origin of 1970-01-01. 
 deltaTime1d <- function(demg, items, maxstay) {
@@ -314,9 +298,33 @@ deltaTime1d <- function(demg, items, maxstay) {
 }
 
 
-create.anonym.ccd <- function(ccd, sdc.data) {
-    sdc.data$ADNO <- seq(nrow(sdc.data))
-    sdc.data$ICNNO <- "pseudo_site"
+clinic.data.list <- function(ccd, index, nidentify) {
+    cdl <- list()
+    for (i in stname2code(nidentify)) {
+        cdl[[i]] <- ccd@episodes[[index]]@data[[i]]
+    }
+
+#
+#
+#    cdl  <- lapply(ccd@episodes[[index]]@data, 
+#                   function(x) {
+#                       for (i in stname2code(nidentify))
+#
+#                       if (length(x) > 1)
+#                           return(x)
+#                       else 
+#                           return(NULL)
+#                   })
+#    for (i in names(cdl)) {
+#        if (is.null(cdl[[i]]))
+#            cdl[[i]] <- NULL
+#    }
+    cdl
+}
+
+create.anonym.ccd <- function(ccd, sdc) {
+    sdc$data$ADNO <- seq(nrow(sdc$data))
+    sdc$data$ICNNO <- "pseudo_site"
 
     sdc.row2list <- function(sdcrow) {
         lst <- as.list(sdcrow)
@@ -340,64 +348,14 @@ create.anonym.ccd <- function(ccd, sdc.data) {
 
     new.record <- ccRecord()
 
-    for (i in seq(nrow(sdc.data))) {
-        cdl <- clinic.data.list(ccd, sdc.data$index[i])
-        sdcl <- sdc.row2list(sdc.data[i, ])
+    for (i in seq(nrow(sdc$data))) {
+        cdl <- clinic.data.list(ccd, sdc$data$index[i], sdc$conf$nidentify)
+        sdcl <- sdc.row2list(sdc$data[i, ])
         new.record <- new.record + new.episode(append(cdl, sdcl))
     }
-    new.record@infotb[, pid:=sdc.data$pid]
-    new.record@infotb[, spell:=sdc.data$spell]
+    new.record@infotb[, pid:=sdc$data$pid]
+    new.record@infotb[, spell:=sdc$data$spell]
     new.record
-}
-
-
-
-#' Parse YAML configuration file
-#' 
-#' Parse the YAML configuration file and check the parse.conf. 
-#' @param conf either the path of YAML configuration of a list
-#' @return a list contrains all the parse.conf broken down in each
-#' category.
-#' @export 
-parse.conf <- function(conf) {
-    if (is.character(conf))
-        conf <- yaml.load_file(conf)
-
-    dirv <- conf$directVars 
-    ctgrv <- conf$categoryVars
-    numv <- names(conf$numVars)
-    sensv <- conf$sensVar
-    nonidv <- conf$nonidentifyVars
-    all.vars <- c(ctgrv, numv, sensv)
-
-    all.ccd.stname <- c(code2stname(names(ccdata:::ITEM_REF)), "AGE")
-
-    # check the correctness of the configuration file.
-    # reduce derived items such as RAICU1.IV to its origin RAICU1
-    ccdvars <- sapply(strsplit(c(all.vars, nonidv), "[.]"), function(x) x[1])
-    index <- ccdvars %in% all.ccd.stname
-    if (!all(index)) {
-        print(ccdvars[!index])
-        stop("Items in configuration file do not appear in ccdata item list.")
-    }
-
-    if (any(all.vars %in% nonidv)) {
-        print(all.vars[all.vars %in% nonidv])
-        stop("identifiable variables appeared in non-identifiable slot, check the yaml file!" )
-    }
-
-    confvars <- c(dirv, all.vars, nonidv)
-    # reduce derived items such as RAICU1.IV to its origin RAICU1
-    confvars <- sapply(strsplit(confvars, "[.]"), function(x) x[1])
-    index <- all.ccd.stname %in% confvars
-    if (!all(index)){
-        ss <- as.character(all.ccd.stname[!index])
-        cat(paste("-", ss, "# ", short2longname(ss), "\n"))
-        stop("Missing items in the configuration.")
-    }
-
-    return(list(dirv=dirv, ctgrv=ctgrv, numv=numv, sensv=sensv, 
-                all.vars=all.vars))
 }
 
 
@@ -421,7 +379,7 @@ non.unique.columns <- function(data, numv) {
 }
 
 security.check <- function(ccd, dirv) {
-    ccdata:::for_each_episode(ccd, 
+    cleanEHR:::for_each_episode(ccd, 
                               function(x) {
                                   if (any(dirv %in% names(x@data)))
                                       stop("direct identifiable items appeared in the final data!!!")

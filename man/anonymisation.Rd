@@ -8,7 +8,7 @@ anonymisation(ccd, conf, remove.alive = T, verbose = F, k.anon = 5,
   l.div = NULL, ...)
 }
 \arguments{
-\item{ccd}{identifiable data set in ccRecord format (see. ccdata R package)}
+\item{ccd}{identifiable data set in ccRecord format (see. cleanEHR R package)}
 
 \item{conf}{YAML configuration which can be either path of the YAML
 file or a configuration list equivalent to the YAML configuration.}
