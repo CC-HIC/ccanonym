@@ -1,5 +1,11 @@
-# 2017-02-01
+# 2018-05-23
 # Steve Harris
+# Details of example internal collaborator data release
+
+# #####
+# Notes
+# #####
+
 # Record of data release
 # Internal release for sharing with collaborating sites
 release:
@@ -34,7 +40,10 @@ distribution:
 # pas_rm1
 # site1:0000
 
+# ##########################################
 # YAML configuration for anonymisation below
+# ##########################################
+
 
 removelist: ./removelist.csv
 directVars:
@@ -45,9 +54,11 @@ directVars:
     - TUADNO
     - PCODE
 
+
 categoryVars:
     - GPCODE
     - SEX
+    - TUIDI # Transferring unit identifier (in)
 
 numVars:
     DOB:
@@ -74,30 +85,38 @@ deltaTime:
     - DDBSD # date of declaration of brain stem death
     - DOD  # Date of death on your unit'
     - DBRICU # date body removed from your unit
+    - DAH
+    - DOAH  # Date of original admission to/attendance at acute hospital'
+    - DOAICU  # Date of original admission to ICU/HDU'
+    - DUDICU  # Date of ultimate discharge from ICU/HDU'
+    - DOD  # Date of death on your unit'
+    - DDBSD  # Date of declaration of brain stem death'
+    - DWFRD  # Date fully ready for discharge'
+    - TWFRD  # Time fully ready for discharge'
+    - DDH  # Date of discharge from your hospital'
+    - DUDH  # Date of ultimate discharge from your hospital'
+    - DAICU  # Date & Time of admission to your unit'
+    - DLCCA
+    - DDICU  # Date & Time of discharge from your unit'
+    - DBRICU # Date body removed from your unit
+    - TBRICU # Time body removed from your unit
+    - TOD # Time of death on your unit
+    - TDBSD # Time of declaration of brain stem death
+    - DTW # Date treatment first withdrawn
+    - TTW # Time treatment first withdrawn
+    - DFCCD # Date of first critical care post-discharge from your unit
 
 maxStay: 180 # 180 days
 
 
 nonidentifyVars:
+- HLOCD # Hospital housing location (out)
 - HCM
 - RAICU1
 - RAICU2
 - URAICU
 - advsupt_cardv
 - airway_pressure_peak
-- DAH
-- DOAH  # Date of original admission to/attendance at acute hospital'
-- DOAICU  # Date of original admission to ICU/HDU'
-- DUDICU  # Date of ultimate discharge from ICU/HDU'
-- DOD  # Date of death on your unit'
-- DDBSD  # Date of declaration of brain stem death'
-- DWFRD  # Date fully ready for discharge'
-- TWFRD  # Time fully ready for discharge'
-- DDH  # Date of discharge from your hospital'
-- DUDH  # Date of ultimate discharge from your hospital'
-- DAICU  # Date & Time of admission to your unit'
-- DLCCA
-- DDICU  # Date & Time of discharge from your unit'
 - SCODE # Treatment function code
 - CCL2D # Level 2 (HDU) days
 - ORGAN_SUPPORT # Organ support maximum
@@ -118,17 +137,10 @@ nonidentifyVars:
 - CICIDS # Congenital immunohumoral or cellular immune deficiency state
 - CCD # Critical care visit post-discharge from your unit
 - CCA # Critical care visit prior to this admission to your unit
-- DBRICU # Date body removed from your unit
-- TBRICU # Time body removed from your unit
-- TOD # Time of death on your unit
-- TDBSD # Time of declaration of brain stem death
-- DTW # Date treatment first withdrawn
-- TTW # Time treatment first withdrawn
 - TNESSA # Delayed admission
 - DHRS # Delay
 - DEP # Dependency prior to admission
 - DSD # Dermatological support days
-- HLOCD # Hospital housing location (out)
 - ETHNIC # Ethnicity
 - GSD # Gastrointestinal support days
 - HE # Heaptic encephalopathy
@@ -157,7 +169,6 @@ nonidentifyVars:
 - DIS # Dead or alive on discharge
 - UHDIS # Status at ultimate discharge from hospital
 - STERX # Steroid treatment
-- TUIDI # Transferring unit identifier (in)
 - TYPEIHA # Type of adult ICU/HDU (in)
 - VSCD # Very severe cardiovascular disease
 - h_rate # Heart rate
@@ -229,7 +240,6 @@ nonidentifyVars:
 - PA_V3 # Admission type
 - BSDTP # Brain stem death declared
 - TNESSD # Timeliness of discharge from your unit
-- DFCCD # Date of first critical care post-discharge from your unit
 - apache_score # APACHE II Score
 - apache_prob # APACHE II Probability
 - fluid_balance_h # Fluid Balance (hourly)
